@@ -2,6 +2,7 @@ from django.db import models
 
 class Archive(models.Model):
     name = models.CharField(max_length=200)
+    description = models.TextField(default="")
     public = models.BooleanField()
 
     def __str__(self):

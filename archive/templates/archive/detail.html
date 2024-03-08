@@ -4,9 +4,27 @@
 
 {% block content %}
     <h1>{{ archive.name }}</h1>
-    <ul>
-        {% for interview in archive.interview_set.all %}
-            <li>{{ interview.title }}</li>
-        {% endfor %}
-    </ul>
+    <p>{{ archive.description }}</p>
+
+    {% if archive.interview_set.all %}
+        <h2>
+            {{ archive.interview_set.count }}
+            {% if archive.interview_set.count > 1 %}
+                Interviews
+            {% else %}
+                Interview
+            {% endif %}
+        </h2>
+        <ul>
+            {% for interview in archive.interview_set.all %}
+                <li>
+                    <a href="{% url 'archive:interview' archive.id interview.id %}">
+                        {{ interview.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>This archive has no interviews.</p>
+    {% endif %}
 {% endblock %}
