@@ -44,6 +44,18 @@ body {
     margin: 0;
 }
 
+.header__title-link:link,
+.header__title-link:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header__title-link:hover,
+.header__title-link:active {
+    text-decoration: underline;
+}
+
+
 .primary-nav {
     margin-left: auto;
 }
