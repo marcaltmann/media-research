@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Archive | Interviews{% endblock %}
+
+{% block content %}
+    <h1>{{ archive.name }}</h1>
+    <ul>
+        {% for interview in archive.interview_set.all %}
+            <li>{{ interview.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

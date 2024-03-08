@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Interviews{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'archive/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'archive/style.css' %}">
+    <link rel="stylesheet" href="{% static 'archive/utilities.css' %}">
+</head>
+<body class="site">
+    <header class="header site__header">
+        <div class="header__inner container">
+            <h1 class="header__title">
+                Interviews
+            </h1>
+
+            <nav class="primary-nav">
+                <ul class="primary-nav__list">
+                    <li class="primary-nav__item">
+                        <a class="primary-nav__link" href="">
+                            Search
+                        </a>
+                    </li>
+                    <li class="primary-nav__item">
+                        <a class="primary-nav__link" href="">
+                            Catalog
+                        </a>
+                    </li>
+                    <li class="primary-nav__item">
+                        <a class="primary-nav__link" href="">
+                            Sign in
+                        </a>
+                    </li>
+                    <li class="primary-nav__item">
+                        <a class="primary-nav__link" href="">
+                            Register
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site__main">
+        <div class="container u-mt">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="footer site__footer">
+        <div class="footer__inner container">
+            This is the footer.
+        </div>
+    </footer>
+</body>
+</html>
