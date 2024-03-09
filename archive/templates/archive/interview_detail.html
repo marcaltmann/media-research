@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ interview.title }} | Interviews{% endblock %}
+
+{% block content %}
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__link"
+        href="{% url 'archive:index' %}">Archives</a>
+    /
+    <a class="breadcrumbs__link"
+        href="{% url 'archive:detail' archive.id %}">{{ archive.name }}</a>
+    /
+    <a class="breadcrumbs__link"
+        href="{% url 'archive:interview_index' archive.id %}">Interviews</a>
+    /
+    {{ interview.title }}
+</nav>
+
+<h1 class="page-title">{{ interview.title }}</h1>
+
+<div>
+    <video controls width="500">
+        <source src="{{ interview.media_url }}"
+            type="{{ interview.media_type }}" />
+    </video>
+
+    <ul class="u-ml">
+        <li>Published: {{ interview.pub_date }}</li>
+        <li>Duration: {{ interview.duration }}</li>
+    </ul>
+</div>
+{% endblock %}
