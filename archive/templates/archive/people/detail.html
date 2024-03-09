@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ person }} | Interviews{% endblock %}
+
+{% block content %}
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__link"
+        href="{% url 'archive:person_index' %}">People</a>
+    /
+    {{ person }}
+</nav>
+
+<h1 class="page-title">{{ person }}</h1>
+
+<p>Date of birth: {{ person.date_of_birth }}</p>
+<p>Gender: {{ person.gender }}</p>
+
+<h2>Associated interviews</h2>
+<p>...</p>
+{% endblock %}

@@ -23,3 +23,31 @@ class Interview(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Person(models.Model):
+    MALE = "ML"
+    FEMALE = "FM"
+    DIVERSE = "DV"
+    UNSPECIFIED = "US"
+    GENDER_CHOICES = {
+        MALE: "Male",
+        FEMALE: "Female",
+        DIVERSE: "Diverse",
+        UNSPECIFIED: "Not specified",
+    }
+
+    first_name = models.CharField(max_length=200, default="")
+    last_name = models.CharField(max_length=200)
+    gender = models.CharField(
+        max_length=2,
+        choices=GENDER_CHOICES,
+        default=UNSPECIFIED,
+    )
+    date_of_birth = models.DateField()
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+    class Meta:
+        verbose_name_plural = "people"
