@@ -2,6 +2,15 @@ from datetime import timedelta
 
 from django.db import models
 
+class Topic(models.Model):
+    name = models.CharField(max_length=100)
+    gnd_id = models.CharField(max_length=20, blank=True)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Person(models.Model):
     MALE = "M"
     FEMALE = "F"
@@ -16,7 +25,7 @@ class Person(models.Model):
 
     first_name = models.CharField(max_length=200, default="")
     last_name = models.CharField(max_length=200)
-    gnd_id = models.IntegerField(null=True, blank=True)
+    gnd_id = models.CharField(max_length=20, blank=True)
     gender = models.CharField(
         max_length=1,
         choices=GENDER_CHOICES,
@@ -44,12 +53,13 @@ class Interview(models.Model):
     archive = models.ForeignKey(Archive, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, default="")
     media_type = models.CharField(max_length=100, default="video/mp4")
-    media_url = models.URLField(default="")
+    media_url = models.URLField(max_length=300, default="")
     poster = models.ImageField(default="", blank=True)
     pub_date = models.DateTimeField("date published")
     duration = models.DurationField(default=timedelta(seconds=0))
     public = models.BooleanField(default=True)
     people = models.ManyToManyField(Person, through="InterviewInvolvement")
+    topics = models.ManyToManyField(Topic)
 
     def __str__(self):
         return self.title

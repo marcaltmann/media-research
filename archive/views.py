@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from .models import Archive, Interview, Person
+from .models import Archive, Interview, Person, Topic
 
 def index(request):
     all_archives = Archive.objects.all
@@ -33,3 +33,13 @@ def person_detail(request, person_id):
     person = get_object_or_404(Person, pk=person_id)
     context = {"person": person}
     return render(request, "archive/people/detail.html", context)
+
+def topic_index(request):
+    topics = Topic.objects.all
+    context = {"topics": topics}
+    return render(request, "archive/topics/index.html", context)
+
+def topic_detail(request, topic_id):
+    topic = get_object_or_404(Topic, pk=topic_id)
+    context = {"topic": topic}
+    return render(request, "archive/topics/detail.html", context)

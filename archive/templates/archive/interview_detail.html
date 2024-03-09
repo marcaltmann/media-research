@@ -40,5 +40,16 @@
         </li>
         {% endfor %}
     </ul>
+
+    <h2>Topics</h2>
+    <ul>
+        {% for topic in interview.topics.all %}
+        <li>
+            <a href="{% url 'archive:topic_detail' topic.id %}">
+                {{ topic.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}

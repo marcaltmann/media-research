@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Topics | Interviews{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Topics</h1>
+
+{% if topics %}
+    <ul>
+    {% for topic in topics %}
+        <li>
+            <a href="{% url 'archive:topic_detail' topic.id %}">
+                {{ topic }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No topics are available.</p>
+{% endif %}
+{% endblock %}

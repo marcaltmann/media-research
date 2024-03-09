@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic }} | Interviews{% endblock %}
+
+{% block content %}
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__link"
+        href="{% url 'archive:topic_index' %}">Topics</a>
+    /
+    {{ topic }}
+</nav>
+
+<h1 class="page-title">{{ topic }}</h1>
+
+<p>{{ topic.description }}</p>
+{% if topic.gnd_id %}
+<p>
+    GND-ID:
+    <a href="https://explore.gnd.network/gnd/{{ topic.gnd_id }}">
+        {{ topic.gnd_id }}
+    </a>
+</p>
+{% endif %}
+
+<h2>Associated interviews</h2>
+<ul>
+{% for interview in topic.interview_set.all %}
+    <li>
+        <a href="{% url 'archive:interview_detail' interview.archive_id interview.id %}">
+            {{ interview.title }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
