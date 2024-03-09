@@ -28,5 +28,17 @@
         <li>Published: {{ interview.pub_date }}</li>
         <li>Duration: {{ interview.duration }}</li>
     </ul>
+
+    <h2>People</h2>
+    <ul>
+        {% for involvement in interview.interviewinvolvement_set.all %}
+        <li>
+            {{ involvement.type }}:
+            <a href="{% url 'archive:person_detail' involvement.person.id %}">
+                {{ involvement.person }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}

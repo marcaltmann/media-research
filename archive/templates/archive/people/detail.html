@@ -16,5 +16,14 @@
 <p>Gender: {{ person.gender }}</p>
 
 <h2>Associated interviews</h2>
-<p>...</p>
+<ul>
+{% for interview in person.interview_set.all %}
+    <li>
+        <a href="{% url 'archive:interview_detail' interview.archive_id interview.id %}">
+            {{ interview.title }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
+
 {% endblock %}
