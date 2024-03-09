@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.db import models
 
 class Archive(models.Model):
@@ -11,9 +13,13 @@ class Archive(models.Model):
 
 class Interview(models.Model):
     archive = models.ForeignKey(Archive, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, default="")
+    media_type = models.CharField(max_length=100, default="video/mp4")
+    media_url = models.URLField(default="")
+    poster = models.ImageField(default="", blank=True)
     pub_date = models.DateTimeField("date published")
-    public = models.BooleanField()
+    duration = models.DurationField(default=timedelta(seconds=0))
+    public = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
