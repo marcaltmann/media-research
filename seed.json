@@ -22,7 +22,7 @@
     "model": "archive.archive",
     "pk": 2,
     "fields": {
-        "name": "Live in East Germany",
+        "name": "Life in East Germany",
         "description": "Lorem ipsum",
         "public": true
     }

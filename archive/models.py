@@ -55,9 +55,25 @@ class Interview(models.Model):
 
 
 class InterviewInvolvement(models.Model):
+    INTERVIEWEE = "INT"
+    INTERVIEWER = "ITR"
+    CAMERA      = "CAM"
+    SOUND       = "SND"
+    EDITOR      = "EDT"
+    OTHER       = "OTH"
+    TYPE_CHOICES = {
+        INTERVIEWEE: "Interviewee",
+        INTERVIEWER: "Interviewer",
+        CAMERA:      "Camera",
+        SOUND:       "Sound",
+        EDITOR:      "Editor",
+        OTHER:       "Other",
+    }
+
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
-    type = models.CharField(max_length=100)
+    type = models.CharField(max_length=3, choices=TYPE_CHOICES,
+                            default=INTERVIEWEE)
 
     def __str__(self):
         return "{}_{}".format(self.person.__str__(), self.interview.__str__())
