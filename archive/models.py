@@ -16,6 +16,7 @@ class Person(models.Model):
 
     first_name = models.CharField(max_length=200, default="")
     last_name = models.CharField(max_length=200)
+    gnd_id = models.IntegerField(null=True, blank=True)
     gender = models.CharField(
         max_length=1,
         choices=GENDER_CHOICES,

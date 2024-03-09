@@ -14,6 +14,14 @@
 
 <p>Date of birth: {{ person.date_of_birth }}</p>
 <p>Gender: {{ person.gender }}</p>
+{% if person.gnd_id %}
+<p>
+    GND-ID:
+    <a href="https://explore.gnd.network/gnd/{{ person.gnd_id }}">
+        {{ person.gnd_id }}
+    </a>
+</p>
+{% endif %}
 
 <h2>Associated interviews</h2>
 <ul>

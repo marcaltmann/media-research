@@ -6,7 +6,8 @@
         "first_name": "Winston",
         "last_name": "Churchill",
         "gender": "M",
-        "date_of_birth": "1874-11-13"
+        "date_of_birth": "1874-11-13",
+        "gnd_id": 118520776
     }
 },
 {
