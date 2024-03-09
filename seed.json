@@ -5,7 +5,7 @@
     "fields": {
         "first_name": "Winston",
         "last_name": "Churchill",
-        "gender": "ML",
+        "gender": "M",
         "date_of_birth": "1874-11-13"
     }
 },
@@ -61,7 +61,7 @@
     "fields": {
         "person": 1,
         "interview": 1,
-        "type": "camera"
+        "type": "CAM"
     }
 }
 ]

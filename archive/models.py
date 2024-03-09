@@ -3,10 +3,10 @@ from datetime import timedelta
 from django.db import models
 
 class Person(models.Model):
-    MALE = "ML"
-    FEMALE = "FM"
-    DIVERSE = "DV"
-    UNSPECIFIED = "US"
+    MALE = "M"
+    FEMALE = "F"
+    DIVERSE = "D"
+    UNSPECIFIED = "N"
     GENDER_CHOICES = {
         MALE: "Male",
         FEMALE: "Female",
@@ -17,7 +17,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=200, default="")
     last_name = models.CharField(max_length=200)
     gender = models.CharField(
-        max_length=2,
+        max_length=1,
         choices=GENDER_CHOICES,
         default=UNSPECIFIED,
     )
