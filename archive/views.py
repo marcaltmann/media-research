@@ -2,6 +2,9 @@ from django.shortcuts import get_object_or_404, render
 
 from .models import Archive, Interview, Person, Topic
 
+def welcome(request):
+    return render(request, "archive/welcome.html")
+
 def index(request):
     all_archives = Archive.objects.all
     context = {

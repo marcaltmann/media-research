@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Interviews{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Interview presentation software</h1>
+
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'archive:index' %}">Archives and interviews</a>
+        </li>
+        <li>
+            <a href="{% url 'archive:topic_index' %}">Topics</a>
+        </li>
+        <li>
+            <a href="{% url 'archive:person_index' %}">People</a>
+        </li>
+    </ul>
+</nav>
+
+{% endblock %}
