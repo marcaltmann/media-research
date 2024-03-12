@@ -88,3 +88,10 @@ class InterviewInvolvement(models.Model):
 
     def __str__(self):
         return "{}_{}".format(self.person.__str__(), self.interview.__str__())
+
+
+class Transcript(models.Model):
+    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    json = models.JSONField()
+    vtt = models.TextField()
+    language = models.CharField(max_length=5)

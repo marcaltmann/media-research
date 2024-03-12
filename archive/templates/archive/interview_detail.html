@@ -51,5 +51,20 @@
         </li>
         {% endfor %}
     </ul>
+
+    <h2>Transcripts</h2>
+
+    {% for transcript in interview.transcript_set.all %}
+    <section>
+        <h3>Transcript {{ transcript.language }}</h3>
+        <ul>
+            {% for segment in transcript.json %}
+            <li>
+                {{ segment.text }}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endfor %}
 </div>
 {% endblock %}
