@@ -18,57 +18,61 @@
 
 <h1 class="page-title">{{ interview.title }}</h1>
 
-<div>
-    <video controls width="500">
-        <source src="{{ interview.media_url }}"
-            type="{{ interview.media_type }}" />
-    </video>
+<div class="grid grid--interview">
+    <div>
+        <video controls width="500">
+            <source src="{{ interview.media_url }}"
+                type="{{ interview.media_type }}" />
+        </video>
 
-    <ul class="u-ml">
-        <li>Published: {{ interview.pub_date }}</li>
-        <li>Duration: {{ interview.duration }}</li>
-    </ul>
+        <ul class="u-ml">
+            <li>Published: {{ interview.pub_date }}</li>
+            <li>Duration: {{ interview.duration }}</li>
+        </ul>
 
-    <h2>People</h2>
-    <ul>
-        {% for involvement in interview.interviewinvolvement_set.all %}
-        <li>
-            {{ involvement.type }}:
-            <a href="{% url 'archive:person_detail' involvement.person.id %}">
-                {{ involvement.person }}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-
-    <h2>Topics</h2>
-    <ul>
-        {% for topic in interview.topics.all %}
-        <li>
-            <a href="{% url 'archive:topic_detail' topic.id %}">
-                {{ topic.name }}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-
-    <h2>Transcripts</h2>
-
-    {% for transcript in interview.transcript_set.all %}
-    <section>
-        <h3>Transcript {{ transcript.language }}</h3>
-        <ul class="transcript">
-            {% for segment in transcript.json %}
-            <li class="transcript__segment"
-                title="Timecode: {{ segment.start|stringformat:".2f" }}s">
-                <a class="transcript__link"
-                    href="{% url 'archive:interview_detail' interview.archive_id interview.id %}?tc={{ segment.start|stringformat:'.2f' }}">
-                    {{ segment.text }}
+        <h2>People</h2>
+        <ul>
+            {% for involvement in interview.interviewinvolvement_set.all %}
+            <li>
+                {{ involvement.type }}:
+                <a href="{% url 'archive:person_detail' involvement.person.id %}">
+                    {{ involvement.person }}
                 </a>
             </li>
             {% endfor %}
         </ul>
-    </section>
-    {% endfor %}
+
+        <h2>Topics</h2>
+        <ul>
+            {% for topic in interview.topics.all %}
+            <li>
+                <a href="{% url 'archive:topic_detail' topic.id %}">
+                    {{ topic.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Transcripts</h2>
+
+        {% for transcript in interview.transcript_set.all %}
+        <section>
+            <h3>{{ transcript.language }}</h3>
+            <ul class="transcript">
+                {% for segment in transcript.json %}
+                <li class="transcript__segment"
+                    title="Timecode: {{ segment.start|stringformat:".2f" }}s">
+                    <a class="transcript__link"
+                        href="{% url 'archive:interview_detail' interview.archive_id interview.id %}?tc={{ segment.start|stringformat:'.2f' }}">
+                        {{ segment.text }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

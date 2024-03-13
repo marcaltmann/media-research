@@ -161,10 +161,22 @@ body {
     margin-bottom: calc(var(--base-unit) * 1);
 }
 
+.grid {
+    display: grid;
+    gap: calc(var(--base-unit) * 2);
+}
+
+.grid--interview {
+    grid-template-columns: 1fr 1fr;
+}
+
 .transcript {
     list-style-type: none;
     margin: 0;
-    max-width: 30rem;
+    max-width: 25rem;
+    height: 70vh;
+    max-height: 40rem;
+    overflow-y: auto;
     padding-left: 0;
 }
 
@@ -172,6 +184,14 @@ body {
     color: var(--text-color);
     font-size: 0.875rem;
     line-height: var(--base-unit);
+}
+
+.transcript__segment:nth-child(odd) {
+    background-color: #e0e0e0;
+}
+
+.transcript__link {
+    display: block;
 }
 
 .transcript__link:link,
