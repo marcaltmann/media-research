@@ -59,7 +59,7 @@ class Interview(models.Model):
     duration = models.DurationField(default=timedelta(seconds=0))
     public = models.BooleanField(default=True)
     people = models.ManyToManyField(Person, through="InterviewInvolvement")
-    topics = models.ManyToManyField(Topic)
+    topics = models.ManyToManyField(Topic, through="TopicReference")
 
     def __str__(self):
         return self.title
@@ -88,6 +88,19 @@ class InterviewInvolvement(models.Model):
 
     def __str__(self):
         return "{}_{}".format(self.person.__str__(), self.interview.__str__())
+
+
+class TopicReference(models.Model):
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    timecode = models.DecimalField(max_digits=10, decimal_places=3, null=True,
+                                   blank=True)
+
+    def __str__(self):
+        return "{0}_{1} ({2})".format(
+            self.topic.__str__(),
+            self.interview.__str__(),
+            self.timecode)
 
 
 class Transcript(models.Model):

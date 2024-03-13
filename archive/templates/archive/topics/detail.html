@@ -24,10 +24,13 @@
 
 <h2>Associated interviews</h2>
 <ul>
-{% for interview in topic.interview_set.all %}
+{% for ref in topic.topicreference_set.all %}
     <li>
-        <a href="{% url 'archive:interview_detail' interview.archive_id interview.id %}">
-            {{ interview.title }}
+        <a href="{% url 'archive:interview_detail' ref.interview.archive_id ref.interview.id %}{% if ref.timecode %}?tc={{ ref.timecode }}{% endif %}">
+            {{ ref.interview.title }}
+            {% if ref.timecode %}
+                ({{ ref.timecode }})
+            {% endif %}
         </a>
     </li>
 {% endfor %}
