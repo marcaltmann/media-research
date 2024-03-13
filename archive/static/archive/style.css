@@ -3,6 +3,7 @@
     --primary-color: #b6010e;
     --text-color: #333;
     --ui-color: #555;
+    --page-width: calc(var(--base-unit) * 50);
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",
         "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref",
         sans-serif;
@@ -16,7 +17,7 @@ body {
 .container {
     margin-left: auto;
     margin-right: auto;
-    max-width: calc(var(--base-unit) * 40);
+    max-width: var(--page-width);
     padding-left: var(--base-unit);
     padding-right: var(--base-unit);
 }
@@ -105,21 +106,8 @@ body {
     color: var(--ui-color);
 }
 
-.grid {
-    display: grid;
-    grid-gap: var(--base-unit);
-    list-style-type: none;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-left: 0;
-}
-
-.grid--archive {
-    grid-template-columns: 1fr 1fr;
-}
-
-.grid--interview {
-    grid-template-columns: 1fr 1fr 1fr;
+.video {
+    width: 100%;
 }
 
 .card {
@@ -163,11 +151,28 @@ body {
 
 .grid {
     display: grid;
-    gap: calc(var(--base-unit) * 2);
+    grid-gap: var(--base-unit);
+}
+
+.grid--archive {
+    grid-template-columns: 1fr 1fr;
 }
 
 .grid--interview {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid--archive,
+.grid--interview {
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+}
+
+.grid--interview-page {
+    gap: calc(var(--base-unit) * 2);
+    grid-template-columns: 2fr 1fr;
 }
 
 .transcript {
