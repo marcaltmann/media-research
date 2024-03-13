@@ -1,6 +1,7 @@
 :root {
     --base-unit: 1.5rem;
     --primary-color: #b6010e;
+    --text-color: #333;
     --ui-color: #555;
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",
         "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref",
@@ -158,4 +159,28 @@ body {
     line-height: var(--base-unit);
     margin-top: calc(var(--base-unit) / 2);
     margin-bottom: calc(var(--base-unit) * 1);
+}
+
+.transcript {
+    list-style-type: none;
+    margin: 0;
+    max-width: 30rem;
+    padding-left: 0;
+}
+
+.transcript__segment {
+    color: var(--text-color);
+    font-size: 0.875rem;
+    line-height: var(--base-unit);
+}
+
+.transcript__link:link,
+.transcript__link:visited {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.transcript__link:hover,
+.transcript__link:active {
+    text-decoration: underline;
 }

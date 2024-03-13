@@ -57,10 +57,14 @@
     {% for transcript in interview.transcript_set.all %}
     <section>
         <h3>Transcript {{ transcript.language }}</h3>
-        <ul>
+        <ul class="transcript">
             {% for segment in transcript.json %}
-            <li>
-                {{ segment.text }}
+            <li class="transcript__segment"
+                title="Timecode: {{ segment.start|stringformat:".2f" }}s">
+                <a class="transcript__link"
+                    href="{% url 'archive:interview_detail' interview.archive_id interview.id %}?tc={{ segment.start|stringformat:'.2f' }}">
+                    {{ segment.text }}
+                </a>
             </li>
             {% endfor %}
         </ul>
