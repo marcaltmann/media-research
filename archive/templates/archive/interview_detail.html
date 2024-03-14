@@ -32,12 +32,18 @@
         </audio>
         {% endif %}
 
-        <ul class="u-ml">
+        <h2>Metadata</h2>
+
+        <h3>Basic</h3>
+        <ul>
             <li>Published: {{ interview.pub_date }}</li>
             <li>Duration: {{ interview.duration }}</li>
         </ul>
 
-        <h2>People</h2>
+        <h3>Custom</h3>
+        ...
+
+        <h3>People</h3>
         <ul>
             {% for involvement in interview.interviewinvolvement_set.all %}
             <li>
@@ -49,7 +55,7 @@
             {% endfor %}
         </ul>
 
-        <h2>Topics</h2>
+        <h3>Topics</h3>
         <ul>
             {% for topic in interview.topics.all %}
             <li>
