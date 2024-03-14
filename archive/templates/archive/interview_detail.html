@@ -20,10 +20,17 @@
 
 <div class="grid grid--interview-page">
     <div>
+        {% if interview.is_video %}
         <video class="video" controls>
             <source src="{{ interview.media_url }}"
                 type="{{ interview.media_type }}" />
         </video>
+        {% else %}
+        <audio class="video" controls>
+            <source src="{{ interview.media_url }}"
+                type="{{ interview.media_type }}" />
+        </audio>
+        {% endif %}
 
         <ul class="u-ml">
             <li>Published: {{ interview.pub_date }}</li>

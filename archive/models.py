@@ -61,6 +61,15 @@ class Interview(models.Model):
     people = models.ManyToManyField(Person, through="InterviewInvolvement")
     topics = models.ManyToManyField(Topic, through="TopicReference")
 
+    def media_type_type(self) -> str:
+        return self.media_type.split("/")[0]
+
+    def is_video(self) -> bool:
+        return self.media_type_type() == "video"
+
+    def is_audio(self) -> bool:
+        return self.media_type_type() == "audio"
+
     def __str__(self):
         return self.title
 
@@ -108,3 +117,6 @@ class Transcript(models.Model):
     json = models.JSONField()
     vtt = models.TextField()
     language = models.CharField(max_length=5)
+
+    def __str__(self):
+        return f"{self.interview} ({self.language})"
