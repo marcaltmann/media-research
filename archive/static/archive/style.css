@@ -4,7 +4,7 @@
     --text-color: #333;
     --ui-color: #555;
     --layout-color: #1a2c5b;
-    --page-width: calc(var(--base-unit) * 50);
+    --page-width: calc(var(--base-unit) * 48);
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",
         "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref",
         sans-serif;
@@ -113,7 +113,6 @@ body {
 }
 
 .video {
-    width: 100%;
 }
 
 .card {

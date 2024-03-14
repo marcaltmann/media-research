@@ -21,12 +21,12 @@
 <div class="grid grid--interview-page">
     <div>
         {% if interview.is_video %}
-        <video class="video" controls>
+        <video class="video video-js vjs-fluid" controls data-setup={}>
             <source src="{{ interview.media_url }}"
                 type="{{ interview.media_type }}" />
         </video>
         {% else %}
-        <audio class="video" controls>
+        <audio class="audio video-js vjs-default-skin" controls data-setup={}>
             <source src="{{ interview.media_url }}"
                 type="{{ interview.media_type }}" />
         </audio>
