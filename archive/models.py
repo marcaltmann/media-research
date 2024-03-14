@@ -70,6 +70,12 @@ class Interview(models.Model):
     def is_audio(self) -> bool:
         return self.media_type_type() == "audio"
 
+    def metadatakey_set(self):
+        return self.archive.metadatakey_set
+
+    def char_field_metadata(self):
+        return self.charfieldmetadata_set.all()
+
     def __str__(self):
         return self.title
 
@@ -120,3 +126,27 @@ class Transcript(models.Model):
 
     def __str__(self):
         return f"{self.interview} ({self.language})"
+
+
+class MetadataKey(models.Model):
+    archive = models.ForeignKey(Archive, on_delete=models.CASCADE)
+    label = models.CharField(max_length=20)
+    description = models.TextField(blank=True)
+
+    def char_fields_for_interview(self, interview_id):
+        return self.charfieldmetadata_set.all().filter(interview_id=interview_id)
+
+    def __str__(self):
+        return self.label
+
+
+class CharFieldMetadata(models.Model):
+    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    key = models.ForeignKey(MetadataKey, on_delete=models.CASCADE)
+    value = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.value
+
+    class Meta:
+        verbose_name_plural = "char field metadata"

@@ -41,7 +41,16 @@
         </ul>
 
         <h3>Custom</h3>
-        ...
+        <ul>
+        {% for char_field_metadata in interview.charfieldmetadata_set.all %}
+            <li>
+                <span title="{{ char_field_metadata.key.description }}">
+                    {{ char_field_metadata.key.label|capfirst }}:
+                </span>
+                {{ char_field_metadata.value }}
+            </li>
+        {% endfor %}
+        </ul>
 
         <h3>People</h3>
         <ul>
