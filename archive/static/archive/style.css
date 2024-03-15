@@ -115,6 +115,14 @@ body {
 .video {
 }
 
+.audio {
+}
+
+/*
+.audio.vjs-paused .vjs-control-bar {
+    display: flex !important;  /* needed when bigPlayButton is hidden
+}*/
+
 .card {
     border: 1px solid var(--ui-color);
 }

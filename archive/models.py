@@ -25,6 +25,7 @@ class Person(models.Model):
 
     first_name = models.CharField(max_length=200, default="")
     last_name = models.CharField(max_length=200)
+    eastern_name_order = models.BooleanField(default=False)
     gnd_id = models.CharField(max_length=20, blank=True)
     gender = models.CharField(
         max_length=1,
@@ -33,10 +34,17 @@ class Person(models.Model):
     )
     date_of_birth = models.DateField()
 
+    def fullname(self):
+        if self.eastern_name_order:
+            return f"{self.last_name} {self.first_name}"
+        else:
+            return f"{self.first_name} {self.last_name}"
+
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return self.fullname()
 
     class Meta:
+        ordering = ["last_name", "first_name"]
         verbose_name_plural = "people"
 
 
