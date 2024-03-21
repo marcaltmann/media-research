@@ -1,3 +1,4 @@
 Django==5.0.3
 django-debug-toolbar==4.3.0
+django-webpack-loader==3.0.1
 pillow==10.2.0

@@ -3,8 +3,7 @@
     --primary-color: #b6010e;
     --text-color: #333;
     --ui-color: #555;
-    --layout-color: #1a2c5b;
-    --page-width: calc(var(--base-unit) * 48);
+    --page-width: calc(var(--base-unit) * 50);
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",
         "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref",
         sans-serif;
@@ -34,9 +33,8 @@ body {
 }
 
 .header {
-    background-color: var(--layout-color);
+    background-color: var(--ui-color);
     color: #fff;
-    padding: calc(var(--base-unit) / 2) 0;
 }
 
 .header__inner {
@@ -45,7 +43,7 @@ body {
 
 .header__title {
     font-size: 1.5rem;
-    line-height: var(--base-unit);
+    line-height: calc(var(--base-unit) * 2);
     margin: 0;
 }
 
@@ -60,10 +58,6 @@ body {
     text-decoration: underline;
 }
 
-.header__title-img {
-    display: block;
-    width: 4rem;
-}
 
 .primary-nav {
     margin-left: auto;
@@ -92,7 +86,7 @@ body {
 }
 
 .footer {
-    background-color: var(--layout-color);
+    background-color: var(--ui-color);
     color: #fff;
 }
 
@@ -113,15 +107,8 @@ body {
 }
 
 .video {
+    width: 100%;
 }
-
-.audio {
-}
-
-/*
-.audio.vjs-paused .vjs-control-bar {
-    display: flex !important;  /* needed when bigPlayButton is hidden
-}*/
 
 .card {
     border: 1px solid var(--ui-color);

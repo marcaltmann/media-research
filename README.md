@@ -1,1 +1,9 @@
-Software for presenting oral history interviews
+## Software for presenting oral history interviews
+
+## Installation
+
+Install Node requirements with
+
+```shell
+npm install
+```
