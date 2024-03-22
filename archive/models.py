@@ -1,5 +1,4 @@
 from datetime import timedelta
-
 from django.db import models
 
 class Topic(models.Model):
@@ -86,6 +85,19 @@ class Interview(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Collection(models.Model):
+    archive = models.ForeignKey(Archive, on_delete=models.CASCADE)
+    interviews = models.ManyToManyField(Interview)
+    name = models.CharField(max_length=200)
+    description = models.TextField(default="")
+
+    def interview_count(self):
+        return self.interviews.count()
+
+    def __str__(self):
+        return self.name
 
 
 class InterviewInvolvement(models.Model):
