@@ -1,0 +1,31 @@
+.header {
+    background-color: var(--layout-color);
+    color: #fff;
+    padding: calc(var(--base-unit) / 2) 0;
+}
+
+.header__inner {
+    display: flex;
+}
+
+.header__title {
+    font-size: 1.5rem;
+    line-height: var(--base-unit);
+    margin: 0;
+}
+
+.header__title-link:link,
+.header__title-link:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header__title-link:hover,
+.header__title-link:active {
+    text-decoration: underline;
+}
+
+.header__title-img {
+    display: block;
+    width: 4rem;
+}

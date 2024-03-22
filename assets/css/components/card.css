@@ -1,0 +1,31 @@
+.card {
+    border: 1px solid var(--ui-color);
+}
+
+.card--archive {
+    padding: var(--base-unit);
+}
+
+.card--interview {
+    padding: calc(var(--base-unit) / 2);
+}
+
+.card__title {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: var(--base-unit);
+    margin: 0;
+}
+
+.card__link:link,
+.card__link:visited {
+    color: #000;
+}
+
+.card__detail {
+    color: var(--ui-color);
+    font-size: 0.875rem;
+    line-height: var(--base-unit);
+    margin-bottom: 0;
+    margin-top: calc(var(--base-unit) / 2);
+}

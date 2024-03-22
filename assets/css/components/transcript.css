@@ -1,0 +1,34 @@
+.transcript {
+    list-style-type: none;
+    margin: 0;
+    max-width: 25rem;
+    height: 70vh;
+    max-height: 40rem;
+    overflow-y: auto;
+    padding-left: 0;
+}
+
+.transcript__segment {
+    color: var(--text-color);
+    font-size: 0.875rem;
+    line-height: var(--base-unit);
+}
+
+.transcript__segment:nth-child(odd) {
+    background-color: #e0e0e0;
+}
+
+.transcript__link {
+    display: block;
+}
+
+.transcript__link:link,
+.transcript__link:visited {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.transcript__link:hover,
+.transcript__link:active {
+    text-decoration: underline;
+}

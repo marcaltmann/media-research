@@ -2,7 +2,17 @@
 
 @import "variables";
 
-/* Components */
-@import "style";
+@import "elements";
+@import "headings";
+
+@import "components/breadcrumbs";
+@import "components/card";
+@import "components/container";
+@import "components/footer";
+@import "components/grid";
+@import "components/header";
+@import "components/primary_nav";
+@import "components/site";
+@import "components/transcript";
 
 @import "utilities";
