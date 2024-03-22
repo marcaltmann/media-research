@@ -47,17 +47,7 @@ class Person(models.Model):
         verbose_name_plural = "people"
 
 
-class Archive(models.Model):
-    name = models.CharField(max_length=200)
-    description = models.TextField(default="")
-    public = models.BooleanField()
-
-    def __str__(self):
-        return self.name
-
-
 class Interview(models.Model):
-    archive = models.ForeignKey(Archive, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, default="")
     media_type = models.CharField(max_length=100, default="video/mp4")
     media_url = models.URLField(max_length=300, default="")
@@ -77,9 +67,6 @@ class Interview(models.Model):
     def is_audio(self) -> bool:
         return self.media_type_type() == "audio"
 
-    def metadatakey_set(self):
-        return self.archive.metadatakey_set
-
     def char_field_metadata(self):
         return self.charfieldmetadata_set.all()
 
@@ -88,7 +75,6 @@ class Interview(models.Model):
 
 
 class Collection(models.Model):
-    archive = models.ForeignKey(Archive, on_delete=models.CASCADE)
     interviews = models.ManyToManyField(Interview)
     name = models.CharField(max_length=200)
     description = models.TextField(default="")
@@ -149,7 +135,6 @@ class Transcript(models.Model):
 
 
 class MetadataKey(models.Model):
-    archive = models.ForeignKey(Archive, on_delete=models.CASCADE)
     label = models.CharField(max_length=20)
     description = models.TextField(blank=True)
 

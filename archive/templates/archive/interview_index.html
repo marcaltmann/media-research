@@ -4,26 +4,20 @@
 
 {% block content %}
 <nav class="breadcrumbs">
-    <a class="breadcrumbs__link"
-        href="{% url 'archive:index' %}">Archives</a>
-    /
-    <a class="breadcrumbs__link"
-        href="{% url 'archive:detail' archive.id %}">{{ archive.name }}</a>
-    /
     Interviews
 </nav>
 
 <h1 class="h1">
-    Interviews of {{ archive.name }}
+    Interviews
 </h1>
 
-{% if archive.interview_set.all %}
+{% if interviews %}
     <ul class="grid grid--interview">
-        {% for interview in archive.interview_set.all %}
+        {% for interview in interviews %}
             <li class="card card--interview">
                 <h3 class="card__title">
                     <a class="card__link"
-                        href="{% url 'archive:interview_detail' archive.id interview.id %}">
+                        href="{% url 'archive:interview_detail' interview.id %}">
                         {{ interview.title }}
                     </a>
                 </h3>
@@ -36,6 +30,6 @@
         {% endfor %}
     </ul>
 {% else %}
-    <p>This archive has no interviews.</p>
+    <p>There are no interviews yet.</p>
 {% endif %}
 {% endblock %}

@@ -5,13 +5,7 @@
 {% block content %}
 <nav class="breadcrumbs">
     <a class="breadcrumbs__link"
-        href="{% url 'archive:index' %}">Archives</a>
-    /
-    <a class="breadcrumbs__link"
-        href="{% url 'archive:detail' archive.id %}">{{ archive.name }}</a>
-    /
-    <a class="breadcrumbs__link"
-        href="{% url 'archive:interview_index' archive.id %}">Interviews</a>
+        href="{% url 'archive:interview_index' %}">Interviews</a>
     /
     {{ interview.title }}
 </nav>
@@ -87,7 +81,7 @@
                 <li class="transcript__segment"
                     title="Timecode: {{ segment.start|stringformat:".2f" }}s">
                     <a class="transcript__link"
-                        href="{% url 'archive:interview_detail' interview.archive_id interview.id %}?tc={{ segment.start|stringformat:'.2f' }}">
+                        href="{% url 'archive:interview_detail' interview.id %}?tc={{ segment.start|stringformat:'.2f' }}">
                         {{ segment.text }}
                     </a>
                 </li>

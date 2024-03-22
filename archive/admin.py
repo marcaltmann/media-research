@@ -1,19 +1,13 @@
 from django.contrib import admin
 
-from archive.models import (Archive, Interview, Collection, Transcript,
+from archive.models import (Interview, Collection, Transcript,
                             Person, InterviewInvolvement, Topic,
                             TopicReference, MetadataKey, CharFieldMetadata)
 
 
-@admin.register(Archive)
-class ArchiveAdmin(admin.ModelAdmin):
-    pass
-
-
 @admin.register(Interview)
 class InterviewAdmin(admin.ModelAdmin):
-    list_display = ["title", "archive", "media_type", "duration", "public"]
-    list_select_related = ["archive"]
+    list_display = ["title", "media_type", "duration", "public"]
     exclude = ["pub_date"]
 
 

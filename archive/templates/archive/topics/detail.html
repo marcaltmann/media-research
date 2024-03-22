@@ -26,7 +26,7 @@
 <ul>
 {% for ref in topic.topicreference_set.all %}
     <li>
-        <a href="{% url 'archive:interview_detail' ref.interview.archive_id ref.interview.id %}{% if ref.timecode %}?tc={{ ref.timecode }}{% endif %}">
+        <a href="{% url 'archive:interview_detail' ref.interview_id %}{% if ref.timecode %}?tc={{ ref.timecode }}{% endif %}">
             {{ ref.interview.title }}
             {% if ref.timecode %}
                 ({{ ref.timecode }})

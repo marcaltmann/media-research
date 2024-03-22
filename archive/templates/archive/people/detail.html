@@ -27,7 +27,7 @@
 <ul>
 {% for interview in person.interview_set.all %}
     <li>
-        <a href="{% url 'archive:interview_detail' interview.archive_id interview.id %}">
+        <a href="{% url 'archive:interview_detail' interview.id %}">
             {{ interview.title }}
         </a>
     </li>
