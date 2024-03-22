@@ -114,7 +114,7 @@ body {
     border: 1px solid var(--ui-color);
 }
 
-.card--archive {
+.card--collection {
     padding: var(--base-unit);
 }
 
@@ -154,7 +154,7 @@ body {
     grid-gap: var(--base-unit);
 }
 
-.grid--archive {
+.grid--collection {
     grid-template-columns: 1fr 1fr;
 }
 
@@ -162,7 +162,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.grid--archive,
+.grid--collection,
 .grid--interview {
     list-style-type: none;
     margin-bottom: 0;

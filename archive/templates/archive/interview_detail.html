@@ -46,6 +46,17 @@
         {% endfor %}
         </ul>
 
+        <h3>Collections</h3>
+        <ul>
+        {% for collection in collections %}
+            <li>
+                <a href="{% url 'archive:collection_detail' collection.id %}">
+                    {{ collection }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+
         <h3>People</h3>
         <ul>
             {% for involvement in interview.interviewinvolvement_set.all %}

@@ -1,9 +1,22 @@
 from django.shortcuts import get_object_or_404, get_list_or_404, render
 
-from archive.models import Interview, Person, Topic
+from archive.models import Interview, Collection, Person, Topic
 
 def welcome(request):
     return render(request, "archive/welcome.html")
+
+def collection_index(request):
+    collections = get_list_or_404(Collection)
+    return render(request, "archive/collection_index.html",
+                  {"collections": collections})
+
+def collection_detail(request, collection_id):
+    collection = get_object_or_404(Collection, pk=collection_id)
+    context = {
+        "collection": collection,
+        "interviews": collection.interviews.all(),
+    }
+    return render(request, "archive/collection_detail.html", context)
 
 def interview_index(request):
     interviews = get_list_or_404(Interview)
@@ -12,8 +25,11 @@ def interview_index(request):
 
 def interview_detail(request, interview_id):
     interview = get_object_or_404(Interview, pk=interview_id)
-    return render(request, "archive/interview_detail.html",
-                  {"interview": interview})
+    context = {
+        "interview": interview,
+        "collections": interview.collection_set.all(),
+    }
+    return render(request, "archive/interview_detail.html", context)
 
 def person_index(request):
     people = Person.objects.all

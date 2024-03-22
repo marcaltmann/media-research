@@ -13,6 +13,7 @@ class InterviewAdmin(admin.ModelAdmin):
 
 @admin.register(Collection)
 class CollectionAdmin(admin.ModelAdmin):
+    fields = ["name", "description", "interviews"]
     list_display = ["name", "interview_count"]
     filter_horizontal = ["interviews"]
 

@@ -3,7 +3,7 @@
     grid-gap: var(--base-unit);
 }
 
-.grid--archive {
+.grid--collection {
     grid-template-columns: 1fr 1fr;
 }
 
@@ -11,7 +11,7 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.grid--archive,
+.grid--collection,
 .grid--interview {
     list-style-type: none;
     margin-bottom: 0;
