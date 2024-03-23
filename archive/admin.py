@@ -2,7 +2,8 @@ from django.contrib import admin
 
 from archive.models import (Interview, Collection, Transcript,
                             Person, InterviewInvolvement, Topic,
-                            TopicReference, MetadataKey, CharFieldMetadata)
+                            TopicReference, MetadataKey, CharFieldMetadata,
+                            Location, LocationReference)
 
 
 @admin.register(Interview)
@@ -57,5 +58,15 @@ class MetadataKeyAdmin(admin.ModelAdmin):
 
 
 @admin.register(CharFieldMetadata)
-class CharFieldMetadata(admin.ModelAdmin):
+class CharFieldMetadataAdmin(admin.ModelAdmin):
     list_display = ["interview", "key", "value"]
+
+
+@admin.register(Location)
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ["name", "latitude", "longitude"]
+
+
+@admin.register(LocationReference)
+class LocationReferenceAdmin(admin.ModelAdmin):
+    list_display = ["location", "interview", "timecode"]

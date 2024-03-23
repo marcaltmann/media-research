@@ -10,6 +10,16 @@ class Topic(models.Model):
         return self.name
 
 
+class Location(models.Model):
+    name = models.CharField(max_length=200)
+    geonames_id = models.IntegerField()
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+    def __str__(self):
+        return self.name
+
+
 class Person(models.Model):
     MALE = "M"
     FEMALE = "F"
@@ -57,6 +67,7 @@ class Interview(models.Model):
     public = models.BooleanField(default=True)
     people = models.ManyToManyField(Person, through="InterviewInvolvement")
     topics = models.ManyToManyField(Topic, through="TopicReference")
+    locations = models.ManyToManyField(Location, through="LocationReference")
 
     def media_type_type(self) -> str:
         return self.media_type.split("/")[0]
@@ -118,10 +129,17 @@ class TopicReference(models.Model):
                                    blank=True)
 
     def __str__(self):
-        return "{0}_{1} ({2})".format(
-            self.topic.__str__(),
-            self.interview.__str__(),
-            self.timecode)
+        return f"{self.topic}_{self.interview} ({self.timecode})"
+
+
+class LocationReference(models.Model):
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    timecode = models.DecimalField(max_digits=10, decimal_places=3,
+                                   null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.location}_{self.interview} ({self.timecode})"
 
 
 class Transcript(models.Model):
