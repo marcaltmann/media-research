@@ -28,6 +28,7 @@ def interview_detail(request, interview_id):
     context = {
         "interview": interview,
         "collections": interview.collection_set.all(),
+        "transcripts": interview.transcript_set.all(),
     }
     return render(request, "archive/interview_detail.html", context)
 

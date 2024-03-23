@@ -1,0 +1,76 @@
+{% if interview.is_video %}
+<video class="video video-js vjs-fluid" controls data-setup={}>
+    <source src="{{ interview.media_url }}"
+        type="{{ interview.media_type }}" />
+</video>
+{% else %}
+<audio class="audio video-js vjs-default-skin" controls data-setup={}>
+    <source src="{{ interview.media_url }}"
+        type="{{ interview.media_type }}" />
+</audio>
+{% endif %}
+
+<h2>Metadata</h2>
+
+<h3>Basic</h3>
+<ul>
+    <li>Published: {{ interview.pub_date }}</li>
+    <li>Duration: {{ interview.duration }}</li>
+</ul>
+
+<h3>Custom</h3>
+<ul>
+{% for char_field_metadata in interview.charfieldmetadata_set.all %}
+    <li>
+        <span title="{{ char_field_metadata.key.description }}">
+            {{ char_field_metadata.key.label|capfirst }}:
+        </span>
+        {{ char_field_metadata.value }}
+    </li>
+{% endfor %}
+</ul>
+
+<h3>Collections</h3>
+<ul>
+{% for collection in collections %}
+    <li>
+        <a href="{% url 'archive:collection_detail' collection.id %}">
+            {{ collection }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
+
+<h3>People</h3>
+<ul>
+    {% for involvement in interview.interviewinvolvement_set.all %}
+    <li>
+        {{ involvement.type }}:
+        <a href="{% url 'archive:person_detail' involvement.person.id %}">
+            {{ involvement.person }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h3>Topics</h3>
+<ul>
+    {% for topic in interview.topics.all %}
+    <li>
+        <a href="{% url 'archive:topic_detail' topic.id %}">
+            {{ topic.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h3>Locations</h3>
+<ul>
+    {% for location in interview.locations.all %}
+    <li>
+        <a href="http://www.geonames.org/{{ location.geonames_id }}/">
+            {{ location.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>

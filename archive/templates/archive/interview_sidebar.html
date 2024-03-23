@@ -1,0 +1,47 @@
+<h2 class="h3 u-mt-none">Transcripts</h2>
+
+<nav class="tabset" aria-label="Tabs">
+    {% for transcript in transcripts %}
+    {% if forloop.counter0 %}
+        <input type="radio" name="tabset" id="{{ transcript.language }}" />
+    {% else %}
+        <input type="radio" name="tabset" id="{{ transcript.language }}" checked />
+    {% endif %}
+    {% endfor %}
+
+    <span class="tabset__tabs" role="tablist">
+        {% for transcript in transcripts %}
+        {% if forloop.counter0 %}
+        <label for="{{ transcript.language }}" role="tab"
+            aria-selected="false" aria-controls="tab-{{ transcript.language }}">
+            {{ transcript.language }}
+        </label>
+        {% else %}
+        <label for="{{ transcript.language }}" role="tab"
+            aria-selected="true" aria-controls="tab-{{ transcript.language }}">
+            {{ transcript.language }}
+        </label>
+        {% endif %}
+        {% endfor %}
+    </span>
+    <div class="tabset__panels">
+        {% for transcript in transcripts %}
+        <div id="tab-{{ transcript.language }}" class="tabset__panel"
+            role="tabpanel" aria-labelledby="{{ transcript.language }}">
+            <div class="tabset__panel-content">
+                <ul class="transcript">
+                    {% for segment in transcript.json %}
+                    <li class="transcript__segment"
+                        title="Timecode: {{ segment.start|stringformat:".2f" }}s">
+                        <a class="transcript__link"
+                            href="{% url 'archive:interview_detail' interview.id %}?tc={{ segment.start|stringformat:'.2f' }}">
+                            {{ segment.text }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

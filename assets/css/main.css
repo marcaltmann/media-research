@@ -13,6 +13,7 @@
 @import "components/header";
 @import "components/primary_nav";
 @import "components/site";
+@import "components/tabs";
 @import "components/transcript";
 
 @import "utilities";
