@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Map | Interviews{% endblock %}
+
+{% block content %}
+<h1 class="h1">
+    Map
+</h1>
+
+<div id="map" class="map"></div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    const options = {
+        scrollWheelZoom: false,
+    };
+    const map = L.map('map', options).setView([52.505, 13.09], 5);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    {% for location in locations %}
+    L.marker([{{ location.latitude }}, {{ location.longitude }}]).addTo(map);
+    {% endfor %}
+</script>
+{% endblock%}
