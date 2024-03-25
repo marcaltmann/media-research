@@ -11,9 +11,9 @@
     Collections
 </h1>
 
-{% if collections %}
+{% if collection_list %}
     <ul class="grid grid--collection">
-        {% for collection in collections %}
+        {% for collection in collection_list %}
             <li class="card card--collection">
                 <h3 class="card__title">
                     <a class="card__link"
@@ -28,6 +28,6 @@
         {% endfor %}
     </ul>
 {% else %}
-    <p>There are no collections yet.</p>
+    <p>No collections are available.</p>
 {% endif %}
 {% endblock %}

@@ -1,3 +1,6 @@
+from typing import Any
+from django.db.models.query import QuerySet
+from django.views import generic
 from django.shortcuts import get_object_or_404, get_list_or_404, render
 
 from archive.models import Interview, Collection, Person, Topic, Location
@@ -6,10 +9,13 @@ def welcome(request):
     return render(request, "archive/welcome.html")
 
 
-def collection_index(request):
-    collections = get_list_or_404(Collection)
-    return render(request, "archive/collection_index.html",
-                  {"collections": collections})
+class CollectionIndexView(generic.ListView):
+    template_name = "archive/collection_index.html"
+    context_object_name = "collection_list"
+
+    def get_queryset(self) -> QuerySet[Collection]:
+        """Return collections ordered by name."""
+        return Collection.objects.order_by("name")
 
 
 def collection_detail(request, collection_id):
