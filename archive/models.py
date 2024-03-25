@@ -69,14 +69,14 @@ class Interview(models.Model):
     topics = models.ManyToManyField(Topic, through="TopicReference")
     locations = models.ManyToManyField(Location, through="LocationReference")
 
-    def media_type_type(self) -> str:
+    def media_type_first_part(self) -> str:
         return self.media_type.split("/")[0]
 
     def is_video(self) -> bool:
-        return self.media_type_type() == "video"
+        return self.media_type_first_part() == "video"
 
     def is_audio(self) -> bool:
-        return self.media_type_type() == "audio"
+        return self.media_type_first_part() == "audio"
 
     def char_field_metadata(self):
         return self.charfieldmetadata_set.all()
