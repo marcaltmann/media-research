@@ -32,3 +32,7 @@
 .transcript__link:active {
     text-decoration: underline;
 }
+
+.transcript__link--current {
+    background-color: lightgreen;
+}

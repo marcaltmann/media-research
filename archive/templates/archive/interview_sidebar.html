@@ -29,11 +29,13 @@
         <div id="tab-{{ transcript.language }}" class="tabset__panel"
             role="tabpanel" aria-labelledby="{{ transcript.language }}">
             <div class="tabset__panel-content">
-                <ul class="transcript">
+                <ul id="transcript" class="transcript">
                     {% for segment in transcript.json %}
                     <li class="transcript__segment"
                         title="Timecode: {{ segment.start|stringformat:".2f" }}s">
                         <a class="transcript__link"
+                            data-start="{{ segment.start }}"
+                            data-end="{{ segment.end }}"
                             href="{% url 'archive:interview_detail' interview.id %}?tc={{ segment.start|stringformat:'.2f' }}">
                             {{ segment.text }}
                         </a>

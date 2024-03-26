@@ -1,10 +1,10 @@
 {% if interview.is_video %}
-<video class="video video-js vjs-fluid" controls data-setup={}>
+<video id="interview-media" class="video video-js vjs-fluid" controls>
     <source src="{{ interview.media_url }}"
         type="{{ interview.media_type }}" />
 </video>
 {% else %}
-<audio class="audio video-js vjs-default-skin" controls data-setup={}>
+<audio id="interview-media" class="audio video-js vjs-default-skin" controls>
     <source src="{{ interview.media_url }}"
         type="{{ interview.media_type }}" />
 </audio>
