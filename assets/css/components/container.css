@@ -5,3 +5,7 @@
     padding-left: var(--base-unit);
     padding-right: var(--base-unit);
 }
+
+.container--wide {
+    max-width: var(--page-width-wide);
+}
