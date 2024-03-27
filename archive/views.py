@@ -34,9 +34,11 @@ def interview_index(request):
 
 
 def interview_detail(request, interview_id):
+    timecode = request.GET.get("tc", 0)
     interview = get_object_or_404(Interview, pk=interview_id)
     context = {
         "interview": interview,
+        "timecode": timecode,
         "collections": interview.collection_set.all(),
         "transcripts": interview.transcript_set.all(),
     }

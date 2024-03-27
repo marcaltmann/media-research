@@ -1,11 +1,11 @@
 {% if interview.is_video %}
 <video id="interview-media" class="video video-js vjs-fluid" controls>
-    <source src="{{ interview.media_url }}"
+    <source src="{{ interview.media_url }}#t={{ timecode }}"
         type="{{ interview.media_type }}" />
 </video>
 {% else %}
 <audio id="interview-media" class="audio video-js vjs-default-skin" controls>
-    <source src="{{ interview.media_url }}"
+    <source src="{{ interview.media_url }}#t={{ timecode }}"
         type="{{ interview.media_type }}" />
 </audio>
 {% endif %}

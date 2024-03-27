@@ -34,7 +34,9 @@ if (transcriptEl) {
         }
 
         timecode = Number.parseFloat(target.dataset.start);
-        console.log(timecode);
+        const url = new URL(window.location);
+        url.searchParams.set("tc", String(timecode));
+        history.replaceState({}, "", url);
 
         const event = new CustomEvent("timerequest", { detail: timecode });
         document.dispatchEvent(event);

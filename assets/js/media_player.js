@@ -1,3 +1,5 @@
+const READY_STATE_HAVE_CURRENT_DATA = 2;
+
 const player = videojs('interview-media');
 
 player.ready(function() {
@@ -8,16 +10,11 @@ player.ready(function() {
 
     document.addEventListener('timerequest', (e) => {
         this.currentTime(e.detail);
+
+        if (this.readyState() >= READY_STATE_HAVE_CURRENT_DATA) {
+            this.play();
+        } else {
+            this.autoplay(true);
+        }
     });
-});
-
-
-player.one('canplaythrough', function() {
-    const paramsString = window.location.search;
-    const searchParams = new URLSearchParams(paramsString);
-    const tc = searchParams.get('tc');
-
-    if (tc) {
-        this.currentTime(Number.parseFloat(tc));
-    }
 });
