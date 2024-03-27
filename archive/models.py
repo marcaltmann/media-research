@@ -12,7 +12,7 @@ class Topic(models.Model):
 
 class Location(models.Model):
     name = models.CharField(max_length=200)
-    geonames_id = models.IntegerField()
+    geonames_id = models.IntegerField(blank=True, null=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
 

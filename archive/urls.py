@@ -16,5 +16,5 @@ urlpatterns = [
     path("people/<int:person_id>/", views.person_detail, name="person_detail"),
     path("topics/", views.topic_index, name="topic_index"),
     path("topics/<int:topic_id>/", views.topic_detail, name="topic_detail"),
-    path("map/", views.map, name="map"),
+    path("map/", views.LocationIndexView.as_view(), name="map"),
 ]

@@ -18,6 +18,15 @@ class CollectionIndexView(generic.ListView):
         return Collection.objects.order_by("name")
 
 
+class LocationIndexView(generic.ListView):
+    template_name = "archive/map.html"
+    context_object_name = "location_list"
+
+    def get_queryset(self) -> QuerySet[Location]:
+        """Return all locations."""
+        return Location.objects.all()
+
+
 def collection_detail(request, collection_id):
     collection = get_object_or_404(Collection, pk=collection_id)
     context = {
@@ -67,9 +76,3 @@ def topic_detail(request, topic_id):
     topic = get_object_or_404(Topic, pk=topic_id)
     context = {"topic": topic}
     return render(request, "archive/topics/detail.html", context)
-
-
-def map(request):
-    locations = get_list_or_404(Location)
-    context = {"locations": locations}
-    return render(request, "archive/map.html", context)
