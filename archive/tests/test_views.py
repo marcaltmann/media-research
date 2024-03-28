@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from archive.models import Collection, Location
+from archive.models import Collection, Location, Interview
 
 def create_collection(name):
     """
@@ -15,6 +15,12 @@ def create_location(name, lat, lng):
     Create a location with the given `name`.
     """
     return Location.objects.create(name=name, latitude=lat, longitude=lng)
+
+def create_interview(title):
+    """
+    Create an interview with the given `title`.
+    """
+    return Interview.objects.create(title=title)
 
 
 class CollectionIndexViewTests(TestCase):
@@ -62,3 +68,23 @@ class MapViewTests(TestCase):
             [location1, location2],
             ordered=False,
         )
+
+
+class InterviewDetailViewTests(TestCase):
+    def test_not_found(self):
+        """
+        If interview does not exist, returns a 404 not found.
+        """
+        url = reverse("archive:interview_detail", args=(1,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+    def test_normal_interview(self):
+        """
+        The title of the interview is displayed.
+        """
+        interview = create_interview("Test interview")
+        url = reverse("archive:interview_detail", args=(interview.id,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, interview.title)

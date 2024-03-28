@@ -62,7 +62,7 @@ class Interview(models.Model):
     media_type = models.CharField(max_length=100, default="video/mp4")
     media_url = models.URLField(max_length=300, default="")
     poster = models.ImageField(default="", blank=True)
-    pub_date = models.DateTimeField("date published")
+    pub_date = models.DateTimeField("date published", null=True)
     duration = models.DurationField(default=timedelta(seconds=0))
     public = models.BooleanField(default=True)
     people = models.ManyToManyField(Person, through="InterviewInvolvement")
