@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 const transcriptEl = document.getElementById('transcript');
 
 if (transcriptEl) {
@@ -16,13 +18,15 @@ if (transcriptEl) {
                 && (e.detail < endTime);
         })
 
-        if (currentLink) {
+        if (currentLink && !currentLink.classList.contains('transcript__link--current')) {
             currentLink.classList.add('transcript__link--current');
 
             /* Scroll */
             const segmentDiv = currentLink.parentElement;
             const container = segmentDiv.parentElement;
-            container.scrollTop = segmentDiv.offsetTop - container.offsetTop;
+            $(container).animate({
+                scrollTop: (segmentDiv.offsetTop - container.offsetTop),
+            }, 125);
         };
     });
 
@@ -33,7 +37,7 @@ if (transcriptEl) {
             return;
         }
 
-        timecode = Number.parseFloat(target.dataset.start);
+        const timecode = Number.parseFloat(target.dataset.start);
         const url = new URL(window.location);
         url.searchParams.set("tc", String(timecode));
         history.replaceState({}, "", url);
