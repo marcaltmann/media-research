@@ -55,6 +55,13 @@
 
 <h3>Topics</h3>
 <ul>
+    {% for topic_ref in interview.topicreference_set.all %}
+    <li>
+        <a href="{% url 'archive:interview_detail' interview.id %}?tc={{ topic_ref.timecode }}">
+            {{ topic_ref.timecode }}
+        </a>
+    </li>
+    {% endfor %}
     {% for topic in interview.topics.all %}
     <li>
         <a href="{% url 'archive:topic_detail' topic.id %}">
