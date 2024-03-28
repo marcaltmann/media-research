@@ -1,4 +1,5 @@
 from datetime import timedelta
+from django.contrib import admin
 from django.db import models
 
 class Topic(models.Model):
@@ -72,6 +73,11 @@ class Interview(models.Model):
     def media_type_first_part(self) -> str:
         return self.media_type.split("/")[0]
 
+    @admin.display(
+        boolean=True,
+        ordering="media_type",
+        description="is video?",
+    )
     def is_video(self) -> bool:
         return self.media_type_first_part() == "video"
 

@@ -6,11 +6,35 @@ from archive.models import (Interview, Collection, Transcript,
                             Location, LocationReference)
 
 
+class TopicReferenceInline(admin.TabularInline):
+    model = TopicReference
+    extra = 1
+
+
+class LocationReferenceInline(admin.TabularInline):
+    model = LocationReference
+    extra = 1
+
+
+class InterviewInvolvementInline(admin.TabularInline):
+    model = InterviewInvolvement
+    extra = 1
+
+
 @admin.register(Interview)
 class InterviewAdmin(admin.ModelAdmin):
     search_fields = ["title"]
-    list_display = ["title", "media_type", "duration", "public"]
-    exclude = ["pub_date"]
+    list_display = ["title", "media_type", "duration", "public", "is_video"]
+    list_filter = ["pub_date", "media_type", "public"]
+    fieldsets = [
+        (None, {"fields": ["title", "pub_date", "duration", "public"]}),
+        ("Media information", {"fields": ["media_type", "media_url", "poster"]}),
+    ]
+    inlines = [
+        TopicReferenceInline,
+        LocationReferenceInline,
+        InterviewInvolvementInline,
+    ]
 
 
 @admin.register(Collection)
@@ -39,18 +63,6 @@ class TopicAdmin(admin.ModelAdmin):
     list_display = ["name", "gnd_id"]
 
 
-@admin.register(InterviewInvolvement)
-class InterviewInvolvementAdmin(admin.ModelAdmin):
-    autocomplete_fields = ["person", "interview"]
-    list_display = ["person", "interview", "type"]
-
-
-@admin.register(TopicReference)
-class TopicReferenceAdmin(admin.ModelAdmin):
-    autocomplete_fields = ["topic"]
-    list_display = ["topic", "interview", "timecode"]
-
-
 @admin.register(MetadataKey)
 class MetadataKeyAdmin(admin.ModelAdmin):
     search_fields = ["label"]
@@ -65,8 +77,3 @@ class CharFieldMetadataAdmin(admin.ModelAdmin):
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
     list_display = ["name", "latitude", "longitude"]
-
-
-@admin.register(LocationReference)
-class LocationReferenceAdmin(admin.ModelAdmin):
-    list_display = ["location", "interview", "timecode"]
