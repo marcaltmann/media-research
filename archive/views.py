@@ -46,10 +46,10 @@ def collection_detail(request, collection_id):
     return render(request, "archive/collection_detail.html", context)
 
 
-def interview_index(request):
-    interviews = get_list_or_404(Interview)
-    return render(request, "archive/interview_index.html",
-                  {"interviews": interviews})
+class InterviewIndexView(generic.ListView):
+    template_name = "archive/interview_index.html"
+    paginate_by = 12
+    model = Interview
 
 
 def interview_detail(request, interview_id):

@@ -11,9 +11,11 @@
     Interviews
 </h1>
 
-{% if interviews %}
+{% include "archive/pagination.html" %}
+
+{% if page_obj %}
     <ul class="grid grid--interview">
-        {% for interview in interviews %}
+        {% for interview in page_obj %}
             <li class="card card--interview">
                 <h3 class="card__title">
                     <a class="card__link"
@@ -32,4 +34,7 @@
 {% else %}
     <p>There are no interviews yet.</p>
 {% endif %}
+
+{% include "archive/pagination.html" %}
+
 {% endblock %}
