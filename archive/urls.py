@@ -5,6 +5,7 @@ from . import views
 app_name = "archive"
 urlpatterns = [
     path("", views.welcome, name="welcome"),
+    path("search/", views.search, name="search"),
     path("collections/", views.CollectionIndexView.as_view(),
          name="collection_index"),
     path("collections/<int:collection_id>/", views.collection_detail,

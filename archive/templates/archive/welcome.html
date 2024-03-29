@@ -5,6 +5,14 @@
 {% block content %}
 <h1 class="h1">Interview presentation software</h1>
 
+<form action="{% url 'archive:search' %}" method="GET">
+    <div>
+        <input type="search" name="q" placeholder="Search interviews"
+            aria-label="Search interviews" />
+        <button type="submit">Search</button>
+    </div>
+</form>
+
 <nav>
     <ul>
         <li>

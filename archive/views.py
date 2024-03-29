@@ -9,6 +9,16 @@ def welcome(request):
     return render(request, "archive/welcome.html")
 
 
+def search(request):
+    q = request.GET.get("q", "")
+    interviews = Interview.objects.filter(title__contains=q).order_by("title")
+    context = {
+        "q": q,
+        "interviews": interviews,
+    }
+    return render(request, "archive/search_results.html", context)
+
+
 class CollectionIndexView(generic.ListView):
     template_name = "archive/collection_index.html"
     context_object_name = "collection_list"
