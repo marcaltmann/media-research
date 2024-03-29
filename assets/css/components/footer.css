@@ -1,6 +1,5 @@
 .footer {
-    background-color: var(--layout-color);
-    color: #fff;
+    background-color: var(--footer-color);
 }
 
 .footer__inner {

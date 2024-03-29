@@ -1,10 +1,10 @@
 .header {
-    background-color: var(--layout-color);
+    background-color: var(--header-color);
     color: #fff;
-    padding: calc(var(--base-unit) / 2) 0;
 }
 
 .header__inner {
+    align-items: center;
     display: flex;
 }
 

@@ -1,9 +1,12 @@
 :root {
     --base-unit: 1.5rem;
     --primary-color: #b6010e;
-    --text-color:    #333333;
-    --ui-color:      #555555;
+    --text-color:    #333;
+    --heading-color: #000;
+    --ui-color:      #555;
     --layout-color:  #1a2c5b;
+    --header-color:  #173b68;
+    --footer-color:  #c8b5da;
     --page-width:      calc(var(--base-unit) * 48);
     --page-width-wide: calc(var(--base-unit) * 60);
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",
