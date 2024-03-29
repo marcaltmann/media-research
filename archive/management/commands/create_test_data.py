@@ -5,9 +5,9 @@ from django.db import transaction
 from django.core.management.base import BaseCommand
 
 from archive.models import (
-    Person, Interview, Topic, Location, Collection, MetadataKey
+    Person, Resource, Topic, Location, Collection, MetadataKey
 )
-from archive.factories import PersonFactory, LocationFactory, InterviewFactory
+from archive.factories import PersonFactory, LocationFactory, ResourceFactory
 
 NUM_PEOPLE = 1000
 NUM_LOCATIONS = 1000
@@ -18,7 +18,7 @@ class Command(BaseCommand):
     @transaction.atomic
     def handle(self, *args, **kwargs):
         self.stdout.write("Deleting old data...")
-        models = [Person, Interview, Topic, Location, Collection, MetadataKey]
+        models = [Person, Resource, Topic, Location, Collection, MetadataKey]
         for m in models:
             m.objects.all().delete()
 
@@ -30,11 +30,11 @@ class Command(BaseCommand):
             person = PersonFactory()
             people.append(person)
 
-        interviews = []
-        # Create interviews
+        resources = []
+        # Create resources
         for _ in range(NUM_PEOPLE):
-            interview = InterviewFactory()
-            interviews.append(interview)
+            resource = ResourceFactory()
+            resources.append(resource)
 
         # Create locations
         locations = []

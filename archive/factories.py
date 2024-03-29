@@ -3,7 +3,7 @@ import datetime
 import factory
 from factory.django import DjangoModelFactory
 
-from .models import Interview, Person, Location
+from .models import Resource, Person, Location
 
 class PersonFactory(DjangoModelFactory):
     class Meta:
@@ -14,9 +14,9 @@ class PersonFactory(DjangoModelFactory):
     date_of_birth = factory.Faker("date_of_birth")
 
 
-class InterviewFactory(DjangoModelFactory):
+class ResourceFactory(DjangoModelFactory):
     class Meta:
-        model = Interview
+        model = Resource
 
     title = factory.Faker("name")
     duration = datetime.timedelta(minutes=240)

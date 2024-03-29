@@ -2,24 +2,24 @@
 
 {% load render_bundle from webpack_loader %}
 
-{% block title %}{{ interview.title }} | Interviews{% endblock %}
+{% block title %}{{ resource.title }} | Interviews{% endblock %}
 
 {% block content %}
 <nav class="breadcrumbs">
     <a class="breadcrumbs__link"
-        href="{% url 'archive:interview_index' %}">Interviews</a>
+        href="{% url 'archive:resource_index' %}">Resources</a>
     /
-    {{ interview.title }}
+    {{ resource.title }}
 </nav>
 
-<h1 class="h1">{{ interview.title }}</h1>
+<h1 class="h1">{{ resource.title }}</h1>
 
-<div class="grid grid--interview-page">
+<div class="grid grid--resource-page">
     <div>
-        {% include "archive/interview_main.html" %}
+        {% include "archive/resource_main.html" %}
     </div>
     <div>
-        {% include "archive/interview_sidebar.html" %}
+        {% include "archive/resource_sidebar.html" %}
     </div>
 </div>
 {% endblock %}

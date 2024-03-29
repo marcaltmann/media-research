@@ -6,7 +6,7 @@
     padding: var(--base-unit);
 }
 
-.card--interview {
+.card--resource {
     padding: calc(var(--base-unit) / 2);
 }
 

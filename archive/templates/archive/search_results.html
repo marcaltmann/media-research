@@ -12,23 +12,23 @@
 </h1>
 
 <p>
-    {{interviews.count}} search results
+    {{resources.count}} search results
 </p>
 
-{% if interviews %}
-    <ul class="grid grid--interview">
-        {% for interview in interviews %}
-            <li class="card card--interview">
+{% if resources %}
+    <ul class="grid grid--resource">
+        {% for resource in resources %}
+            <li class="card card--resource">
                 <h3 class="card__title">
                     <a class="card__link"
-                        href="{% url 'archive:interview_detail' interview.id %}">
-                        {{ interview.title }}
+                        href="{% url 'archive:resource_detail' resource.id %}">
+                        {{ resource.title }}
                     </a>
                 </h3>
                 <p class="card__detail">
-                    {{ interview.duration }}<br>
-                    {{ interview.media_type }}<br>
-                    {{ interview.pub_date }}
+                    {{ resource.duration }}<br>
+                    {{ resource.media_type }}<br>
+                    {{ resource.pub_date }}
                 </p>
             </li>
         {% endfor %}

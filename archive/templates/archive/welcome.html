@@ -3,12 +3,12 @@
 {% block title %}Interviews{% endblock %}
 
 {% block content %}
-<h1 class="h1">Interview presentation software</h1>
+<h1 class="h1">Resource presentation and research software</h1>
 
 <form action="{% url 'archive:search' %}" method="GET">
     <div>
-        <input type="search" name="q" placeholder="Search interviews"
-            aria-label="Search interviews" />
+        <input type="search" name="q" placeholder="Search resources"
+            aria-label="Search resources" />
         <button type="submit">Search</button>
     </div>
 </form>
@@ -16,7 +16,7 @@
 <nav>
     <ul>
         <li>
-            <a href="{% url 'archive:interview_index' %}">Interviews</a>
+            <a href="{% url 'archive:resource_index' %}">Resources</a>
         </li>
         <li>
             <a href="{% url 'archive:collection_index' %}">Collections</a>

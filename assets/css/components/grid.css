@@ -7,19 +7,19 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.grid--interview {
+.grid--resource {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 .grid--collection,
-.grid--interview {
+.grid--resource {
     list-style-type: none;
     margin-bottom: 0;
     margin-top: 0;
     padding-left: 0;
 }
 
-.grid--interview-page {
+.grid--resource-page {
     gap: calc(var(--base-unit) * 2);
     grid-template-columns: 2fr 1fr;
 }

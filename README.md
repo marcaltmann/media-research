@@ -1,4 +1,6 @@
-## Software for presenting oral history interviews
+# Interviews
+
+## Presentation and research software for multimedia resources
 
 ## Installation
 

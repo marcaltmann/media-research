@@ -36,7 +36,7 @@
                         <a class="transcript__link"
                             data-start="{{ segment.start }}"
                             data-end="{{ segment.end }}"
-                            href="{% url 'archive:interview_detail' interview.id %}?tc={{ segment.start|stringformat:'.2f' }}">
+                            href="{% url 'archive:resource_detail' resource.id %}?tc={{ segment.start|stringformat:'.2f' }}">
                             {{ segment.text }}
                         </a>
                     </li>

@@ -58,7 +58,7 @@ class Person(models.Model):
         verbose_name_plural = "people"
 
 
-class Interview(models.Model):
+class Resource(models.Model):
     title = models.CharField(max_length=200, default="")
     media_type = models.CharField(max_length=100, default="video/mp4")
     media_url = models.URLField(max_length=300, default="")
@@ -66,7 +66,7 @@ class Interview(models.Model):
     pub_date = models.DateTimeField("date published", null=True)
     duration = models.DurationField(default=timedelta(seconds=0))
     public = models.BooleanField(default=True)
-    people = models.ManyToManyField(Person, through="InterviewInvolvement")
+    people = models.ManyToManyField(Person, through="ResourceInvolvement")
     topics = models.ManyToManyField(Topic, through="TopicReference")
     locations = models.ManyToManyField(Location, through="LocationReference")
 
@@ -92,18 +92,18 @@ class Interview(models.Model):
 
 
 class Collection(models.Model):
-    interviews = models.ManyToManyField(Interview)
+    resources = models.ManyToManyField(Resource)
     name = models.CharField(max_length=200)
     description = models.TextField(default="")
 
-    def interview_count(self):
-        return self.interviews.count()
+    def resource_count(self):
+        return self.resources.count()
 
     def __str__(self):
         return self.name
 
 
-class InterviewInvolvement(models.Model):
+class ResourceInvolvement(models.Model):
     INTERVIEWEE = "INT"
     INTERVIEWER = "ITR"
     CAMERA      = "CAM"
@@ -120,57 +120,57 @@ class InterviewInvolvement(models.Model):
     }
 
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
-    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     type = models.CharField(max_length=3, choices=TYPE_CHOICES,
                             default=INTERVIEWEE)
 
     def __str__(self):
-        return "{}_{}".format(self.person.__str__(), self.interview.__str__())
+        return "{}_{}".format(self.person.__str__(), self.resource.__str__())
 
 
 class TopicReference(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     timecode = models.DecimalField(max_digits=10, decimal_places=3, null=True,
                                    blank=True)
 
     def __str__(self):
-        return f"{self.topic}_{self.interview} ({self.timecode})"
+        return f"{self.topic}_{self.resource} ({self.timecode})"
 
 
 class LocationReference(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     timecode = models.DecimalField(max_digits=10, decimal_places=3,
                                    null=True, blank=True)
 
     def __str__(self):
-        return f"{self.location}_{self.interview} ({self.timecode})"
+        return f"{self.location}_{self.resource} ({self.timecode})"
 
 
 class Transcript(models.Model):
-    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     json = models.JSONField()
     vtt = models.TextField()
     language = models.CharField(max_length=5)
 
     def __str__(self):
-        return f"{self.interview} ({self.language})"
+        return f"{self.resource} ({self.language})"
 
 
 class MetadataKey(models.Model):
     label = models.CharField(max_length=20)
     description = models.TextField(blank=True)
 
-    def char_fields_for_interview(self, interview_id):
-        return self.charfieldmetadata_set.all().filter(interview_id=interview_id)
+    def char_fields_for_resource(self, resource_id):
+        return self.charfieldmetadata_set.all().filter(resource_id=resource_id)
 
     def __str__(self):
         return self.label
 
 
 class CharFieldMetadata(models.Model):
-    interview = models.ForeignKey(Interview, on_delete=models.CASCADE)
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     key = models.ForeignKey(MetadataKey, on_delete=models.CASCADE)
     value = models.CharField(max_length=200)
 

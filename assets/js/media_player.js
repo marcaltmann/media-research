@@ -1,6 +1,6 @@
 const READY_STATE_HAVE_CURRENT_DATA = 2;
 
-const player = videojs('interview-media');
+const player = videojs('resource-media');
 
 player.ready(function() {
     this.on('timeupdate', function() {

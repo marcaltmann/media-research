@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from archive.models import (Interview, Collection, Transcript,
-                            Person, InterviewInvolvement, Topic,
+from archive.models import (Resource, Collection, Transcript,
+                            Person, ResourceInvolvement, Topic,
                             TopicReference, MetadataKey, CharFieldMetadata,
                             Location, LocationReference)
 
@@ -16,13 +16,13 @@ class LocationReferenceInline(admin.TabularInline):
     extra = 1
 
 
-class InterviewInvolvementInline(admin.TabularInline):
-    model = InterviewInvolvement
+class ResourceInvolvementInline(admin.TabularInline):
+    model = ResourceInvolvement
     extra = 1
 
 
-@admin.register(Interview)
-class InterviewAdmin(admin.ModelAdmin):
+@admin.register(Resource)
+class ResourceAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     list_display = ["title", "media_type", "duration", "public", "is_video"]
     list_filter = ["pub_date", "media_type", "public"]
@@ -33,22 +33,22 @@ class InterviewAdmin(admin.ModelAdmin):
     inlines = [
         TopicReferenceInline,
         LocationReferenceInline,
-        InterviewInvolvementInline,
+        ResourceInvolvementInline,
     ]
 
 
 @admin.register(Collection)
 class CollectionAdmin(admin.ModelAdmin):
     search_fields = ["name", "description"]
-    fields = ["name", "description", "interviews"]
-    list_display = ["name", "interview_count"]
-    filter_horizontal = ["interviews"]
+    fields = ["name", "description", "resources"]
+    list_display = ["name", "resource_count"]
+    filter_horizontal = ["resources"]
 
 
 @admin.register(Transcript)
 class TranscriptAdmin(admin.ModelAdmin):
     search_fields = ["vtt"]
-    list_display = ["interview", "language"]
+    list_display = ["resource", "language"]
 
 
 @admin.register(Person)
@@ -71,7 +71,7 @@ class MetadataKeyAdmin(admin.ModelAdmin):
 
 @admin.register(CharFieldMetadata)
 class CharFieldMetadataAdmin(admin.ModelAdmin):
-    list_display = ["interview", "key", "value"]
+    list_display = ["resource", "key", "value"]
 
 
 @admin.register(Location)

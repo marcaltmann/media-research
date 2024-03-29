@@ -1,24 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}{{ collection.name }} | Interviews{% endblock %}
+{% block title %}All resources | Interviews{% endblock %}
 
 {% block content %}
 <nav class="breadcrumbs">
-    <a class="breadcrumbs__link"
-        href="{% url 'archive:collection_index' %}">Collections</a>
-    /
-    {{ collection.name }}
+    Resources
 </nav>
 
-<h1 class="h1">{{ collection.name }}</h1>
+<h1 class="h1">
+    Resources
+</h1>
 
-<p>
-    {{ collection.description }}
-</p>
+{% include "archive/pagination.html" %}
 
-{% if resources %}
+{% if page_obj %}
     <ul class="grid grid--resource">
-        {% for resource in resources %}
+        {% for resource in page_obj %}
             <li class="card card--resource">
                 <h3 class="card__title">
                     <a class="card__link"
@@ -37,5 +34,7 @@
 {% else %}
     <p>There are no resources yet.</p>
 {% endif %}
+
+{% include "archive/pagination.html" %}
 
 {% endblock %}

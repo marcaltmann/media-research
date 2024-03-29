@@ -1,12 +1,12 @@
-{% if interview.is_video %}
-<video id="interview-media" class="video video-js vjs-fluid" controls>
-    <source src="{{ interview.media_url }}#t={{ timecode }}"
-        type="{{ interview.media_type }}" />
+{% if resource.is_video %}
+<video id="resource-media" class="video video-js vjs-fluid" controls>
+    <source src="{{ resource.media_url }}#t={{ timecode }}"
+        type="{{ resource.media_type }}" />
 </video>
 {% else %}
-<audio id="interview-media" class="audio video-js vjs-default-skin" controls>
-    <source src="{{ interview.media_url }}#t={{ timecode }}"
-        type="{{ interview.media_type }}" />
+<audio id="resource-media" class="audio video-js vjs-default-skin" controls>
+    <source src="{{ resource.media_url }}#t={{ timecode }}"
+        type="{{ resource.media_type }}" />
 </audio>
 {% endif %}
 
@@ -14,13 +14,13 @@
 
 <h3>Basic</h3>
 <ul>
-    <li>Published: {{ interview.pub_date }}</li>
-    <li>Duration: {{ interview.duration }}</li>
+    <li>Published: {{ resource.pub_date }}</li>
+    <li>Duration: {{ resource.duration }}</li>
 </ul>
 
 <h3>Custom</h3>
 <ul>
-{% for char_field_metadata in interview.charfieldmetadata_set.all %}
+{% for char_field_metadata in resource.charfieldmetadata_set.all %}
     <li>
         <span title="{{ char_field_metadata.key.description }}">
             {{ char_field_metadata.key.label|capfirst }}:
@@ -43,7 +43,7 @@
 
 <h3>People</h3>
 <ul>
-    {% for involvement in interview.interviewinvolvement_set.all %}
+    {% for involvement in resource.resourceinvolvement_set.all %}
     <li>
         {{ involvement.type }}:
         <a href="{% url 'archive:person_detail' involvement.person.id %}">
@@ -55,14 +55,14 @@
 
 <h3>Topics</h3>
 <ul>
-    {% for topic_ref in interview.topicreference_set.all %}
+    {% for topic_ref in resource.topicreference_set.all %}
     <li>
-        <a href="{% url 'archive:interview_detail' interview.id %}?tc={{ topic_ref.timecode }}">
+        <a href="{% url 'archive:resource_detail' resource.id %}?tc={{ topic_ref.timecode }}">
             {{ topic_ref.timecode }}
         </a>
     </li>
     {% endfor %}
-    {% for topic in interview.topics.all %}
+    {% for topic in resource.topics.all %}
     <li>
         <a href="{% url 'archive:topic_detail' topic.id %}">
             {{ topic.name }}
@@ -73,7 +73,7 @@
 
 <h3>Locations</h3>
 <ul>
-    {% for location in interview.locations.all %}
+    {% for location in resource.locations.all %}
     <li>
         <a href="http://www.geonames.org/{{ location.geonames_id }}/">
             {{ location.name }}

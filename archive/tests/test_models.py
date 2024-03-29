@@ -1,16 +1,16 @@
 from django.test import TestCase
 
-from archive.models import Interview
+from archive.models import Resource
 
 def video():
-    return Interview(media_type="video/mp4")
+    return Resource(media_type="video/mp4")
 
 
 def audio():
-    return Interview(media_type="audio/mp3")
+    return Resource(media_type="audio/mp3")
 
 
-class InterviewModelTests(TestCase):
+class ResourceModelTests(TestCase):
     def test_is_video_with_video(self):
         """ is_video() returns True for videos. """
         self.assertIs(video().is_video(), True)

@@ -3,7 +3,7 @@ from django.db.models.query import QuerySet
 from django.views import generic
 from django.shortcuts import get_object_or_404, get_list_or_404, render
 
-from archive.models import Interview, Collection, Person, Topic, Location
+from archive.models import Resource, Collection, Person, Topic, Location
 
 def welcome(request):
     return render(request, "archive/welcome.html")
@@ -11,10 +11,10 @@ def welcome(request):
 
 def search(request):
     q = request.GET.get("q", "")
-    interviews = Interview.objects.filter(title__contains=q).order_by("title")
+    resources = Resource.objects.filter(title__contains=q).order_by("title")
     context = {
         "q": q,
-        "interviews": interviews,
+        "resources": resources,
     }
     return render(request, "archive/search_results.html", context)
 
@@ -41,27 +41,27 @@ def collection_detail(request, collection_id):
     collection = get_object_or_404(Collection, pk=collection_id)
     context = {
         "collection": collection,
-        "interviews": collection.interviews.all(),
+        "resources": collection.resources.all(),
     }
     return render(request, "archive/collection_detail.html", context)
 
 
-class InterviewIndexView(generic.ListView):
-    template_name = "archive/interview_index.html"
+class ResourceIndexView(generic.ListView):
+    template_name = "archive/resource_index.html"
     paginate_by = 12
-    model = Interview
+    model = Resource
 
 
-def interview_detail(request, interview_id):
+def resource_detail(request, resource_id):
     timecode = request.GET.get("tc", 0)
-    interview = get_object_or_404(Interview, pk=interview_id)
+    resource = get_object_or_404(Resource, pk=resource_id)
     context = {
-        "interview": interview,
+        "resource": resource,
         "timecode": timecode,
-        "collections": interview.collection_set.all(),
-        "transcripts": interview.transcript_set.all(),
+        "collections": resource.collection_set.all(),
+        "transcripts": resource.transcript_set.all(),
     }
-    return render(request, "archive/interview_detail.html", context)
+    return render(request, "archive/resource_detail.html", context)
 
 
 def person_index(request):

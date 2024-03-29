@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from archive.models import Collection, Location, Interview
+from archive.models import Collection, Location, Resource
 
 def create_collection(name):
     """
@@ -16,11 +16,11 @@ def create_location(name, lat, lng):
     """
     return Location.objects.create(name=name, latitude=lat, longitude=lng)
 
-def create_interview(title):
+def create_resource(title):
     """
-    Create an interview with the given `title`.
+    Create a resource with the given `title`.
     """
-    return Interview.objects.create(title=title)
+    return Resource.objects.create(title=title)
 
 
 class CollectionIndexViewTests(TestCase):
@@ -70,21 +70,21 @@ class MapViewTests(TestCase):
         )
 
 
-class InterviewDetailViewTests(TestCase):
+class ResourceDetailViewTests(TestCase):
     def test_not_found(self):
         """
-        If interview does not exist, returns a 404 not found.
+        If resource does not exist, returns a 404 not found.
         """
-        url = reverse("archive:interview_detail", args=(1,))
+        url = reverse("archive:resource_detail", args=(1,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 
-    def test_normal_interview(self):
+    def test_normal_resource(self):
         """
-        The title of the interview is displayed.
+        The title of the resource is displayed.
         """
-        interview = create_interview("Test interview")
-        url = reverse("archive:interview_detail", args=(interview.id,))
+        resource = create_resource("Test resource")
+        url = reverse("archive:resource_detail", args=(resource.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, interview.title)
+        self.assertContains(response, resource.title)

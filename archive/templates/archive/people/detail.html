@@ -23,12 +23,12 @@
 </p>
 {% endif %}
 
-<h2>Associated interviews</h2>
+<h2>Associated resources</h2>
 <ul>
-{% for interview in person.interview_set.all %}
+{% for resource in person.resource_set.all %}
     <li>
-        <a href="{% url 'archive:interview_detail' interview.id %}">
-            {{ interview.title }}
+        <a href="{% url 'archive:resource_detail' resource.id %}">
+            {{ resource.title }}
         </a>
     </li>
 {% endfor %}

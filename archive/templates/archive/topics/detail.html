@@ -22,12 +22,12 @@
 </p>
 {% endif %}
 
-<h2>Associated interviews</h2>
+<h2>Associated resources</h2>
 <ul>
 {% for ref in topic.topicreference_set.all %}
     <li>
-        <a href="{% url 'archive:interview_detail' ref.interview_id %}{% if ref.timecode %}?tc={{ ref.timecode }}{% endif %}">
-            {{ ref.interview.title }}
+        <a href="{% url 'archive:resource_detail' ref.resource_id %}{% if ref.timecode %}?tc={{ ref.timecode }}{% endif %}">
+            {{ ref.resource.title }}
             {% if ref.timecode %}
                 ({{ ref.timecode }})
             {% endif %}
