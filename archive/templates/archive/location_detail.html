@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load render_bundle from webpack_loader %}
+
+{% block title %}{{ location.name }} | Interviews{% endblock %}
+
+{% block content %}
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__link"
+        href="{% url 'archive:location_index' %}">Locations</a>
+    /
+    {{ location.name }}
+</nav>
+
+<h1 class="h1">
+    {{ location.name }}
+</h1>
+
+<p>Coordinates: {{ location.latitude }}, {{ location.longitude }}</p>
+
+{% if location.geonames_id %}
+<p>
+    Geonames-ID:
+    <a href="http://www.geonames.org/{{ location.geonames_id }}">
+        {{ location.geonames_id }}
+    </a>
+</p>
+{% endif %}
+
+<div id="map" class="map"></div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    const options = {
+        dragging: false,
+        scrollWheelZoom: false,
+        zoomControl: false,
+    };
+    const point = new L.LatLng({{ location.latitude }}, {{ location.longitude }});
+    const map = L.map('map', options)
+        .setView(point, 5);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    L.marker(point).addTo(map);
+</script>
+{% endblock%}

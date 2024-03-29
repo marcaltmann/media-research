@@ -1,4 +1,4 @@
 .map {
-    height: calc(var(--base-unit) * 20);
-    max-width: calc(var(--base-unit) * 30);
+    height: calc(var(--base-unit) * 10);
+    max-width: calc(var(--base-unit) * 20);
 }

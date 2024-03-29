@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load render_bundle from webpack_loader %}
+
+{% block title %}Locations | Interviews{% endblock %}
+
+{% block content %}
+<h1 class="h1">
+    Locations
+</h1>
+
+{% if page_obj %}
+{% include "archive/pagination.html" %}
+
+<ul>
+    {% for location in page_obj %}
+        <li>
+            <a href="{% url 'archive:location_detail' location.id %}">
+                {{ location }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% include "archive/pagination.html" %}
+{% else %}
+<p>No locations are available.</p>
+{% endif %}
+
+{% endblock %}

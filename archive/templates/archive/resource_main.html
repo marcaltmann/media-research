@@ -75,7 +75,7 @@
 <ul>
     {% for location in resource.locations.all %}
     <li>
-        <a href="http://www.geonames.org/{{ location.geonames_id }}/">
+        <a href="{% url 'archive:location_detail' %}">
             {{ location.name }}
         </a>
     </li>

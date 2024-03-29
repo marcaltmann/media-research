@@ -29,12 +29,17 @@ class CollectionIndexView(generic.ListView):
 
 
 class LocationIndexView(generic.ListView):
-    template_name = "archive/map.html"
+    template_name = "archive/location_index.html"
     context_object_name = "location_list"
+    paginate_by = 25
 
     def get_queryset(self) -> QuerySet[Location]:
         """Return all locations."""
         return Location.objects.all()
+
+
+class LocationDetailView(generic.DetailView):
+    model = Location
 
 
 def collection_detail(request, collection_id):
