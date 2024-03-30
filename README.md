@@ -1,4 +1,4 @@
-# Interviews
+# Media Research
 
 ## Presentation and research software for multimedia resources
 

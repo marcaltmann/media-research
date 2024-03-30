@@ -1,7 +1,7 @@
 {
-    "name": "interviews",
+    "name": "media-research",
     "version": "1.0.0",
-    "description": "Software for presenting oral history interviews",
+    "description": "Presentation and research software for multimedia resources",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
