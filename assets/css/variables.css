@@ -14,6 +14,7 @@
     --footer-color:   var(--color-scheme-1);
     --page-width:      calc(var(--base-unit) * 48);
     --page-width-wide: calc(var(--base-unit) * 60);
+    --line-length:     calc(var(--base-unit) * 25);
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",
         "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref",
         sans-serif;

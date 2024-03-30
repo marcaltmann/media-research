@@ -10,9 +10,9 @@
     {{ collection.name }}
 </nav>
 
-<h1 class="h1">{{ collection.name }}</h1>
+<h1 class="h1 u-mt">{{ collection.name }}</h1>
 
-<p>
+<p class="p">
     {{ collection.description }}
 </p>
 
@@ -37,7 +37,9 @@
     </ul>
 </div>
 {% else %}
-<p>There are no resources yet.</p>
+<p class="p u-mt">
+    <i>There are no resources yet.</i>
+</p>
 {% endif %}
 
 {% endblock %}
