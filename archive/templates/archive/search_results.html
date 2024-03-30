@@ -16,6 +16,7 @@
 </p>
 
 {% if resources %}
+<div class="grid-wrapper">
     <ul class="grid grid--resource">
         {% for resource in resources %}
             <li class="card card--resource">
@@ -33,5 +34,6 @@
             </li>
         {% endfor %}
     </ul>
+</div>
 {% endif %}
 {% endblock %}
