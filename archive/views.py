@@ -1,4 +1,5 @@
 from typing import Any
+from django.contrib.auth.decorators import login_required
 from django.db.models.query import QuerySet
 from django.views import generic
 from django.shortcuts import get_object_or_404, get_list_or_404, render
@@ -57,6 +58,7 @@ class ResourceIndexView(generic.ListView):
     model = Resource
 
 
+@login_required()
 def resource_detail(request, resource_id):
     timecode = request.GET.get("tc", 0)
     resource = get_object_or_404(Resource, pk=resource_id)

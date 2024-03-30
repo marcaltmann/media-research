@@ -2,17 +2,33 @@
 
 {% load render_bundle from webpack_loader %}
 
-{% block title %}{{ resource.title }} | Media Research{% endblock %}
+{% block title %}
+{% if perms.archive.view_resource %}
+{{ resource.title }}
+{% else %}
+{{ resource.anon_title }}
+{% endif %}
+| Media Research{% endblock %}
 
 {% block content %}
 <nav class="breadcrumbs">
     <a class="breadcrumbs__link"
         href="{% url 'archive:resource_index' %}">Resources</a>
     /
+    {% if perms.archive.view_resource %}
     {{ resource.title }}
+    {% else %}
+    {{ resource.anon_title }}
+    {% endif %}
 </nav>
 
-<h1 class="h1">{{ resource.title }}</h1>
+<h1 class="h1">
+    {% if perms.archive.view_resource %}
+    {{ resource.title }}
+    {% else %}
+    {{ resource.anon_title }}
+    {% endif %}
+</h1>
 
 <div class="grid grid--resource-page">
     <div>

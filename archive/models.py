@@ -60,6 +60,7 @@ class Person(models.Model):
 
 class Resource(models.Model):
     title = models.CharField(max_length=200, default="")
+    anon_title = models.CharField(max_length=200, default="")
     media_type = models.CharField(max_length=100, default="video/mp4")
     media_url = models.URLField(max_length=300, default="")
     poster = models.ImageField(default="", blank=True)

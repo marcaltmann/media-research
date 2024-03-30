@@ -12,6 +12,7 @@
 
 <h2>Metadata</h2>
 
+{% if perms.archive.view_resource %}
 <h3>Basic</h3>
 <ul>
     <li>Published: {{ resource.pub_date }}</li>
@@ -81,3 +82,8 @@
     </li>
     {% endfor %}
 </ul>
+{% else %}
+<p class="p u-mt-small">
+    You do not have the permissions to view metadata.
+</p>
+{% endif %}

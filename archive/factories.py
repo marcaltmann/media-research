@@ -28,6 +28,7 @@ class ResourceFactory(DjangoModelFactory):
         model = Resource
 
     title = factory.Faker("name")
+    anon_title = factory.Faker("first_name")
     duration = datetime.timedelta(minutes=240)
     pub_date = factory.Faker("date_time",
         tzinfo=datetime.timezone(datetime.timedelta(hours=2), name="CET"))
