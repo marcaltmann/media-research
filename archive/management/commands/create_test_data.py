@@ -7,10 +7,16 @@ from django.core.management.base import BaseCommand
 from archive.models import (
     Person, Resource, Topic, Location, Collection, MetadataKey
 )
-from archive.factories import PersonFactory, LocationFactory, ResourceFactory
+from archive.factories import (
+    PersonFactory,
+    LocationFactory,
+    ResourceFactory,
+    CollectionFactory
+)
 
 NUM_PEOPLE = 1000
 NUM_LOCATIONS = 1000
+NUM_COLLECTIONS = 20
 
 class Command(BaseCommand):
     help = "Generates test data"
@@ -41,3 +47,9 @@ class Command(BaseCommand):
         for _ in range(NUM_LOCATIONS):
             location = LocationFactory()
             locations.append(location)
+
+        # Create collections
+        collections = []
+        for _ in range(NUM_COLLECTIONS):
+            collection = CollectionFactory()
+            collections.append(collection)

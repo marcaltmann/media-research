@@ -12,6 +12,7 @@
 </h1>
 
 {% if collection_list %}
+<div class="grid-wrapper">
     <ul class="grid grid--collection">
         {% for collection in collection_list %}
             <li class="card card--collection">
@@ -27,7 +28,8 @@
             </li>
         {% endfor %}
     </ul>
+</div>
 {% else %}
-    <p>No collections are available.</p>
+<p>No collections are available.</p>
 {% endif %}
 {% endblock %}

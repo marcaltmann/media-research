@@ -14,6 +14,7 @@
 {% include "archive/pagination.html" %}
 
 {% if page_obj %}
+<div class="grid-wrapper">
     <ul class="grid grid--resource">
         {% for resource in page_obj %}
             <li class="card card--resource">
@@ -31,8 +32,9 @@
             </li>
         {% endfor %}
     </ul>
+</div>
 {% else %}
-    <p>There are no resources yet.</p>
+<p>There are no resources yet.</p>
 {% endif %}
 
 {% include "archive/pagination.html" %}

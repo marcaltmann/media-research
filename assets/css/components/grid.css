@@ -1,14 +1,48 @@
+.grid-wrapper {
+    container-type: inline-size;
+}
+
 .grid {
     display: grid;
     grid-gap: var(--base-unit);
 }
 
 .grid--collection {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+@container (min-width: 25em) {
+    .grid--collection {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@container (min-width: 50em) {
+    .grid--collection {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 .grid--resource {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+@container (min-width: 20em) {
+    .grid--resource {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@container (min-width: 40em) {
+    .grid--resource {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@container (min-width: 60em) {
+    .grid--resource {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 
 .grid--collection,

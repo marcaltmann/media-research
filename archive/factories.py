@@ -3,7 +3,16 @@ import datetime
 import factory
 from factory.django import DjangoModelFactory
 
-from .models import Resource, Person, Location
+from .models import Resource, Person, Location, Collection
+
+
+class CollectionFactory(DjangoModelFactory):
+    class Meta:
+        model = Collection
+
+    name = factory.Faker("catch_phrase")
+    description = factory.Faker("paragraph")
+
 
 class PersonFactory(DjangoModelFactory):
     class Meta:
