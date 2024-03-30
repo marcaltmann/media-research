@@ -1,12 +1,17 @@
 :root {
     --base-unit: 1.5rem;
-    --primary-color: #b6010e;
-    --text-color:    #333;
-    --heading-color: #000;
-    --ui-color:      #555;
-    --layout-color:  #1a2c5b;
-    --header-color:  #173b68;
-    --footer-color:  #c8b5da;
+    --color-scheme-1: #6080b3;
+    --color-scheme-2: #779edd;
+    --color-scheme-3: #050609;
+    --color-scheme-4: #1c2533;
+    --color-scheme-5: #32435e;
+    --color-scheme-6: #496288;
+    --text-color:     #333;
+    --text-color-bright: #fff;
+    --heading-color:  #000;
+    --ui-color:       #555;
+    --header-color:   var(--color-scheme-5);
+    --footer-color:   var(--color-scheme-1);
     --page-width:      calc(var(--base-unit) * 48);
     --page-width-wide: calc(var(--base-unit) * 60);
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",

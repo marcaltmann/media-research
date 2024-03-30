@@ -35,7 +35,7 @@ class LocationIndexView(generic.ListView):
 
     def get_queryset(self) -> QuerySet[Location]:
         """Return all locations."""
-        return Location.objects.all()
+        return Location.objects.order_by("name")
 
 
 class LocationDetailView(generic.DetailView):
