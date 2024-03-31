@@ -1,4 +1,4 @@
-# Media Research
+# Media Explorer
 
 ## Presentation and research software for multimedia resources
 

@@ -8,7 +8,7 @@
 {% else %}
 {{ resource.anon_title }}
 {% endif %}
-| Media Research{% endblock %}
+| {{ block.super }}{% endblock %}
 
 {% block content %}
 <nav class="breadcrumbs">

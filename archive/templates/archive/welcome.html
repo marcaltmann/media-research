@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Media Research{% endblock %}
+{% block title %}{{ block.super }}{% endblock %}
 
 {% block content %}
-<h1 class="h1">Resource presentation and research software</h1>
+<h1 class="h1">Research and presentation software for multimedia resources</h1>
 
 <form action="{% url 'archive:search' %}" method="GET">
     <div>

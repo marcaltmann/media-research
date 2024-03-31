@@ -2,7 +2,7 @@
 
 {% load render_bundle from webpack_loader %}
 
-{% block title %}{{ location.name }} | Media Research{% endblock %}
+{% block title %}{{ location.name }} | {{ block.super }}{% endblock %}
 
 {% block content %}
 <nav class="breadcrumbs">

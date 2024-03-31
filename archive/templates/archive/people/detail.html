@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ person }} | Media Research{% endblock %}
+{% block title %}{{ person }} | {{ block.super }}{% endblock %}
 
 {% block content %}
 <nav class="breadcrumbs">
