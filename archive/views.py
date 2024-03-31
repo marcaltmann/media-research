@@ -2,9 +2,21 @@ from typing import Any
 from django.contrib.auth.decorators import login_required
 from django.db.models.query import QuerySet
 from django.views import generic
-from django.shortcuts import get_object_or_404, get_list_or_404, render
+from django.shortcuts import get_object_or_404, render
+from rest_framework import permissions, viewsets
 
 from archive.models import Resource, Collection, Person, Topic, Location
+from .serializers import ResourceSerializer
+
+
+class ResourceViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows resources to be viewed or edited.
+    """
+    queryset = Resource.objects.all().order_by('anon_title')
+    serializer_class = ResourceSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
 
 def welcome(request):
     return render(request, "archive/welcome.html")

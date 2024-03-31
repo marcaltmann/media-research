@@ -35,6 +35,7 @@ INTERNAL_IPS = [
 
 INSTALLED_APPS = [
     'archive.apps.ArchiveConfig',
+    'rest_framework',
     'webpack_loader',
     'debug_toolbar',
     'django.contrib.admin',
@@ -144,3 +145,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'archive:welcome'
 LOGOUT_REDIRECT_URL = 'archive:welcome'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 30
+}
