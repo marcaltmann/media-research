@@ -24,7 +24,7 @@ def create_people():
         person = Person.objects.create(
             first_name = fake.first_name(),
             last_name = fake.last_name(),
-            date_of_birth = fake.date_of_birth(),
+            date_of_birth = fake.date_of_birth(minimum_age=20),
         )
         people.append(person)
     return people
