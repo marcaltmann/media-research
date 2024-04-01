@@ -16,7 +16,7 @@
 <h3>Basic</h3>
 <ul>
     <li>Media type: {{ resource.media_type }}</li>
-    <li>Published: {{ resource.pub_date }}</li>
+    <li>Published: {{ resource.pub_date|date:'Y-m-d' }}</li>
     <li>Duration: {{ resource.duration }}</li>
 </ul>
 

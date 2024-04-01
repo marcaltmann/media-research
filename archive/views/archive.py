@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, render
 from rest_framework import permissions, viewsets
 
 from archive.models import Resource, Collection, Person, Topic, Location
-from .serializers import ResourceSerializer
+from archive.serializers import ResourceSerializer
 
 
 class ResourceViewSet(viewsets.ModelViewSet):

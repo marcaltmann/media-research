@@ -22,4 +22,5 @@ urlpatterns = [
          name="location_index"),
     path("locations/<int:pk>/", views.LocationDetailView.as_view(),
          name="location_detail"),
+    path("accessibility/", views.accessibility, name="accessibility"),
 ]
