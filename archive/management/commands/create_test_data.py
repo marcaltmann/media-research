@@ -8,12 +8,30 @@ from faker import Faker
 
 from archive.models import (
     Person, Resource, Topic, Location, Collection, MetadataKey,
-    ResourceInvolvement,
+    ResourceInvolvement, LocationReference,
 )
 
 NUM_PEOPLE = 1000
-NUM_LOCATIONS = 1000
+NUM_LOCATIONS = 50
 NUM_COLLECTIONS = 20
+
+
+class Command(BaseCommand):
+    help = "Generates test data"
+
+    @transaction.atomic
+    def handle(self, *args, **kwargs):
+        self.stdout.write("Deleting old data...")
+        models = [Person, Resource, Topic, Location, Collection, MetadataKey]
+        for m in models:
+            m.objects.all().delete()
+
+        self.stdout.write("Creating new data...")
+
+        people = create_people()
+        locations = create_locations()
+        resources = create_resources(people, locations)
+        collections = create_collections(resources)
 
 
 def create_people():
@@ -30,7 +48,7 @@ def create_people():
     return people
 
 
-def create_resources(people):
+def create_resources(people, locations):
     """Creates fake resource records."""
     fake = Faker()
     resources = []
@@ -41,15 +59,23 @@ def create_resources(people):
             title=f"{first_name} {last_name}",
             anon_title=f"{first_name} {last_name[0]}.",
             duration=datetime.timedelta(minutes=random.randint(10, 360)),
+            media_type=fake.mime_type(
+                category=random.choice(("video", "audio")),
+            ),
             pub_date=fake.date_time(tzinfo=datetime.timezone(
                 datetime.timedelta(hours=2), name="CET"))
         )
+        resources.append(resource)
+
         role = ResourceInvolvement.objects.create(
             person=person,
             resource=resource,
             type=ResourceInvolvement.INTERVIEWEE,
         )
-        resources.append(resource)
+        locationRef = LocationReference.objects.create(
+            location=random.choice(locations),
+            resource=resource,
+        )
     return resources
 
 
@@ -57,7 +83,7 @@ def create_locations():
     """Creates fake location records."""
     fake = Faker()
     locations = []
-    for _ in range(NUM_PEOPLE):
+    for _ in range(NUM_LOCATIONS):
         latitude, longitude, name, _, _ = fake.location_on_land()
         location = Location.objects.create(
             name=name,
@@ -68,7 +94,7 @@ def create_locations():
     return locations
 
 
-def create_collections():
+def create_collections(resources):
     """Creates fake collection records."""
     fake = Faker()
     collections = []
@@ -79,22 +105,6 @@ def create_collections():
                                        variable_nb_sentences=True),
         )
         collections.append(collection)
+        resources_pick = random.choices(resources, k=random.randint(2, 60))
+        collection.resources.add(*resources_pick)
     return collections
-
-
-class Command(BaseCommand):
-    help = "Generates test data"
-
-    @transaction.atomic
-    def handle(self, *args, **kwargs):
-        self.stdout.write("Deleting old data...")
-        models = [Person, Resource, Topic, Location, Collection, MetadataKey]
-        for m in models:
-            m.objects.all().delete()
-
-        self.stdout.write("Creating new data...")
-
-        people = create_people()
-        resources = create_resources(people)
-        locations = create_locations()
-        collections = create_collections()

@@ -12,22 +12,39 @@
     {{ location.name }}
 </nav>
 
-<h1 class="h1">
-    {{ location.name }}
-</h1>
+<div class="grid grid--location-page">
+    <div>
+        <h1 class="h1">
+            {{ location.name }}
+        </h1>
 
-<p>Coordinates: {{ location.latitude }}, {{ location.longitude }}</p>
+        <p class="p">
+            Coordinates: {{ location.latitude }}, {{ location.longitude }}
+        </p>
 
-{% if location.geonames_id %}
-<p>
-    Geonames-ID:
-    <a href="http://www.geonames.org/{{ location.geonames_id }}">
-        {{ location.geonames_id }}
-    </a>
-</p>
-{% endif %}
+        {% if location.geonames_id %}
+        <p class="p">
+            Geonames-ID:
+            <a href="http://www.geonames.org/{{ location.geonames_id }}">
+                {{ location.geonames_id }}
+            </a>
+        </p>
+        {% endif %}
 
-<div id="map" class="map"></div>
+        <ul>
+        {% for resource in location.resource_set.all %}
+            <li>
+                <a href="{% url 'archive:resource_detail' resource.id %}">
+                    {{ resource.title }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <div id="map" class="map"></div>
+    </div>
+</div>
 
 {% endblock %}
 

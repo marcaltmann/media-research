@@ -15,6 +15,7 @@
 {% if perms.archive.view_resource %}
 <h3>Basic</h3>
 <ul>
+    <li>Media type: {{ resource.media_type }}</li>
     <li>Published: {{ resource.pub_date }}</li>
     <li>Duration: {{ resource.duration }}</li>
 </ul>
@@ -76,7 +77,7 @@
 <ul>
     {% for location in resource.locations.all %}
     <li>
-        <a href="{% url 'archive:location_detail' %}">
+        <a href="{% url 'archive:location_detail' location.id %}">
             {{ location.name }}
         </a>
     </li>

@@ -57,3 +57,7 @@
     gap: calc(var(--base-unit) * 2);
     grid-template-columns: 2fr 1fr;
 }
+
+.grid--location-page {
+    grid-template-columns: 1fr 1fr;
+}

@@ -71,6 +71,9 @@ class Resource(models.Model):
     topics = models.ManyToManyField(Topic, through="TopicReference")
     locations = models.ManyToManyField(Location, through="LocationReference")
 
+    class Meta:
+        ordering = ["title"]
+
     def media_type_first_part(self) -> str:
         return self.media_type.split("/")[0]
 
