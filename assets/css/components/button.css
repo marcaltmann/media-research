@@ -1,0 +1,13 @@
+.button {
+    background-color: var(--color-scheme-5);
+    border: none;
+    color: #fff;
+    line-height: var(--base-unit);
+    padding: 0 calc(var(--base-unit) / 2);
+    transition: background-color var(--transition-duration);
+}
+
+.button:hover,
+.button:active {
+    background-color: var(--color-scheme-6);
+}
