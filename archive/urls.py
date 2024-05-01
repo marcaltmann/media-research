@@ -22,6 +22,7 @@ urlpatterns = [
          name="location_index"),
     path("locations/<int:pk>/", views.LocationDetailView.as_view(),
          name="location_detail"),
+    path("profile/", views.profile, name="profile"),
     path("terms/", views.terms, name="terms"),
     path("privacy/", views.privacy, name="privacy"),
     path("accessibility/", views.accessibility, name="accessibility"),

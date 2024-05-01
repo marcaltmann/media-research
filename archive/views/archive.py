@@ -105,3 +105,9 @@ def topic_detail(request, topic_id):
     topic = get_object_or_404(Topic, pk=topic_id)
     context = {"topic": topic}
     return render(request, "archive/topics/detail.html", context)
+
+
+@login_required()
+def profile(request):
+    context = {}
+    return render(request, "archive/profile.html", context)

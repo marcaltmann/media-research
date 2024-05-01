@@ -40,21 +40,27 @@
                         People
                     </a>
                 </li>
+
+                {% if user.is_authenticated %}
                 <li class="primary-nav__item">
-                    {% if user.is_authenticated %}
+                    <a class="primary-nav__link" href="{% url 'archive:profile' %}">
+                        {{ user.username }}
+                    </a>
+                </li>
+                <li class="primary-nav__item">
                     <form action="{% url 'logout' %}" method="POST">
                         {% csrf_token %}
                         <button type="submit" class="primary-nav__link">
-                            Logout {{ user.username }}
+                            Logout
                         </button>
                     </form>
-                    {% else %}
+                </li>
+                {% else %}
+                <li class="primary-nav__item">
                     <a class="primary-nav__link" href="{% url 'login' %}">
                         Login
                     </a>
-                    {% endif %}
                 </li>
-                {% if not user.is_authenticated %}
                 <li class="primary-nav__item">
                     <a class="primary-nav__link" href="">
                         Register
