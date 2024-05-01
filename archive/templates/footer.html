@@ -6,10 +6,24 @@
             Media Explorer v0.1
         </div>
 
-        <nav class="u-mt">
-            <a href="{% url 'archive:accessibility' %}">
-                Accessibility
-            </a>
+        <nav class="secondary-nav u-mt">
+            <ul class="secondary-nav__list">
+                <li class="secondary-nav__item">
+                    <a href="{% url 'archive:terms' %}" class="secondary-nav__link">
+                        Terms
+                    </a>
+                </li>
+                <li class="secondary-nav__item">
+                    <a href="{% url 'archive:privacy' %}" class="secondary-nav__link">
+                        Privacy
+                    </a>
+                </li>
+                <li class="secondary-nav__item">
+                    <a href="{% url 'archive:accessibility' %}" class="secondary-nav__link">
+                        Accessibility
+                    </a>
+                </li>
+            </ul>
         </nav>
     </div>
 </footer>

@@ -11,7 +11,7 @@
     --heading-color:  #000;
     --ui-color:       #555;
     --header-color:   var(--color-scheme-5);
-    --footer-color:   var(--color-scheme-1);
+    --footer-color:   var(--color-scheme-2);
     --page-width:      calc(var(--base-unit) * 48);
     --page-width-wide: calc(var(--base-unit) * 60);
     --line-length:     calc(var(--base-unit) * 25);
