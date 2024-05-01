@@ -13,6 +13,10 @@
     margin-left: calc(var(--base-unit) / 2);
 }
 
+.primary-nav__item--active {
+    font-style: italic;
+}
+
 .primary-nav__link:link,
 .primary-nav__link:visited {
     color: #fff;

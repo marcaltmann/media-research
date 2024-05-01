@@ -10,43 +10,50 @@
 
         <nav class="primary-nav">
             <ul class="primary-nav__list">
-                <li class="primary-nav__item">
+                {% url 'archive:resource_index' as url %}
+                <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
                     <a class="primary-nav__link"
                         href="{% url 'archive:resource_index' %}">
                         Resources
                     </a>
                 </li>
-                <li class="primary-nav__item">
-                    <a class="primary-nav__link"
-                        href="{% url 'archive:collection_index' %}">
+
+                {% url 'archive:collection_index' as url %}
+                <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
+                    <a class="primary-nav__link" href="{{ url }}">
                         Collections
                     </a>
                 </li>
-                <li class="primary-nav__item">
-                    <a class="primary-nav__link"
-                        href="{% url 'archive:location_index' %}">
+
+                {% url 'archive:location_index' as url %}
+                <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
+                    <a class="primary-nav__link" href="{{ url }}">
                         Locations
                     </a>
                 </li>
-                <li class="primary-nav__item">
-                    <a class="primary-nav__link"
-                        href="{% url 'archive:topic_index' %}">
+
+                {% url 'archive:topic_index' as url %}
+                <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
+                    <a class="primary-nav__link" href="{{ url }}">
                         Topics
                     </a>
                 </li>
-                <li class="primary-nav__item">
-                    <a class="primary-nav__link"
-                        href="{% url 'archive:person_index' %}">
+
+                {% url 'archive:person_index' as url %}
+                <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
+                    <a class="primary-nav__link" href="{{ url }}">
                         People
                     </a>
                 </li>
 
                 {% if user.is_authenticated %}
-                <li class="primary-nav__item">
-                    <a class="primary-nav__link" href="{% url 'archive:profile' %}">
+                {% url 'archive:profile' as url %}
+                <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
+                    <a class="primary-nav__link" href="{{ url }}">
                         {{ user.username }}
                     </a>
                 </li>
+
                 <li class="primary-nav__item">
                     <form action="{% url 'logout' %}" method="POST">
                         {% csrf_token %}
@@ -56,13 +63,16 @@
                     </form>
                 </li>
                 {% else %}
-                <li class="primary-nav__item">
-                    <a class="primary-nav__link" href="{% url 'login' %}">
+                {% url 'login' as url %}
+                <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
+                    <a class="primary-nav__link" href="{{ url }}">
                         Login
                     </a>
                 </li>
-                <li class="primary-nav__item">
-                    <a class="primary-nav__link" href="">
+
+                {% url 'login' as url %}
+                <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
+                    <a class="primary-nav__link" href="{{ url }}">
                         Register
                     </a>
                 </li>
