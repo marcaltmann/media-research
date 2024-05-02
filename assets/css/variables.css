@@ -1,5 +1,6 @@
 :root {
     --base-unit: 1.5rem;
+    --border-radius: 3px;
     --color-scheme-1: #6080b3;
     --color-scheme-2: #779edd;
     --color-scheme-3: #050609;
