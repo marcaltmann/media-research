@@ -2,5 +2,5 @@
 /webpack-stats.json
 /node_modules
 /assets/webpack_bundles
-
+/.idea
 __pycache__
