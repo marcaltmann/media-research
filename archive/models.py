@@ -1,6 +1,7 @@
 from datetime import timedelta
 from django.contrib import admin
 from django.db import models
+from django.urls import reverse
 
 
 class Topic(models.Model):
@@ -91,6 +92,9 @@ class Resource(models.Model):
 
     def char_field_metadata(self):
         return self.charfieldmetadata_set.all()
+
+    def get_absolute_url(self):
+        return reverse('archive:resource_detail', args=[self.id])
 
     def __str__(self):
         return self.title
