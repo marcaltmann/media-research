@@ -1,9 +1,18 @@
 from django.contrib import admin
 
-from archive.models import (Resource, Collection, Transcript,
-                            Person, ResourceInvolvement, Topic,
-                            TopicReference, MetadataKey, CharFieldMetadata,
-                            Location, LocationReference)
+from archive.models import (
+    Resource,
+    Collection,
+    Transcript,
+    Person,
+    ResourceInvolvement,
+    Topic,
+    TopicReference,
+    MetadataKey,
+    CharFieldMetadata,
+    Location,
+    LocationReference,
+)
 
 
 class TopicReferenceInline(admin.TabularInline):

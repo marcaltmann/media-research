@@ -2,6 +2,7 @@ from datetime import timedelta
 from django.contrib import admin
 from django.db import models
 
+
 class Topic(models.Model):
     name = models.CharField(max_length=100)
     gnd_id = models.CharField(max_length=20, blank=True)
@@ -110,23 +111,22 @@ class Collection(models.Model):
 class ResourceInvolvement(models.Model):
     INTERVIEWEE = "INT"
     INTERVIEWER = "ITR"
-    CAMERA      = "CAM"
-    SOUND       = "SND"
-    EDITOR      = "EDT"
-    OTHER       = "OTH"
+    CAMERA = "CAM"
+    SOUND = "SND"
+    EDITOR = "EDT"
+    OTHER = "OTH"
     TYPE_CHOICES = {
         INTERVIEWEE: "Interviewee",
         INTERVIEWER: "Interviewer",
-        CAMERA:      "Camera",
-        SOUND:       "Sound",
-        EDITOR:      "Editor",
-        OTHER:       "Other",
+        CAMERA: "Camera",
+        SOUND: "Sound",
+        EDITOR: "Editor",
+        OTHER: "Other",
     }
 
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    type = models.CharField(max_length=3, choices=TYPE_CHOICES,
-                            default=INTERVIEWEE)
+    type = models.CharField(max_length=3, choices=TYPE_CHOICES, default=INTERVIEWEE)
 
     def __str__(self):
         return "{}_{}".format(self.person.__str__(), self.resource.__str__())
@@ -135,8 +135,9 @@ class ResourceInvolvement(models.Model):
 class TopicReference(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    timecode = models.DecimalField(max_digits=10, decimal_places=3, null=True,
-                                   blank=True)
+    timecode = models.DecimalField(
+        max_digits=10, decimal_places=3, null=True, blank=True
+    )
 
     def __str__(self):
         return f"{self.topic}_{self.resource} ({self.timecode})"
@@ -145,8 +146,9 @@ class TopicReference(models.Model):
 class LocationReference(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    timecode = models.DecimalField(max_digits=10, decimal_places=3,
-                                   null=True, blank=True)
+    timecode = models.DecimalField(
+        max_digits=10, decimal_places=3, null=True, blank=True
+    )
 
     def __str__(self):
         return f"{self.location}_{self.resource} ({self.timecode})"

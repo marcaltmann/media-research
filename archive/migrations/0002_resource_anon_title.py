@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('archive', '0001_initial'),
+        ("archive", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='resource',
-            name='anon_title',
-            field=models.CharField(default='', max_length=200),
+            model_name="resource",
+            name="anon_title",
+            field=models.CharField(default="", max_length=200),
         ),
     ]

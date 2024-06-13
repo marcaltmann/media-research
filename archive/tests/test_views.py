@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 from archive.models import Collection, Location, Resource
 
+
 def create_collection(name):
     """
     Create a collection with the given `name`.
@@ -17,14 +18,16 @@ def create_location(name, lat, lng):
     """
     return Location.objects.create(name=name, latitude=lat, longitude=lng)
 
+
 def create_resource(title):
     """
     Create a resource with the given `title`.
     """
     return Resource.objects.create(title=title)
 
+
 def create_user():
-    """ Creates a normal user. """
+    """Creates a normal user."""
     return User.objects.create_user(username="test", password="password")
 
 

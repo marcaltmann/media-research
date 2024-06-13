@@ -7,8 +7,14 @@ from django.core.management.base import BaseCommand
 from faker import Faker
 
 from archive.models import (
-    Person, Resource, Topic, Location, Collection, MetadataKey,
-    ResourceInvolvement, LocationReference,
+    Person,
+    Resource,
+    Topic,
+    Location,
+    Collection,
+    MetadataKey,
+    ResourceInvolvement,
+    LocationReference,
 )
 
 NUM_PEOPLE = 1000
@@ -40,9 +46,9 @@ def create_people():
     people = []
     for _ in range(NUM_PEOPLE):
         person = Person.objects.create(
-            first_name = fake.first_name(),
-            last_name = fake.last_name(),
-            date_of_birth = fake.date_of_birth(minimum_age=20),
+            first_name=fake.first_name(),
+            last_name=fake.last_name(),
+            date_of_birth=fake.date_of_birth(minimum_age=20),
         )
         people.append(person)
     return people
@@ -62,8 +68,9 @@ def create_resources(people, locations):
             media_type=fake.mime_type(
                 category=random.choice(("video", "audio")),
             ),
-            pub_date=fake.date_time(tzinfo=datetime.timezone(
-                datetime.timedelta(hours=2), name="CET"))
+            pub_date=fake.date_time(
+                tzinfo=datetime.timezone(datetime.timedelta(hours=2), name="CET")
+            ),
         )
         resources.append(resource)
 
@@ -101,8 +108,7 @@ def create_collections(resources):
     for _ in range(NUM_COLLECTIONS):
         collection = Collection.objects.create(
             name=fake.catch_phrase(),
-            description=fake.paragraph(nb_sentences=5,
-                                       variable_nb_sentences=True),
+            description=fake.paragraph(nb_sentences=5, variable_nb_sentences=True),
         )
         collections.append(collection)
         resources_pick = random.choices(resources, k=random.randint(2, 60))

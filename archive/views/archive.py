@@ -13,7 +13,8 @@ class ResourceViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows resources to be viewed or edited.
     """
-    queryset = Resource.objects.all().order_by('anon_title')
+
+    queryset = Resource.objects.all().order_by("anon_title")
     serializer_class = ResourceSerializer
     permission_classes = [permissions.IsAuthenticated]
 
