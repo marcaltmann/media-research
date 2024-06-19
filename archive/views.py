@@ -2,10 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models.query import QuerySet
 from django.views import generic
 from django.shortcuts import get_object_or_404, render
-from rest_framework import permissions, viewsets
-
 from archive.models import Resource, Collection
-from archive.serializers import ResourceSerializer
 
 
 class CollectionIndexView(generic.ListView):
@@ -24,16 +21,6 @@ def collection_detail(request, collection_id):
         "resources": collection.resources.all(),
     }
     return render(request, "archive/collection_detail.html", context)
-
-
-class ResourceViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows resources to be viewed or edited.
-    """
-
-    queryset = Resource.objects.all().order_by("anon_title")
-    serializer_class = ResourceSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 
 def search(request):

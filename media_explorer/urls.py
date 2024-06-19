@@ -18,10 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from archive import views
+from api import views as api_views
 
 router = routers.DefaultRouter()
-router.register(r"resources", views.ResourceViewSet)
+router.register(r"resources", api_views.ResourceViewSet)
 
 
 urlpatterns = [

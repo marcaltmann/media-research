@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Resource
+from archive.models import Resource
 
 
 class ResourceSerializer(serializers.HyperlinkedModelSerializer):

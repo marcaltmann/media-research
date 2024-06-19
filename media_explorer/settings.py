@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "archive.apps.ArchiveConfig",
     "entities.apps.EntitiesConfig",
     "pages.apps.PagesConfig",
+    "api.apps.ApiConfig",
     "rest_framework",
     "webpack_loader",
     "debug_toolbar",
