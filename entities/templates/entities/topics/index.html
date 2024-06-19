@@ -9,7 +9,7 @@
     <ul>
     {% for topic in topics %}
         <li>
-            <a href="{% url 'archive:topic_detail' topic.id %}">
+            <a href="{% url 'entities:topic_detail' topic.id %}">
                 {{ topic }}
             </a>
         </li>

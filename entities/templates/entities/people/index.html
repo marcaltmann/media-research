@@ -9,7 +9,7 @@
     <ul>
     {% for person in people %}
         <li>
-            <a href="{% url 'archive:person_detail' person.id %}">
+            <a href="{% url 'entities:person_detail' person.id %}">
                 {{ person }}
             </a>
         </li>

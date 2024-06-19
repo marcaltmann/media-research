@@ -48,7 +48,7 @@
     {% for involvement in resource.resourceinvolvement_set.all %}
     <li>
         {{ involvement.type }}:
-        <a href="{% url 'archive:person_detail' involvement.person.id %}">
+        <a href="{% url 'entities:person_detail' involvement.person.id %}">
             {{ involvement.person }}
         </a>
     </li>
@@ -66,7 +66,7 @@
     {% endfor %}
     {% for topic in resource.topics.all %}
     <li>
-        <a href="{% url 'archive:topic_detail' topic.id %}">
+        <a href="{% url 'entities:topic_detail' topic.id %}">
             {{ topic.name }}
         </a>
     </li>
@@ -77,7 +77,7 @@
 <ul>
     {% for location in resource.locations.all %}
     <li>
-        <a href="{% url 'archive:location_detail' location.id %}">
+        <a href="{% url 'entities:location_detail' location.id %}">
             {{ location.name }}
         </a>
     </li>

@@ -15,7 +15,7 @@
 <ul>
     {% for location in page_obj %}
         <li>
-            <a href="{% url 'archive:location_detail' location.id %}">
+            <a href="{% url 'entities:location_detail' location.id %}">
                 {{ location }}
             </a>
         </li>
