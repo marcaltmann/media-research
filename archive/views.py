@@ -36,10 +36,6 @@ class ResourceViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-def welcome(request):
-    return render(request, "archive/welcome.html")
-
-
 def search(request):
     q = request.GET.get("q", "")
     resources = Resource.objects.filter(title__contains=q).order_by("title")
@@ -48,8 +44,6 @@ def search(request):
         "resources": resources,
     }
     return render(request, "archive/search_results.html", context)
-
-
 
 
 class ResourceIndexView(generic.ListView):
@@ -69,8 +63,6 @@ def resource_detail(request, resource_id):
         "transcripts": resource.transcript_set.all(),
     }
     return render(request, "archive/resource_detail.html", context)
-
-
 
 
 @login_required()

@@ -134,5 +134,5 @@ WEBPACK_LOADER = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = "archive:welcome"
-LOGOUT_REDIRECT_URL = "archive:welcome"
+LOGIN_REDIRECT_URL = "archive:profile"
+LOGOUT_REDIRECT_URL = "pages:welcome"

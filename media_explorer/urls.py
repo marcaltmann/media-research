@@ -25,6 +25,7 @@ router.register(r"resources", views.ResourceViewSet)
 
 
 urlpatterns = [
+    path("", include("pages.urls")),
     path("", include("archive.urls")),
     path("entities/", include("entities.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
