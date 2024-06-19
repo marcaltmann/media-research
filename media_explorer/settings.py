@@ -35,6 +35,7 @@ INTERNAL_IPS = [
 
 INSTALLED_APPS = [
     "archive.apps.ArchiveConfig",
+    "entities.apps.EntitiesConfig",
     "rest_framework",
     "webpack_loader",
     "debug_toolbar",

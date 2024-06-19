@@ -26,6 +26,7 @@ router.register(r"resources", views.ResourceViewSet)
 
 urlpatterns = [
     path("", include("archive.urls")),
+    path("entities/", include("entities.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),

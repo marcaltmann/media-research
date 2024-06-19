@@ -4,13 +4,10 @@ from archive.models import (
     Resource,
     Collection,
     Transcript,
-    Person,
     ResourceInvolvement,
-    Topic,
     TopicReference,
     MetadataKey,
     CharFieldMetadata,
-    Location,
     LocationReference,
 )
 
@@ -60,17 +57,6 @@ class TranscriptAdmin(admin.ModelAdmin):
     list_display = ["resource", "language"]
 
 
-@admin.register(Person)
-class PersonAdmin(admin.ModelAdmin):
-    search_fields = ["last_name", "first_name"]
-    list_display = ["last_name", "first_name", "gender", "date_of_birth"]
-
-
-@admin.register(Topic)
-class TopicAdmin(admin.ModelAdmin):
-    search_fields = ["name", "gnd_id"]
-    list_display = ["name", "gnd_id"]
-
 
 @admin.register(MetadataKey)
 class MetadataKeyAdmin(admin.ModelAdmin):
@@ -81,8 +67,3 @@ class MetadataKeyAdmin(admin.ModelAdmin):
 @admin.register(CharFieldMetadata)
 class CharFieldMetadataAdmin(admin.ModelAdmin):
     list_display = ["resource", "key", "value"]
-
-
-@admin.register(Location)
-class LocationAdmin(admin.ModelAdmin):
-    list_display = ["name", "latitude", "longitude"]

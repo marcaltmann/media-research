@@ -59,7 +59,7 @@ class MapViewTests(TestCase):
         """
         If no locations exist, an appropriate message is displayed.
         """
-        response = self.client.get(reverse("archive:location_index"))
+        response = self.client.get(reverse("entities:location_index"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No locations are available.")
         self.assertQuerySetEqual(response.context["location_list"], [])
@@ -70,7 +70,7 @@ class MapViewTests(TestCase):
         """
         location1 = create_location("Paris", 50, 10)
         location2 = create_location("Berlin", 30, 10)
-        response = self.client.get(reverse("archive:location_index"))
+        response = self.client.get(reverse("entities:location_index"))
         self.assertQuerySetEqual(
             response.context["location_list"],
             [location1, location2],
