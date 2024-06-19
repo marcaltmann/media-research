@@ -4,6 +4,6 @@
 }
 
 .footer__inner {
-    padding-bottom: var(--base-unit);
-    padding-top: var(--base-unit);
+    padding-bottom: calc(var(--base-unit) * 2);
+    padding-top: calc(var(--base-unit) * 2);
 }

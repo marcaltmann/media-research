@@ -4,8 +4,11 @@ body {
     line-height: var(--base-unit);
 }
 
-.p {
+p {
     margin-bottom: 0;
     margin-top: 0;
+}
+
+.p {
     max-width: var(--line-length);
 }
