@@ -21,6 +21,9 @@ class Resource(models.Model):
 
     class Meta:
         ordering = ["title"]
+        indexes = [
+            models.Index(fields=["title"]),
+        ]
 
     def media_type_first_part(self) -> str:
         return self.media_type.split("/")[0]
