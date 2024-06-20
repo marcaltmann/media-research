@@ -5,8 +5,8 @@ def welcome(request):
     return render(request, "pages/welcome.html")
 
 
-def terms(request):
-    return render(request, "pages/terms.html")
+def legal_notice(request):
+    return render(request, "pages/legal_notice.html")
 
 
 def privacy(request):
@@ -15,3 +15,7 @@ def privacy(request):
 
 def accessibility(request):
     return render(request, "pages/accessibility.html")
+
+
+def contact(request):
+    return render(request, "pages/contact.html")

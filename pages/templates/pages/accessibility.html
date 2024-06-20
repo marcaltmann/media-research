@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}Accessibility | {{ block.super }}{% endblock %}
+{% block title %}Accessibility | {{ block.super }}{% endblock title %}
 {% block content %}
-  <h1>Accessibility</h1>
-  <p class="p">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores perspiciatis incidunt tempore doloribus aliquam beatae voluptatem repellat labore quod illo, sapiente veritatis atque distinctio odio voluptas expedita ut nisi facilis.
+  <h1 class="h1">Accessibility</h1>
+  <p class="paragraph">
+    {% lorem %}
   </p>
-{% endblock %}
+{% endblock content %}
