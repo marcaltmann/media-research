@@ -57,7 +57,6 @@ class TranscriptAdmin(admin.ModelAdmin):
     list_display = ["resource", "language"]
 
 
-
 @admin.register(MetadataKey)
 class MetadataKeyAdmin(admin.ModelAdmin):
     search_fields = ["label"]

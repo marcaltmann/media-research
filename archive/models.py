@@ -43,7 +43,7 @@ class Resource(models.Model):
         return self.charfieldmetadata_set.all()
 
     def get_absolute_url(self):
-        return reverse('archive:resource_detail', args=[self.id])
+        return reverse("archive:resource_detail", args=[self.id])
 
     def __str__(self):
         return self.title
