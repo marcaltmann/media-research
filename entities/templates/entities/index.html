@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Entities | {{ block.super }}{% endblock %}
+
+{% block content %}
+  <h1 class="h1">
+    Entities
+  </h1>
+
+  <div class="grid grid--entities">
+    <div class="entity-type">
+      <a class="entity-type__name" href="{% url 'entities:person_index' %}">
+        People
+      </a>
+      <p class="u-mt-small">
+        34 people entities
+      </p>
+      <img class="entity-type__icon" src="{% static 'images/people-outline.svg' %}"
+           alt="" />
+    </div>
+
+    <div class="entity-type">
+      <a class="entity-type__name" href="{% url 'entities:location_index' %}">
+        Locations
+      </a>
+      <p class="u-mt-small">
+        120 location entities
+      </p>
+      <img class="entity-type__icon" src="{% static 'images/location-outline.svg' %}"
+           alt="" />
+    </div>
+
+    <div class="entity-type">
+      <a class="entity-type__name" href="#">
+        Organisations
+      </a>
+      <p class="u-mt-small">
+        21 organisation entities
+      </p>
+      <img class="entity-type__icon" src="{% static 'images/home-outline.svg' %}"
+           alt="" />
+    </div>
+
+    <div class="entity-type">
+      <a class="entity-type__name" href="#">
+        Miscellaneous
+      </a>
+      <p class="u-mt-small">
+        58 miscellaneous entities
+      </p>
+      <img class="entity-type__icon" src="{% static 'images/cube-outline.svg' %}"
+           alt=""/>
+    </div>
+  </div>
+{% endblock content %}

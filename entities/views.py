@@ -5,6 +5,10 @@ from django.shortcuts import get_object_or_404, render
 from .models import Person, Topic, Location
 
 
+def index(request):
+    return render(request, "entities/index.html")
+
+
 class LocationIndexView(generic.ListView):
     template_name = "entities/location_index.html"
     context_object_name = "location_list"

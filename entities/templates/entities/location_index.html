@@ -1,29 +1,33 @@
 {% extends "base.html" %}
 
-{% load render_bundle from webpack_loader %}
-
 {% block title %}Locations | {{ block.super }}{% endblock %}
 
 {% block content %}
-<h1 class="h1">
+  <nav class="breadcrumbs">
+    <a class="breadcrumbs__link" href="{% url 'entities:index' %}">Entities</a>
+    /
     Locations
-</h1>
+  </nav>
 
-{% if page_obj %}
-{% include "archive/pagination.html" %}
+  <h1 class="h1">
+    Locations
+  </h1>
 
-<ul>
-    {% for location in page_obj %}
-        <li>
-            <a href="{% url 'entities:location_detail' location.id %}">
-                {{ location }}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
-{% include "archive/pagination.html" %}
-{% else %}
-<p>No locations are available.</p>
-{% endif %}
+  {% if page_obj %}
+    {% include "archive/pagination.html" %}
 
-{% endblock %}
+    <ul>
+        {% for location in page_obj %}
+            <li>
+                <a href="{% url 'entities:location_detail' location.id %}">
+                    {{ location }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% include "archive/pagination.html" %}
+  {% else %}
+    <p>No locations are available.</p>
+  {% endif %}
+{% endblock content %}

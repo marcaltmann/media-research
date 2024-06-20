@@ -1,0 +1,32 @@
+.entity-type {
+    border: 1px solid var(--ui-color);
+    border-radius: 5px;
+    padding: var(--base-unit);
+    position: relative;
+}
+
+.entity-type__name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.entity-type__name:link,
+.entity-type__name:visited {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.entity-type__name:hover,
+.entity-type__name:active {
+    text-decoration: underline;
+}
+
+.entity-type__icon {
+    color: #ddd;
+    fill: currentColor;
+    filter: opacity(30%);
+    position: absolute;
+    right: calc(var(--base-unit) / 2);
+    top: calc(var(--base-unit) / 2);
+    width: calc(var(--base-unit) * 2);
+}

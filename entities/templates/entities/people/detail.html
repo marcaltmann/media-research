@@ -3,12 +3,13 @@
 {% block title %}{{ person }} | {{ block.super }}{% endblock %}
 
 {% block content %}
-<nav class="breadcrumbs">
-    <a class="breadcrumbs__link"
-        href="{% url 'entities:person_index' %}">People</a>
+  <nav class="breadcrumbs">
+    <a class="breadcrumbs__link" href="{% url 'entities:index' %}">Entities</a>
+    /
+    <a class="breadcrumbs__link" href="{% url 'entities:person_index' %}">People</a>
     /
     {{ person }}
-</nav>
+  </nav>
 
 <h1 class="h1">{{ person }}</h1>
 
