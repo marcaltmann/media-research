@@ -20,11 +20,6 @@
     text-decoration: none;
 }
 
-.header__title-link:hover,
-.header__title-link:active {
-    text-decoration: underline;
-}
-
 .header__title-img {
     display: block;
     width: 4rem;
