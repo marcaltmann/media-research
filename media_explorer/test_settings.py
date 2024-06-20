@@ -35,8 +35,11 @@ INTERNAL_IPS = [
 
 INSTALLED_APPS = [
     "archive.apps.ArchiveConfig",
+    "entities.apps.EntitiesConfig",
+    "pages.apps.PagesConfig",
+    "accounts.apps.AccountsConfig",
+    "api.apps.ApiConfig",
     "webpack_loader",
-    "debug_toolbar",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
