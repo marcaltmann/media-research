@@ -1,28 +1,28 @@
 {% load static %}
 {% load render_bundle from webpack_loader %}
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {% block title %}Media Explorer{% endblock %}</title>
+      {% block title %}Media Explorer{% endblock %}
+    </title>
     {% render_bundle "main" "css" %}
     <link rel="stylesheet" href="https://vjs.zencdn.net/8.10.0/video-js.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-</head>
-<body class="site">
+  </head>
+  <body class="site">
     {% include "header.html" %}
 
     <main class="site__main">
-        <div class="container u-mt u-mb-large">
-            {% block content %}{% endblock %}
-        </div>
+      <div class="container u-mt u-mb-large">
+        {% block content %}{% endblock %}
+      </div>
     </main>
 
     {% include "footer.html" %}
 
     {% block javascript %}{% endblock %}
-</body>
+  </body>
 </html>
