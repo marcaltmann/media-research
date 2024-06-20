@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.mail import mail_admins
 from django.shortcuts import render, redirect
 
 from .forms import RegisterForm, RegistrationForm
+
+User = get_user_model()
 
 
 def register(request):
