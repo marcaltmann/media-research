@@ -17,7 +17,7 @@ from archive.models import (
     LocationReference,
 )
 
-NUM_PEOPLE = 1000
+NUM_PEOPLE = 100_000
 NUM_LOCATIONS = 50
 NUM_COLLECTIONS = 20
 
