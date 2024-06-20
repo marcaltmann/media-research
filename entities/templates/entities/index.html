@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Entities | {{ block.super }}{% endblock %}
+{% block title %}
+  Entities | {{ block.super }}
+{% endblock title %}
 
 {% block content %}
   <h1 class="h1">
@@ -17,7 +19,7 @@
         34 people entities
       </p>
       <img class="entity-type__icon" src="{% static 'images/people-outline.svg' %}"
-           alt="" />
+           alt="" width="48px" height="48px"/>
     </div>
 
     <div class="entity-type">
@@ -28,7 +30,7 @@
         120 location entities
       </p>
       <img class="entity-type__icon" src="{% static 'images/location-outline.svg' %}"
-           alt="" />
+           alt="" width="48px" height="48px"/>
     </div>
 
     <div class="entity-type">
@@ -39,7 +41,7 @@
         21 organisation entities
       </p>
       <img class="entity-type__icon" src="{% static 'images/home-outline.svg' %}"
-           alt="" />
+           alt="" width="48px" height="48px"/>
     </div>
 
     <div class="entity-type">
@@ -50,7 +52,7 @@
         58 miscellaneous entities
       </p>
       <img class="entity-type__icon" src="{% static 'images/cube-outline.svg' %}"
-           alt=""/>
+           alt="" width="48px" height="48px"/>
     </div>
   </div>
 {% endblock content %}

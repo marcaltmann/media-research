@@ -2,7 +2,9 @@
 
 {% load render_bundle from webpack_loader %}
 
-{% block title %}{{ location.name }} | {{ block.super }}{% endblock %}
+{% block title %}
+  {{ location.name }} | {{ block.super }}
+{% endblock title %}
 
 {% block content %}
 <nav class="breadcrumbs">
@@ -25,7 +27,7 @@
         {% if location.geonames_id %}
         <p class="p">
             Geonames-ID:
-            <a href="http://www.geonames.org/{{ location.geonames_id }}">
+            <a href="https://www.geonames.org/{{ location.geonames_id }}">
                 {{ location.geonames_id }}
             </a>
         </p>
@@ -45,8 +47,7 @@
         <div id="map" class="map"></div>
     </div>
 </div>
-
-{% endblock %}
+{% endblock content %}
 
 {% block javascript %}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -62,9 +63,9 @@
         .setView(point, 5);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
 
     L.marker(point).addTo(map);
 </script>
-{% endblock%}
+{% endblock javascript %}
