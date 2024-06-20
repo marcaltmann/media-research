@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "archive.apps.ArchiveConfig",
     "entities.apps.EntitiesConfig",
     "pages.apps.PagesConfig",
+    "accounts.apps.AccountsConfig",
     "api.apps.ApiConfig",
     "rest_framework",
     "webpack_loader",
@@ -144,7 +145,7 @@ WEBPACK_LOADER = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = "archive:profile"
+LOGIN_REDIRECT_URL = "accounts:profile"
 LOGOUT_REDIRECT_URL = "pages:welcome"
 
 REST_FRAMEWORK = {

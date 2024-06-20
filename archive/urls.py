@@ -14,5 +14,4 @@ urlpatterns = [
     ),
     path("resources/", views.ResourceIndexView.as_view(), name="resource_index"),
     path("resources/<int:resource_id>/", views.resource_detail, name="resource_detail"),
-    path("profile/", views.profile, name="profile"),
 ]

@@ -50,9 +50,3 @@ def resource_detail(request, resource_id):
         "transcripts": resource.transcript_set.all(),
     }
     return render(request, "archive/resource_detail.html", context)
-
-
-@login_required()
-def profile(request):
-    context = {}
-    return render(request, "archive/profile.html", context)

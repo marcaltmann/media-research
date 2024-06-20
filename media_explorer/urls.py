@@ -29,6 +29,7 @@ urlpatterns = [
     path("", include("archive.urls")),
     path("entities/", include("entities.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("accounts.urls")),
     path("api/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("admin/", admin.site.urls),
