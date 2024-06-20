@@ -1,48 +1,39 @@
 {% extends "base.html" %}
-
 {% block title %}Login | {{ block.super }}{% endblock %}
-
 {% block content %}
-<h1 class="h1">
-    Login
-</h1>
-
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
+  <h1 class="h1">Login</h1>
+  {% if form.errors %}<p>Your username and password didn't match. Please try again.</p>{% endif %}
+  {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
+      <p>
+        Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.
+      </p>
     {% else %}
-    <p>Please login to see this page.</p>
+      <p>Please login to see this page.</p>
     {% endif %}
-{% endif %}
-
-<form method="post" action="{% url 'login' %}">
+  {% endif %}
+  <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}">
-
     <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
     </table>
-
     <div class="u-mt-small">
-        <button type="submit" class="button">
-            Login
-        </button>
+      <button type="submit" class="button">Login</button>
     </div>
-</form>
-
-<p class="p u-mt"><a href="{% url 'password_reset' %}">Lost password?</a></p>
-<p><a href="{% url 'accounts:register' %}">Register</a></p>
-
+  </form>
+  <p class="p u-mt">
+    <a href="{% url 'password_reset' %}">Lost password?</a>
+  </p>
+  <p>
+    <a href="{% url 'accounts:register' %}">Register</a>
+  </p>
 {% endblock %}

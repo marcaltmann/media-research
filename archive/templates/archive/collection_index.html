@@ -1,35 +1,25 @@
 {% extends "base.html" %}
-
 {% block title %}All collections | {{ block.super }}{% endblock %}
-
 {% block content %}
-<nav class="breadcrumbs">
+  <nav class="breadcrumbs">
     Collections
-</nav>
-
-<h1 class="h1">
-    Collections
-</h1>
-
-{% if collection_list %}
-<div class="grid-wrapper">
-    <ul class="grid grid--collection">
+  </nav>
+  <h1 class="h1">Collections</h1>
+  {% if collection_list %}
+    <div class="grid-wrapper">
+      <ul class="grid grid--collection">
         {% for collection in collection_list %}
-            <li class="card card--collection">
-                <h3 class="card__title">
-                    <a class="card__link"
-                        href="{% url 'archive:collection_detail' collection.id %}">
-                        {{ collection.name }}
-                    </a>
-                </h3>
-                <p class="card__detail">
-                    {{ collection.resource_count }} resources
-                </p>
-            </li>
+          <li class="card card--collection">
+            <h3 class="card__title">
+              <a class="card__link"
+                 href="{% url 'archive:collection_detail' collection.id %}">{{ collection.name }}</a>
+            </h3>
+            <p class="card__detail">{{ collection.resource_count }} resources</p>
+          </li>
         {% endfor %}
-    </ul>
-</div>
-{% else %}
-<p>No collections are available.</p>
-{% endif %}
+      </ul>
+    </div>
+  {% else %}
+    <p>No collections are available.</p>
+  {% endif %}
 {% endblock %}

@@ -1,33 +1,23 @@
 {% extends "base.html" %}
-
 {% block title %}
   Locations | {{ block.super }}
 {% endblock title %}
-
 {% block content %}
   <nav class="breadcrumbs">
     <a class="breadcrumbs__link" href="{% url 'entities:index' %}">Entities</a>
     /
     Locations
   </nav>
-
-  <h1 class="h1">
-    Locations
-  </h1>
-
+  <h1 class="h1">Locations</h1>
   {% if page_obj %}
     {% include "archive/pagination.html" %}
-
     <ul>
-        {% for location in page_obj %}
-            <li>
-                <a href="{% url 'entities:location_detail' location.id %}">
-                    {{ location }}
-                </a>
-            </li>
-        {% endfor %}
+      {% for location in page_obj %}
+        <li>
+          <a href="{% url 'entities:location_detail' location.id %}">{{ location }}</a>
+        </li>
+      {% endfor %}
     </ul>
-
     {% include "archive/pagination.html" %}
   {% else %}
     <p>No locations are available.</p>

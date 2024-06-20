@@ -1,23 +1,18 @@
 {% extends "base.html" %}
-
 {% block title %}
   Topics | {{ block.super }}
 {% endblock title %}
-
 {% block content %}
-<h1 class="h1">Topics</h1>
-
-{% if topics %}
+  <h1 class="h1">Topics</h1>
+  {% if topics %}
     <ul>
-    {% for topic in topics %}
+      {% for topic in topics %}
         <li>
-            <a href="{% url 'entities:topic_detail' topic.id %}">
-                {{ topic }}
-            </a>
+          <a href="{% url 'entities:topic_detail' topic.id %}">{{ topic }}</a>
         </li>
-    {% endfor %}
+      {% endfor %}
     </ul>
-{% else %}
+  {% else %}
     <p>No topics are available.</p>
-{% endif %}
+  {% endif %}
 {% endblock content %}

@@ -1,41 +1,30 @@
 {% extends "base.html" %}
-
 {% block title %}
   {{ topic }} | {{ block.super }}
 {% endblock title %}
-
 {% block content %}
-<nav class="breadcrumbs">
-    <a class="breadcrumbs__link"
-        href="{% url 'entities:topic_index' %}">Topics</a>
+  <nav class="breadcrumbs">
+    <a class="breadcrumbs__link" href="{% url 'entities:topic_index' %}">Topics</a>
     /
     {{ topic }}
-</nav>
-
-<h1 class="h1">{{ topic }}</h1>
-
-<p>{{ topic.description }}</p>
-{% if topic.gnd_id %}
-<p>
-    GND-ID:
-    <a href="https://explore.gnd.network/gnd/{{ topic.gnd_id }}">
-        {{ topic.gnd_id }}
-    </a>
-</p>
-{% endif %}
-
-<h2>Associated resources</h2>
-<ul>
-{% for ref in topic.topicreference_set.all %}
-    <li>
+  </nav>
+  <h1 class="h1">{{ topic }}</h1>
+  <p>{{ topic.description }}</p>
+  {% if topic.gnd_id %}
+    <p>
+      GND-ID:
+      <a href="https://explore.gnd.network/gnd/{{ topic.gnd_id }}">{{ topic.gnd_id }}</a>
+    </p>
+  {% endif %}
+  <h2>Associated resources</h2>
+  <ul>
+    {% for ref in topic.topicreference_set.all %}
+      <li>
         <a href="{% url 'archive:resource_detail' ref.resource_id %}{% if ref.timecode %}?tc={{ ref.timecode }}{% endif %}">
-            {{ ref.resource.title }}
-            {% if ref.timecode %}
-                ({{ ref.timecode }})
-            {% endif %}
+          {{ ref.resource.title }}
+          {% if ref.timecode %}({{ ref.timecode }}){% endif %}
         </a>
-    </li>
-{% endfor %}
-</ul>
-
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock content %}

@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-
 {% block title %}
   {{ person }} | {{ block.super }}
 {% endblock title %}
-
 {% block content %}
   <nav class="breadcrumbs">
     <a class="breadcrumbs__link" href="{% url 'entities:index' %}">Entities</a>
@@ -12,29 +10,21 @@
     /
     {{ person }}
   </nav>
-
-<h1 class="h1">{{ person }}</h1>
-
-<p>Date of birth: {{ person.date_of_birth }}</p>
-<p>Gender: {{ person.gender }}</p>
-{% if person.gnd_id %}
-<p>
-    GND-ID:
-    <a href="https://explore.gnd.network/gnd/{{ person.gnd_id }}">
-        {{ person.gnd_id }}
-    </a>
-</p>
-{% endif %}
-
-<h2>Associated resources</h2>
-<ul>
-{% for resource in person.resource_set.all %}
-    <li>
-        <a href="{% url 'archive:resource_detail' resource.id %}">
-            {{ resource.title }}
-        </a>
-    </li>
-{% endfor %}
-</ul>
-
+  <h1 class="h1">{{ person }}</h1>
+  <p>Date of birth: {{ person.date_of_birth }}</p>
+  <p>Gender: {{ person.gender }}</p>
+  {% if person.gnd_id %}
+    <p>
+      GND-ID:
+      <a href="https://explore.gnd.network/gnd/{{ person.gnd_id }}">{{ person.gnd_id }}</a>
+    </p>
+  {% endif %}
+  <h2>Associated resources</h2>
+  <ul>
+    {% for resource in person.resource_set.all %}
+      <li>
+        <a href="{% url 'archive:resource_detail' resource.id %}">{{ resource.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock content %}

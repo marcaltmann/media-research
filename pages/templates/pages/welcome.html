@@ -1,36 +1,33 @@
 {% extends "base.html" %}
-
 {% block title %}{{ block.super }}{% endblock %}
-
 {% block content %}
-<h1 class="h1">Research and presentation software for multimedia resources</h1>
-
-<form action="{% url 'archive:search' %}" method="GET">
+  <h1 class="h1">Research and presentation software for multimedia resources</h1>
+  <form action="{% url 'archive:search' %}" method="GET">
     <div>
-        <input type="search" name="q" placeholder="Search resources"
-            aria-label="Search resources" />
-        <button type="submit">Search</button>
+      <input type="search"
+             name="q"
+             placeholder="Search resources"
+             aria-label="Search resources" />
+      <button type="submit">Search</button>
     </div>
-</form>
-
-<nav>
+  </form>
+  <nav>
     <ul>
-        <li>
-            <a href="{% url 'archive:resource_index' %}">Resources</a>
-        </li>
-        <li>
-            <a href="{% url 'archive:collection_index' %}">Collections</a>
-        </li>
-        <li>
-            <a href="{% url 'entities:location_index' %}">Locations</a>
-        </li>
-        <li>
-            <a href="{% url 'entities:topic_index' %}">Topics</a>
-        </li>
-        <li>
-            <a href="{% url 'entities:person_index' %}">People</a>
-        </li>
+      <li>
+        <a href="{% url 'archive:resource_index' %}">Resources</a>
+      </li>
+      <li>
+        <a href="{% url 'archive:collection_index' %}">Collections</a>
+      </li>
+      <li>
+        <a href="{% url 'entities:location_index' %}">Locations</a>
+      </li>
+      <li>
+        <a href="{% url 'entities:topic_index' %}">Topics</a>
+      </li>
+      <li>
+        <a href="{% url 'entities:person_index' %}">People</a>
+      </li>
     </ul>
-</nav>
-
+  </nav>
 {% endblock %}

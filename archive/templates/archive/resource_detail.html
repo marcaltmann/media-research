@@ -1,46 +1,36 @@
 {% extends "base.html" %}
-
 {% load render_bundle from webpack_loader %}
-
 {% block title %}
-{% if perms.archive.view_resource %}
-{{ resource.title }}
-{% else %}
-{{ resource.anon_title }}
-{% endif %}
-| {{ block.super }}{% endblock %}
-
+  {% if perms.archive.view_resource %}
+    {{ resource.title }}
+  {% else %}
+    {{ resource.anon_title }}
+  {% endif %}
+  | {{ block.super }}
+{% endblock %}
 {% block content %}
-<nav class="breadcrumbs">
-    <a class="breadcrumbs__link"
-        href="{% url 'archive:resource_index' %}">Resources</a>
+  <nav class="breadcrumbs">
+    <a class="breadcrumbs__link" href="{% url 'archive:resource_index' %}">Resources</a>
     /
     {% if perms.archive.view_resource %}
-    {{ resource.title }}
+      {{ resource.title }}
     {% else %}
-    {{ resource.anon_title }}
+      {{ resource.anon_title }}
     {% endif %}
-</nav>
-
-<h1 class="h1">
+  </nav>
+  <h1 class="h1">
     {% if perms.archive.view_resource %}
-    {{ resource.title }}
+      {{ resource.title }}
     {% else %}
-    {{ resource.anon_title }}
+      {{ resource.anon_title }}
     {% endif %}
-</h1>
-
-<div class="grid grid--resource-page">
-    <div>
-        {% include "archive/resource_main.html" %}
-    </div>
-    <div>
-        {% include "archive/resource_sidebar.html" %}
-    </div>
-</div>
+  </h1>
+  <div class="grid grid--resource-page">
+    <div>{% include "archive/resource_main.html" %}</div>
+    <div>{% include "archive/resource_sidebar.html" %}</div>
+  </div>
 {% endblock %}
-
 {% block javascript %}
-<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-{% render_bundle "main" "js" %}
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  {% render_bundle "main" "js" %}
 {% endblock %}

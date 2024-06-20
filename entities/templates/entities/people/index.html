@@ -1,27 +1,21 @@
 {% extends "base.html" %}
-
 {% block title %}
   People | {{ block.super }}
 {% endblock title %}
-
 {% block content %}
   <nav class="breadcrumbs">
     <a class="breadcrumbs__link" href="{% url 'entities:index' %}">Entities</a>
     /
     People
   </nav>
-
   <h1 class="h1">People</h1>
-
   {% if people %}
     <ul>
-    {% for person in people %}
-      <li>
-        <a href="{% url 'entities:person_detail' person.id %}">
-          {{ person }}
-        </a>
-      </li>
-    {% endfor %}
+      {% for person in people %}
+        <li>
+          <a href="{% url 'entities:person_detail' person.id %}">{{ person }}</a>
+        </li>
+      {% endfor %}
     </ul>
   {% else %}
     <p>No people are available.</p>

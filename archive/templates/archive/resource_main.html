@@ -1,90 +1,69 @@
 {% if resource.is_video %}
-<video id="resource-media" class="video video-js vjs-fluid" controls>
+  <video id="resource-media" class="video video-js vjs-fluid" controls>
     <source src="{{ resource.media_url }}#t={{ timecode }}"
-        type="{{ resource.media_type }}" />
-</video>
+            type="{{ resource.media_type }}" />
+  </video>
 {% else %}
-<audio id="resource-media" class="audio video-js vjs-default-skin" controls>
+  <audio id="resource-media" class="audio video-js vjs-default-skin" controls>
     <source src="{{ resource.media_url }}#t={{ timecode }}"
-        type="{{ resource.media_type }}" />
-</audio>
+            type="{{ resource.media_type }}" />
+  </audio>
 {% endif %}
-
 <h2>Metadata</h2>
-
 {% if perms.archive.view_resource %}
-<h3>Basic</h3>
-<ul>
+  <h3>Basic</h3>
+  <ul>
     <li>Media type: {{ resource.media_type }}</li>
     <li>Published: {{ resource.pub_date|date:'Y-m-d' }}</li>
     <li>Duration: {{ resource.duration }}</li>
-</ul>
-
-<h3>Custom</h3>
-<ul>
-{% for char_field_metadata in resource.charfieldmetadata_set.all %}
-    <li>
-        <span title="{{ char_field_metadata.key.description }}">
-            {{ char_field_metadata.key.label|capfirst }}:
-        </span>
+  </ul>
+  <h3>Custom</h3>
+  <ul>
+    {% for char_field_metadata in resource.charfieldmetadata_set.all %}
+      <li>
+        <span title="{{ char_field_metadata.key.description }}">{{ char_field_metadata.key.label|capfirst }}:</span>
         {{ char_field_metadata.value }}
-    </li>
-{% endfor %}
-</ul>
-
-<h3>Collections</h3>
-<ul>
-{% for collection in collections %}
-    <li>
-        <a href="{% url 'archive:collection_detail' collection.id %}">
-            {{ collection }}
-        </a>
-    </li>
-{% endfor %}
-</ul>
-
-<h3>People</h3>
-<ul>
-    {% for involvement in resource.resourceinvolvement_set.all %}
-    <li>
-        {{ involvement.type }}:
-        <a href="{% url 'entities:person_detail' involvement.person.id %}">
-            {{ involvement.person }}
-        </a>
-    </li>
+      </li>
     {% endfor %}
-</ul>
-
-<h3>Topics</h3>
-<ul>
+  </ul>
+  <h3>Collections</h3>
+  <ul>
+    {% for collection in collections %}
+      <li>
+        <a href="{% url 'archive:collection_detail' collection.id %}">{{ collection }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h3>People</h3>
+  <ul>
+    {% for involvement in resource.resourceinvolvement_set.all %}
+      <li>
+        {{ involvement.type }}:
+        <a href="{% url 'entities:person_detail' involvement.person.id %}">{{ involvement.person }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h3>Topics</h3>
+  <ul>
     {% for topic_ref in resource.topicreference_set.all %}
-    <li>
-        <a href="{% url 'archive:resource_detail' resource.id %}?tc={{ topic_ref.timecode }}">
-            {{ topic_ref.timecode }}
-        </a>
-    </li>
+      <li>
+        <a href="{% url 'archive:resource_detail' resource.id %}?tc={{ topic_ref.timecode }}">{{ topic_ref.timecode }}</a>
+      </li>
     {% endfor %}
     {% for topic in resource.topics.all %}
-    <li>
-        <a href="{% url 'entities:topic_detail' topic.id %}">
-            {{ topic.name }}
-        </a>
-    </li>
+      <li>
+        <a href="{% url 'entities:topic_detail' topic.id %}">{{ topic.name }}</a>
+      </li>
     {% endfor %}
-</ul>
-
-<h3>Locations</h3>
-<ul>
+  </ul>
+  <h3>Locations</h3>
+  <ul>
     {% for location in resource.locations.all %}
-    <li>
-        <a href="{% url 'entities:location_detail' location.id %}">
-            {{ location.name }}
-        </a>
-    </li>
+      <li>
+        <a href="{% url 'entities:location_detail' location.id %}">{{ location.name }}</a>
+      </li>
     {% endfor %}
-</ul>
+  </ul>
 {% else %}
-<p class="p u-mt-small">
-    You do not have the permissions to view metadata.
-</p>
+  <p class="p u-mt-small">You do not have the permissions to view metadata.</p>
 {% endif %}

@@ -1,22 +1,16 @@
 {% extends "base.html" %}
-
 {% block title %}
-    Register | {{ block.super }}
+  Register | {{ block.super }}
 {% endblock title %}
-
 {% block content %}
-    <h1 class="h1">Register</h1>
-
-    {% if form.errors %}
-    {% endif %}
-
-    <form method="post" action="{% url 'accounts:register' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
-
-    <p>
-        <a href="{% url 'login' %}">Login</a>
-    </p>
+  <h1 class="h1">Register</h1>
+  {% if form.errors %}{% endif %}
+  <form method="post" action="{% url 'accounts:register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+  <p>
+    <a href="{% url 'login' %}">Login</a>
+  </p>
 {% endblock content %}

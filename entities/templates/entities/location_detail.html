@@ -1,58 +1,40 @@
 {% extends "base.html" %}
-
 {% load render_bundle from webpack_loader %}
-
 {% block title %}
   {{ location.name }} | {{ block.super }}
 {% endblock title %}
-
 {% block content %}
-<nav class="breadcrumbs">
-    <a class="breadcrumbs__link"
-        href="{% url 'entities:location_index' %}">Locations</a>
+  <nav class="breadcrumbs">
+    <a class="breadcrumbs__link" href="{% url 'entities:location_index' %}">Locations</a>
     /
     {{ location.name }}
-</nav>
-
-<div class="grid grid--location-page">
+  </nav>
+  <div class="grid grid--location-page">
     <div>
-        <h1 class="h1">
-            {{ location.name }}
-        </h1>
-
+      <h1 class="h1">{{ location.name }}</h1>
+      <p class="p">Coordinates: {{ location.latitude }}, {{ location.longitude }}</p>
+      {% if location.geonames_id %}
         <p class="p">
-            Coordinates: {{ location.latitude }}, {{ location.longitude }}
+          Geonames-ID:
+          <a href="https://www.geonames.org/{{ location.geonames_id }}">{{ location.geonames_id }}</a>
         </p>
-
-        {% if location.geonames_id %}
-        <p class="p">
-            Geonames-ID:
-            <a href="https://www.geonames.org/{{ location.geonames_id }}">
-                {{ location.geonames_id }}
-            </a>
-        </p>
-        {% endif %}
-
-        <ul>
+      {% endif %}
+      <ul>
         {% for resource in location.resource_set.all %}
-            <li>
-                <a href="{% url 'archive:resource_detail' resource.id %}">
-                    {{ resource.title }}
-                </a>
-            </li>
+          <li>
+            <a href="{% url 'archive:resource_detail' resource.id %}">{{ resource.title }}</a>
+          </li>
         {% endfor %}
-        </ul>
+      </ul>
     </div>
     <div>
-        <div id="map" class="map"></div>
+      <div id="map" class="map"></div>
     </div>
-</div>
+  </div>
 {% endblock content %}
-
 {% block javascript %}
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
     const options = {
         dragging: false,
         scrollWheelZoom: false,
@@ -67,5 +49,5 @@
     }).addTo(map);
 
     L.marker(point).addTo(map);
-</script>
+  </script>
 {% endblock javascript %}
