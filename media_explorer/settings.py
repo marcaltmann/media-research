@@ -152,3 +152,12 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 30,
 }
+
+EMAIL_SUBJECT_PREFIX = "[MMT_Py] "
+SERVER_EMAIL = "info@example.com"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "info@example.com"
+
+ADMINS = [
+    ("admin", "admin@example.com"),
+]

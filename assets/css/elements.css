@@ -9,6 +9,6 @@ p {
     margin-top: 0;
 }
 
-.p {
+.paragraph {
     max-width: var(--line-length);
 }

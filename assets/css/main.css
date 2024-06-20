@@ -1,23 +1,24 @@
-@import "normalize";
+@import "normalize.css";
 
-@import "variables";
+@import "variables.css";
 
-@import "elements";
-@import "headings";
+@import "elements.css";
+@import "headings.css";
 
-@import "components/breadcrumbs";
-@import "components/button";
-@import "components/card";
-@import "components/container";
-@import "components/footer";
-@import "components/grid";
-@import "components/header";
-@import "components/input";
-@import "components/map";
-@import "components/primary_nav";
-@import "components/secondary_nav";
-@import "components/site";
-@import "components/tabs";
-@import "components/transcript";
+@import "components/breadcrumbs.css";
+@import "components/button.css";
+@import "components/card.css";
+@import "components/container.css";
+@import "components/footer.css";
+@import "components/form.css";
+@import "components/grid.css";
+@import "components/header.css";
+@import "components/input.css";
+@import "components/map.css";
+@import "components/primary_nav.css";
+@import "components/secondary_nav.css";
+@import "components/site.css";
+@import "components/tabs.css";
+@import "components/transcript.css";
 
-@import "utilities";
+@import "utilities.css";

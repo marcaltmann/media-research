@@ -19,3 +19,7 @@
 .u-ml-none { margin-left:   0 }
 
 .u-align-center { text-align: center; }
+
+.u-ll {
+    max-width: var(--line-length);
+}

@@ -56,7 +56,7 @@
                     </a>
                 </li>
 
-                {% url 'login' as url %}
+                {% url 'accounts:register' as url %}
                 <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
                     <a class="primary-nav__link" href="{{ url }}">
                         Register
