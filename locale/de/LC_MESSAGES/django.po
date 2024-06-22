@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-22 20:43+0200\n"
+"POT-Creation-Date: 2024-06-22 21:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: archive/templates/archive/resource_detail.html:15
+#: archive/templates/archive/resource_index.html:6
+#: archive/templates/header.html:12 pages/templates/pages/welcome.html:23
+msgid "Resources"
+msgstr "Ressourcen"
+
+#: archive/templates/archive/resource_index.html:3
+#: archive/templates/archive/resource_index.html:8
+msgid "All resources"
+msgstr "Alle Ressourcen"
+
+#: archive/templates/archive/resource_index.html:31
+msgid "There are no resources yet."
+msgstr "Es gibt noch keine Ressourcen,"
+
+#: archive/templates/archive/resource_main.html:13
+msgid "Metadata"
+msgstr "Metadaten"
+
+#: archive/templates/archive/resource_main.html:15
+msgid "Basic"
+msgstr "Einfach"
+
+#: archive/templates/archive/resource_main.html:17
+msgid "Media type"
+msgstr "Medientyp"
+
+#: archive/templates/archive/resource_main.html:18
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: archive/templates/archive/resource_main.html:19
+msgid "Duration"
+msgstr "Dauer"
+
+#: archive/templates/archive/resource_main.html:21
+msgid "Custom"
+msgstr "Individuell"
+
+#: archive/templates/archive/resource_main.html:30
+#: archive/templates/header.html:18 pages/templates/pages/welcome.html:28
+msgid "Collections"
+msgstr "Sammlungen"
+
+#: archive/templates/archive/resource_main.html:38
+msgid "People"
+msgstr "Personen"
+
+#: archive/templates/archive/resource_main.html:47
+msgid "Locations"
+msgstr "Orte"
+
+#: archive/templates/archive/resource_main.html:57
+msgid "You do not have the permissions to view metadata."
+msgstr "Sie haben nicht das Recht, die Metadaten zu sehen."
+
+#: archive/templates/archive/resource_sidebar.html:3
+msgid "Transcripts"
+msgstr "Transkripte"
 
 #: archive/templates/footer.html:9
 msgid "Legal notice"
@@ -34,15 +94,7 @@ msgstr "Barrierefreiheit"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: archive/templates/header.html:12
-msgid "Resources"
-msgstr "Ressourcen"
-
-#: archive/templates/header.html:18
-msgid "Collections"
-msgstr "Sammlungen"
-
-#: archive/templates/header.html:24
+#: archive/templates/header.html:24 pages/templates/pages/welcome.html:33
 msgid "Entities"
 msgstr "Entitäten"
 
@@ -66,6 +118,22 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: templates/admin/base_site.html:4
+#: pages/templates/pages/welcome.html:6
+msgid "Research and presentation software for multimedia resources"
+msgstr "Forschungs- und Präsentationssoftware für Multimedia-Ressourcen"
+
+#: pages/templates/pages/welcome.html:12 pages/templates/pages/welcome.html:13
+msgid "Search resources"
+msgstr "Ressourcen suchen"
+
+#: pages/templates/pages/welcome.html:15
+msgid "Search"
+msgstr "Suchen"
+
+#: templates/admin/base_site.html:5
 msgid "Django site admin"
 msgstr "Django Site-Administration"
+
+#: templates/admin/base_site.html:10
+msgid "Media Explorer Administration"
+msgstr "Media Explorer Administration"

@@ -1,4 +1,7 @@
-<h2 class="h3 u-mt-none">Transcripts</h2>
+{% load i18n %}
+<h2 class="h3 u-mt-none">
+  {% translate "Transcripts" %}
+</h2>
 <nav class="tabset" aria-label="Tabs">
   {% for transcript in transcripts %}
     {% if forloop.counter0 %}
@@ -46,4 +49,4 @@
       </div>
     {% endfor %}
   </div>
-</div>
+</nav>

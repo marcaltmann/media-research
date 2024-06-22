@@ -1,31 +1,36 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}{{ block.super }}{% endblock %}
 {% block content %}
-  <h1 class="h1">Research and presentation software for multimedia resources</h1>
+  <h1 class="h1">
+    {% translate "Research and presentation software for multimedia resources" %}
+  </h1>
   <form action="{% url 'archive:search' %}" method="GET">
     <div>
       <input type="search"
              name="q"
-             placeholder="Search resources"
-             aria-label="Search resources" />
-      <button type="submit">Search</button>
+             placeholder="{% translate 'Search resources' %}"
+             aria-label="{% translate 'Search resources' %}"/>
+      <button type="submit">
+        {% translate "Search" %}
+      </button>
     </div>
   </form>
   <nav class="u-mt">
     <ul class="welcome__link-list">
       <li>
         <a href="{% url 'archive:resource_index' %}" class="welcome__link">
-          Resources
+          {% translate "Resources" %}
         </a>
       </li>
       <li class="u-mt-small">
         <a href="{% url 'archive:collection_index' %}" class="welcome__link">
-          Collections
+          {% translate "Collections" %}
         </a>
       </li>
       <li class="u-mt-small">
         <a href="{% url 'entities:index' %}" class="welcome__link">
-          Entities
+          {% translate "Entities" %}
         </a>
       </li>
     </ul>

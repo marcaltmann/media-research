@@ -1,11 +1,14 @@
 {% extends "admin/base.html" %}
+{% load i18n %}
 {% block title %}
   {% if subtitle %}{{ subtitle }} |{% endif %}
   {{ title }} | {{ site_title|default:_("Django site admin") }}
 {% endblock %}
 {% block branding %}
   <div id="site-name">
-    <a href="{% url 'admin:index' %}">Media Explorer Administration</a>
+    <a href="{% url 'admin:index' %}">
+      {% translate "Media Explorer Administration" %}
+    </a>
   </div>
   {% if user.is_anonymous %}
     {% include "admin/color_theme_toggle.html" %}

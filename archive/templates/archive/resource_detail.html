@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load render_bundle from webpack_loader %}
 {% block title %}
   {% if perms.archive.view_resource %}
@@ -10,7 +11,8 @@
 {% endblock %}
 {% block content %}
   <nav class="breadcrumbs">
-    <a class="breadcrumbs__link" href="{% url 'archive:resource_index' %}">Resources</a>
+    <a class="breadcrumbs__link"
+       href="{% url 'archive:resource_index' %}">{% translate "Resources" %}</a>
     /
     {% if perms.archive.view_resource %}
       {{ resource.title }}

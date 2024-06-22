@@ -1,3 +1,4 @@
+{% load i18n %}
 {% if resource.is_video %}
   <video id="resource-media" class="video video-js vjs-fluid" controls>
     <source src="{{ resource.media_url }}#t={{ timecode }}"
@@ -9,15 +10,15 @@
             type="{{ resource.media_type }}" />
   </audio>
 {% endif %}
-<h2>Metadata</h2>
+<h2>{% translate "Metadata" %}</h2>
 {% if perms.archive.view_resource %}
-  <h3>Basic</h3>
+  <h3>{% translate "Basic" %}</h3>
   <ul>
-    <li>Media type: {{ resource.media_type }}</li>
-    <li>Published: {{ resource.pub_date|date:'Y-m-d' }}</li>
-    <li>Duration: {{ resource.duration }}</li>
+    <li>{% translate "Media type" %}: {{ resource.media_type }}</li>
+    <li>{% translate "Published" %}: {{ resource.pub_date|date:'Y-m-d' }}</li>
+    <li>{% translate "Duration" %}: {{ resource.duration }}</li>
   </ul>
-  <h3>Custom</h3>
+  <h3>{% translate "Custom" %}</h3>
   <ul>
     {% for char_field_metadata in resource.charfieldmetadata_set.all %}
       <li>
@@ -26,7 +27,7 @@
       </li>
     {% endfor %}
   </ul>
-  <h3>Collections</h3>
+  <h3>{% translate "Collections" %}</h3>
   <ul>
     {% for collection in collections %}
       <li>
@@ -34,7 +35,7 @@
       </li>
     {% endfor %}
   </ul>
-  <h3>People</h3>
+  <h3>{% translate "People" %}</h3>
   <ul>
     {% for involvement in resource.resourceinvolvement_set.all %}
       <li>
@@ -43,20 +44,7 @@
       </li>
     {% endfor %}
   </ul>
-  <h3>Topics</h3>
-  <ul>
-    {% for topic_ref in resource.topicreference_set.all %}
-      <li>
-        <a href="{% url 'archive:resource_detail' resource.id %}?tc={{ topic_ref.timecode }}">{{ topic_ref.timecode }}</a>
-      </li>
-    {% endfor %}
-    {% for topic in resource.topics.all %}
-      <li>
-        <a href="{% url 'entities:topic_detail' topic.id %}">{{ topic.name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-  <h3>Locations</h3>
+  <h3>{% translate "Locations" %}</h3>
   <ul>
     {% for location in resource.locations.all %}
       <li>
@@ -65,5 +53,7 @@
     {% endfor %}
   </ul>
 {% else %}
-  <p class="p u-mt-small">You do not have the permissions to view metadata.</p>
+  <p class="p u-mt-small">
+    {% translate "You do not have the permissions to view metadata." %}
+  </p>
 {% endif %}
