@@ -2,6 +2,7 @@ from datetime import timedelta
 from django.contrib import admin
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 from entities.models import Location, Person
 
@@ -9,7 +10,11 @@ from entities.models import Location, Person
 class Resource(models.Model):
     title = models.CharField(max_length=200, default="")
     anon_title = models.CharField(max_length=200, default="")
-    media_type = models.CharField(max_length=100, default="video/mp4")
+    media_type = models.CharField(
+        max_length=100,
+        default="video/mp4",
+        help_text="Enter MIME type e.g. 'video/mp4'.",
+    )
     media_url = models.URLField(max_length=300, default="")
     poster = models.ImageField(default="", blank=True)
     pub_date = models.DateTimeField("date published", null=True)
@@ -23,6 +28,8 @@ class Resource(models.Model):
         indexes = [
             models.Index(fields=["title"]),
         ]
+        verbose_name = _("Resource")
+        verbose_name_plural = _("Resources")
 
     def media_type_first_part(self) -> str:
         return self.media_type.split("/")[0]

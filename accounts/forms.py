@@ -15,11 +15,11 @@ class RegisterForm(UserCreationForm):
 
 
 class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password = forms.CharField(label="Password", widget=forms.PasswordInput)
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password')
+        fields = ("username", "first_name", "last_name", "email", "password")
 
     def save(self, commit=True):
         # Save the provided password in hashed format

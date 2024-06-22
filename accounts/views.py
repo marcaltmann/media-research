@@ -9,13 +9,13 @@ User = get_user_model()
 
 
 def register(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = User.objects.create_user(
-                username=form.cleaned_data['username'],
-                email=form.cleaned_data['email'],
-                password=form.cleaned_data['password1'],
+                username=form.cleaned_data["username"],
+                email=form.cleaned_data["email"],
+                password=form.cleaned_data["password1"],
             )
 
             # Notify admins of new user.
@@ -26,13 +26,13 @@ def register(request):
             # Do other stuff, e.g.:
             # Create user_files dirs (upload, download) for the user.
 
-            return redirect('accounts:registration_complete')
+            return redirect("accounts:registration_complete")
         else:
             pass
     else:
         form = RegisterForm()
 
-    context = {'form': form}
+    context = {"form": form}
     return render(request, "accounts/register.html", context)
 
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Location(models.Model):
@@ -25,8 +26,16 @@ class Person(models.Model):
 
     first_name = models.CharField(max_length=200, default="")
     last_name = models.CharField(max_length=200)
-    eastern_name_order = models.BooleanField(default=False)
-    gnd_id = models.CharField(max_length=20, blank=True)
+    eastern_name_order = models.BooleanField(
+        _("eastern name order"),
+        default=False,
+        help_text=_("Select if the last name should appear first."),
+    )
+    gnd_id = models.CharField(
+        max_length=20,
+        blank=True,
+        help_text="<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file identifier",
+    )
     gender = models.CharField(
         max_length=1,
         choices=GENDER_CHOICES,

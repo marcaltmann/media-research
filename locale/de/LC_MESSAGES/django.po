@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-22 21:30+0200\n"
+"POT-Creation-Date: 2024-06-23 00:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: archive/templates/archive/resource_detail.html:15
+#: archive/models.py:27
+#, fuzzy
+#| msgid "Resources"
+msgid "Resource"
+msgstr "Ressourcen"
+
+#: archive/models.py:28 archive/templates/archive/resource_detail.html:15
 #: archive/templates/archive/resource_index.html:6
 #: archive/templates/header.html:12 pages/templates/pages/welcome.html:23
 msgid "Resources"
@@ -109,6 +115,14 @@ msgstr "Anmelden"
 #: archive/templates/header.html:50
 msgid "Register"
 msgstr "Registrieren"
+
+#: entities/models.py:29
+msgid "eastern name order"
+msgstr "östliche Namensreihenfolge"
+
+#: entities/models.py:29
+msgid "Select if the last name should appear first."
+msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
 #: media_explorer/settings.py:122
 msgid "German"
