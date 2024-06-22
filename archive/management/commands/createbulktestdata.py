@@ -9,7 +9,6 @@ from faker import Faker
 from archive.models import (
     Person,
     Resource,
-    Topic,
     Location,
     Collection,
     MetadataKey,
@@ -28,7 +27,7 @@ class Command(BaseCommand):
     @transaction.atomic
     def handle(self, *args, **kwargs):
         self.stdout.write("Deleting old data...")
-        models = [Person, Resource, Topic, Location, Collection, MetadataKey]
+        models = [Person, Resource, Location, Collection, MetadataKey]
         for m in models:
             m.objects.all().delete()
 

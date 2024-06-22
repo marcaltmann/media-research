@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.db import models
 from django.urls import reverse
 
-from entities.models import Location, Person, Topic
+from entities.models import Location, Person
 
 
 class Resource(models.Model):
@@ -16,7 +16,6 @@ class Resource(models.Model):
     duration = models.DurationField(default=timedelta(seconds=0))
     public = models.BooleanField(default=True)
     people = models.ManyToManyField(Person, through="ResourceInvolvement")
-    topics = models.ManyToManyField(Topic, through="TopicReference")
     locations = models.ManyToManyField(Location, through="LocationReference")
 
     class Meta:
@@ -54,8 +53,17 @@ class Collection(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(default="")
 
+    class Meta:
+        ordering = ["name"]
+        indexes = [
+            models.Index(fields=["name"]),
+        ]
+
     def resource_count(self):
         return self.resources.count()
+
+    def get_absolute_url(self):
+        return reverse("archive:collection_detail", args=[self.id])
 
     def __str__(self):
         return self.name
@@ -83,17 +91,6 @@ class ResourceInvolvement(models.Model):
 
     def __str__(self):
         return "{}_{}".format(self.person.__str__(), self.resource.__str__())
-
-
-class TopicReference(models.Model):
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    timecode = models.DecimalField(
-        max_digits=10, decimal_places=3, null=True, blank=True
-    )
-
-    def __str__(self):
-        return f"{self.topic}_{self.resource} ({self.timecode})"
 
 
 class LocationReference(models.Model):

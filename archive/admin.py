@@ -5,16 +5,10 @@ from archive.models import (
     Collection,
     Transcript,
     ResourceInvolvement,
-    TopicReference,
     MetadataKey,
     CharFieldMetadata,
     LocationReference,
 )
-
-
-class TopicReferenceInline(admin.TabularInline):
-    model = TopicReference
-    extra = 1
 
 
 class LocationReferenceInline(admin.TabularInline):
@@ -37,7 +31,6 @@ class ResourceAdmin(admin.ModelAdmin):
         ("Media information", {"fields": ["media_type", "media_url", "poster"]}),
     ]
     inlines = [
-        TopicReferenceInline,
         LocationReferenceInline,
         ResourceInvolvementInline,
     ]
