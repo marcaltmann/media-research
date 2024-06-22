@@ -11,22 +11,22 @@
       <button type="submit">Search</button>
     </div>
   </form>
-  <nav>
-    <ul>
+  <nav class="u-mt">
+    <ul class="welcome__link-list">
       <li>
-        <a href="{% url 'archive:resource_index' %}">Resources</a>
+        <a href="{% url 'archive:resource_index' %}" class="welcome__link">
+          Resources
+        </a>
       </li>
-      <li>
-        <a href="{% url 'archive:collection_index' %}">Collections</a>
+      <li class="u-mt-small">
+        <a href="{% url 'archive:collection_index' %}" class="welcome__link">
+          Collections
+        </a>
       </li>
-      <li>
-        <a href="{% url 'entities:location_index' %}">Locations</a>
-      </li>
-      <li>
-        <a href="{% url 'entities:topic_index' %}">Topics</a>
-      </li>
-      <li>
-        <a href="{% url 'entities:person_index' %}">People</a>
+      <li class="u-mt-small">
+        <a href="{% url 'entities:index' %}" class="welcome__link">
+          Entities
+        </a>
       </li>
     </ul>
   </nav>
