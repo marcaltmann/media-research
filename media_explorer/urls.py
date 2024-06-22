@@ -17,21 +17,24 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.i18n import i18n_patterns
 from rest_framework import routers
 from api import views as api_views
 
 router = routers.DefaultRouter()
 router.register(r"resources", api_views.ResourceViewSet)
 
-
 urlpatterns = [
+    path("api/", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path("__debug__/", include("debug_toolbar.urls")),
+]
+
+urlpatterns += i18n_patterns(
     path("", include("pages.urls")),
     path("", include("archive.urls")),
     path("entities/", include("entities.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("accounts.urls")),
-    path("api/", include(router.urls)),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("admin/", admin.site.urls),
-    path("__debug__/", include("debug_toolbar.urls")),
-]
+)
