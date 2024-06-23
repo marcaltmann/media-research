@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-23 17:54+0200\n"
+"POT-Creation-Date: 2024-06-23 22:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,11 +58,11 @@ msgstr "Dauer"
 msgid "public"
 msgstr "öffentlich"
 
-#: archive/models.py:25 entities/models.py:66
+#: archive/models.py:25 entities/models.py:69
 msgid "people"
 msgstr "Personen"
 
-#: archive/models.py:28 entities/models.py:85
+#: archive/models.py:28 entities/models.py:95
 msgid "locations"
 msgstr "Orte"
 
@@ -90,7 +90,7 @@ msgstr "Sammlung"
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:112 entities/models.py:30
+#: archive/models.py:112 entities/models.py:32
 msgid "entity"
 msgstr "Entität"
 
@@ -225,39 +225,99 @@ msgstr "Registrieren"
 msgid "GND id"
 msgstr "GND-ID"
 
-#: entities/models.py:31
+#: entities/models.py:26
+msgid ""
+"<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file "
+"identifier"
+msgstr ""
+"ID der <a href='https://d-nb.info/standards/elementset/gnd'>Gemeinsamen "
+"Normdatei</a>"
+
+#: entities/models.py:33
 msgid "entities"
 msgstr "Entitäten"
 
+#: entities/models.py:45
+msgid "Male"
+msgstr "männlich"
+
+#: entities/models.py:46
+msgid "Female"
+msgstr "weiblich"
+
+#: entities/models.py:47
+msgid "Diverse"
+msgstr "divers"
+
+#: entities/models.py:48
+msgid "Not specified"
+msgstr "nicht angegeben"
+
+#: entities/models.py:51
+msgid "first name"
+msgstr "Vorname"
+
 #: entities/models.py:52
+msgid "last name"
+msgstr "Nachname"
+
+#: entities/models.py:54
 msgid "eastern name order"
 msgstr "östliche Namensreihenfolge"
 
-#: entities/models.py:54
+#: entities/models.py:56
 msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
-#: entities/models.py:65
+#: entities/models.py:59
+msgid "gender"
+msgstr "Gender"
+
+#: entities/models.py:64
+msgid "date of birth"
+msgstr "Geburtsdatum"
+
+#: entities/models.py:68
 msgid "person"
 msgstr "Person"
 
-#: entities/models.py:84
+#: entities/models.py:83
+msgid "GeoNames id"
+msgstr "GeoNames-ID"
+
+#: entities/models.py:87
+msgid ""
+"<a href='https://www.geonames.org/'>GeoNames</a> geographical database "
+"identifier"
+msgstr ""
+"ID der geografischen Datenbank <a href='https://www.geonames.org/'>GeoNames</"
+"a>"
+
+#: entities/models.py:90
+msgid "latitude"
+msgstr "Breitengrad"
+
+#: entities/models.py:91
+msgid "longitude"
+msgstr "Längengrad"
+
+#: entities/models.py:94
 msgid "location"
 msgstr "Orte"
 
-#: entities/models.py:90
+#: entities/models.py:100
 msgid "organisation"
 msgstr "Organisation"
 
-#: entities/models.py:91
+#: entities/models.py:101
 msgid "organisations"
 msgstr "Organisationen"
 
-#: entities/models.py:96
+#: entities/models.py:106
 msgid "miscellaneous entity"
 msgstr "sonstige Entität"
 
-#: entities/models.py:97
+#: entities/models.py:107
 msgid "miscellaneous entities"
 msgstr "sonstige Entitäten"
 
