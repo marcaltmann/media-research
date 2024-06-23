@@ -2,14 +2,45 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
-class Location(models.Model):
-    name = models.CharField(max_length=200)
+class Entity(models.Model):
+    TYPE_PERSON = "PER"
+    TYPE_LOCATION = "LOC"
+    TYPE_ORGANISATION = "ORG"
+    TYPE_MISC = "MISC"
+    TYPE_CHOICES = (
+        (TYPE_PERSON, _("Person")),
+        (TYPE_LOCATION, _("Location")),
+        (TYPE_ORGANISATION, _("Organisation")),
+        (TYPE_MISC, _("Misc")),
+    )
+    type = models.CharField(
+        max_length=20,
+        choices=TYPE_CHOICES,
+    )
+    name = models.CharField(_("name"), max_length=255)
+    gnd_id = models.CharField(_("GND id"), max_length=20, blank=True)
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = _("entity")
+        verbose_name_plural = _("entities")
+
+    def __str__(self):
+        return self.name
+
+
+class Location(Entity):
     geonames_id = models.IntegerField(blank=True, null=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
 
-    def __str__(self):
-        return self.name
+
+class Organisation(Entity):
+    pass
+
+
+class Misc(Entity):
+    pass
 
 
 class Person(models.Model):

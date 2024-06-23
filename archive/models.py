@@ -4,7 +4,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from entities.models import Location, Person
+from entities.models import Entity, Location, Person
 
 
 class Resource(models.Model):
@@ -21,8 +21,12 @@ class Resource(models.Model):
     pub_date = models.DateTimeField(_("date published"), null=True)
     duration = models.DurationField(_("duration"), default=timedelta(seconds=0))
     public = models.BooleanField(_("public"), default=True)
-    people = models.ManyToManyField(Person, through="ResourceInvolvement", verbose_name=_("people"))
-    locations = models.ManyToManyField(Location, through="LocationReference", verbose_name=_("locations"))
+    people = models.ManyToManyField(
+        Person, through="ResourceInvolvement", verbose_name=_("people")
+    )
+    locations = models.ManyToManyField(
+        Location, through="LocationReference", verbose_name=_("locations")
+    )
 
     class Meta:
         ordering = ["title"]
@@ -103,6 +107,29 @@ class ResourceInvolvement(models.Model):
         return "{}_{}".format(self.person.__str__(), self.resource.__str__())
 
 
+class EntityReference(models.Model):
+    entity = models.ForeignKey(
+        Entity, on_delete=models.CASCADE, verbose_name=_("entity")
+    )
+    resource = models.ForeignKey(
+        Resource, on_delete=models.CASCADE, verbose_name=_("resource")
+    )
+    timecodes = models.JSONField(
+        _("timecodes"),
+        default=list,
+        help_text=_(
+            "Enter timecodes in seconds as a comma separated list, e.g.: [124.3, 210.5]"
+        ),
+    )
+
+    class Meta:
+        verbose_name = _("entity reference")
+        verbose_name_plural = _("entity references")
+
+    def __str__(self):
+        return f"{self.entity}_{self.resource}"
+
+
 class LocationReference(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
@@ -116,8 +143,14 @@ class LocationReference(models.Model):
 
 class Transcript(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    json = models.JSONField("json file", default=list, help_text=_("Paste the full transcript in JSON format."))
-    vtt = models.TextField("vtt file", default="", help_text=_("Paste the full transcript in VTT format."))
+    json = models.JSONField(
+        "json file",
+        default=list,
+        help_text=_("Paste the full transcript in JSON format."),
+    )
+    vtt = models.TextField(
+        "vtt file", default="", help_text=_("Paste the full transcript in VTT format.")
+    )
     language = models.CharField(max_length=5)
 
     class Meta:

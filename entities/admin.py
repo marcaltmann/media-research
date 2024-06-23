@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from .models import Location, Person
+from .models import Entity, Location, Person
+
+
+@admin.register(Entity)
+class EntityAdmin(admin.ModelAdmin):
+    list_display = ["name", "type", "gnd_id"]
 
 
 @admin.register(Location)

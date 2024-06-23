@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-23 08:50+0200\n"
+"POT-Creation-Date: 2024-06-23 14:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,51 +50,71 @@ msgstr "Dauer"
 msgid "public"
 msgstr "öffentlich"
 
-#: archive/models.py:24 entities/models.py:59
+#: archive/models.py:25 entities/models.py:86
 msgid "people"
 msgstr "Personen"
 
-#: archive/models.py:25
+#: archive/models.py:28
 msgid "locations"
 msgstr "Orte"
 
-#: archive/models.py:32
+#: archive/models.py:36 archive/models.py:115
 msgid "resource"
 msgstr "Ressource"
 
-#: archive/models.py:33 archive/models.py:60
+#: archive/models.py:37 archive/models.py:64
 msgid "resources"
 msgstr "Ressourcen"
 
-#: archive/models.py:61
+#: archive/models.py:65 entities/models.py:20
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:62
+#: archive/models.py:66
 msgid "description"
 msgstr "Beschreibung"
 
-#: archive/models.py:69
+#: archive/models.py:73
 msgid "collection"
 msgstr "Sammlung"
 
-#: archive/models.py:70
+#: archive/models.py:74
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:119
+#: archive/models.py:112 entities/models.py:25
+msgid "entity"
+msgstr "Entität"
+
+#: archive/models.py:118
+msgid "timecodes"
+msgstr "Zeitcodes"
+
+#: archive/models.py:121
+msgid "Enter timecodes in seconds as a comma separated list, e.g.: [124.3, 210.5]"
+msgstr "Geben Sie die Zeitcodes als komma-getrennte Liste ein, z.B.: [124.3, 210.5]"
+
+#: archive/models.py:126
+msgid "entity reference"
+msgstr "Entitätsreferenz"
+
+#: archive/models.py:127
+msgid "entity references"
+msgstr "Entitätsreferenzen"
+
+#: archive/models.py:149
 msgid "Paste the full transcript in JSON format."
 msgstr "Fügen Sie das ganze Transkript im JSON-Format ein."
 
-#: archive/models.py:120
+#: archive/models.py:152
 msgid "Paste the full transcript in VTT format."
 msgstr "Fügen Sie das ganze Transkript im VTT-Format ein."
 
-#: archive/models.py:124
+#: archive/models.py:157
 msgid "transcript"
 msgstr "Transkript"
 
-#: archive/models.py:125
+#: archive/models.py:158
 msgid "transcripts"
 msgstr "Transkripte"
 
@@ -190,19 +210,39 @@ msgstr "Anmelden"
 msgid "Register"
 msgstr "Registrieren"
 
-#: entities/models.py:30
-msgid "eastern name order"
-msgstr "östliche Namensreihenfolge"
+#: entities/models.py:11
+msgid "Person"
+msgstr "Person"
 
-#: entities/models.py:32
-msgid "Select if the last name should appear first."
-msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
+#: entities/models.py:12
+msgid "Location"
+msgstr "Ort"
 
-#: entities/models.py:35
+#: entities/models.py:13
+msgid "Organisation"
+msgstr "Organisation"
+
+#: entities/models.py:14
+msgid "Misc"
+msgstr "Verschiedenes"
+
+#: entities/models.py:21 entities/models.py:62
 msgid "GND id"
 msgstr "GND-ID"
 
-#: entities/models.py:58
+#: entities/models.py:26
+msgid "entities"
+msgstr "Entitäten"
+
+#: entities/models.py:57
+msgid "eastern name order"
+msgstr "östliche Namensreihenfolge"
+
+#: entities/models.py:59
+msgid "Select if the last name should appear first."
+msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
+
+#: entities/models.py:85
 msgid "person"
 msgstr "Person"
 

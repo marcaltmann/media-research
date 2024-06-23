@@ -8,7 +8,13 @@ from archive.models import (
     MetadataKey,
     CharFieldMetadata,
     LocationReference,
+    EntityReference,
 )
+
+
+class EntityReferenceInline(admin.TabularInline):
+    model = EntityReference
+    extra = 1
 
 
 class LocationReferenceInline(admin.TabularInline):
@@ -31,7 +37,7 @@ class ResourceAdmin(admin.ModelAdmin):
         ("Media information", {"fields": ["media_type", "media_url", "poster"]}),
     ]
     inlines = [
-        LocationReferenceInline,
+        EntityReferenceInline,
         ResourceInvolvementInline,
     ]
 
