@@ -3,22 +3,27 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Entity(models.Model):
-    TYPE_PERSON = "PER"
-    TYPE_LOCATION = "LOC"
-    TYPE_ORGANISATION = "ORG"
-    TYPE_MISC = "MISC"
-    TYPE_CHOICES = (
-        (TYPE_PERSON, _("Person")),
-        (TYPE_LOCATION, _("Location")),
-        (TYPE_ORGANISATION, _("Organisation")),
-        (TYPE_MISC, _("Misc")),
-    )
-    type = models.CharField(
-        max_length=20,
-        choices=TYPE_CHOICES,
-    )
+    # TYPE_PERSON = "PER"
+    # TYPE_LOCATION = "LOC"
+    # TYPE_ORGANISATION = "ORG"
+    # TYPE_MISC = "MISC"
+    # TYPE_CHOICES = (
+    #    (TYPE_PERSON, _("Person")),
+    #    (TYPE_LOCATION, _("Location")),
+    #    (TYPE_ORGANISATION, _("Organisation")),
+    #    (TYPE_MISC, _("Misc")),
+    #)
+    #type = models.CharField(
+    #    max_length=20,
+    #    choices=TYPE_CHOICES,
+    #)
     name = models.CharField(_("name"), max_length=255)
-    gnd_id = models.CharField(_("GND id"), max_length=20, blank=True)
+    gnd_id = models.CharField(
+        _("GND id"),
+        max_length=20,
+        blank=True,
+        help_text="<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file identifier",
+    )
 
     class Meta:
         ordering = ["name"]
@@ -29,21 +34,7 @@ class Entity(models.Model):
         return self.name
 
 
-class Location(Entity):
-    geonames_id = models.IntegerField(blank=True, null=True)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
-
-
-class Organisation(Entity):
-    pass
-
-
-class Misc(Entity):
-    pass
-
-
-class Person(models.Model):
+class Person(Entity):
     MALE = "M"
     FEMALE = "F"
     DIVERSE = "D"
@@ -62,18 +53,17 @@ class Person(models.Model):
         default=False,
         help_text=_("Select if the last name should appear first."),
     )
-    gnd_id = models.CharField(
-        _("GND id"),
-        max_length=20,
-        blank=True,
-        help_text="<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file identifier",
-    )
     gender = models.CharField(
         max_length=1,
         choices=GENDER_CHOICES,
         default=UNSPECIFIED,
     )
     date_of_birth = models.DateField()
+
+    class Meta:
+        ordering = ["last_name", "first_name"]
+        verbose_name = _("person")
+        verbose_name_plural = _("people")
 
     def fullname(self):
         if self.eastern_name_order:
@@ -84,7 +74,24 @@ class Person(models.Model):
     def __str__(self):
         return self.fullname()
 
+
+class Location(Entity):
+    geonames_id = models.IntegerField(blank=True, null=True)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
     class Meta:
-        ordering = ["last_name", "first_name"]
-        verbose_name = _("person")
-        verbose_name_plural = _("people")
+        verbose_name = _("location")
+        verbose_name_plural = _("locations")
+
+
+class Organisation(Entity):
+    class Meta:
+        verbose_name = _("organisation")
+        verbose_name_plural = _("organisations")
+
+
+class MiscellaneousEntity(Entity):
+    class Meta:
+        verbose_name = _("miscellaneous entity")
+        verbose_name_plural = _("miscellaneous entities")

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-23 14:35+0200\n"
+"POT-Creation-Date: 2024-06-23 17:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/apps.py:8
+msgid "Accounts"
+msgstr "Konten"
+
+#: archive/apps.py:8
+msgid "Archive"
+msgstr "Archiv"
 
 #: archive/models.py:11
 msgid "title"
@@ -50,11 +58,11 @@ msgstr "Dauer"
 msgid "public"
 msgstr "öffentlich"
 
-#: archive/models.py:25 entities/models.py:86
+#: archive/models.py:25 entities/models.py:66
 msgid "people"
 msgstr "Personen"
 
-#: archive/models.py:28
+#: archive/models.py:28 entities/models.py:85
 msgid "locations"
 msgstr "Orte"
 
@@ -82,7 +90,7 @@ msgstr "Sammlung"
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:112 entities/models.py:25
+#: archive/models.py:112 entities/models.py:30
 msgid "entity"
 msgstr "Entität"
 
@@ -91,8 +99,10 @@ msgid "timecodes"
 msgstr "Zeitcodes"
 
 #: archive/models.py:121
-msgid "Enter timecodes in seconds as a comma separated list, e.g.: [124.3, 210.5]"
-msgstr "Geben Sie die Zeitcodes als komma-getrennte Liste ein, z.B.: [124.3, 210.5]"
+msgid ""
+"Enter timecodes in seconds as a comma separated list, e.g.: [124.3, 210.5]"
+msgstr ""
+"Geben Sie die Zeitcodes als komma-getrennte Liste ein, z.B.: [124.3, 210.5]"
 
 #: archive/models.py:126
 msgid "entity reference"
@@ -194,7 +204,8 @@ msgstr "Barrierefreiheit"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: archive/templates/header.html:24 pages/templates/pages/welcome.html:33
+#: archive/templates/header.html:24 entities/apps.py:8
+#: pages/templates/pages/welcome.html:33
 msgid "Entities"
 msgstr "Entitäten"
 
@@ -210,41 +221,45 @@ msgstr "Anmelden"
 msgid "Register"
 msgstr "Registrieren"
 
-#: entities/models.py:11
-msgid "Person"
-msgstr "Person"
-
-#: entities/models.py:12
-msgid "Location"
-msgstr "Ort"
-
-#: entities/models.py:13
-msgid "Organisation"
-msgstr "Organisation"
-
-#: entities/models.py:14
-msgid "Misc"
-msgstr "Verschiedenes"
-
-#: entities/models.py:21 entities/models.py:62
+#: entities/models.py:22
 msgid "GND id"
 msgstr "GND-ID"
 
-#: entities/models.py:26
+#: entities/models.py:31
 msgid "entities"
 msgstr "Entitäten"
 
-#: entities/models.py:57
+#: entities/models.py:52
 msgid "eastern name order"
 msgstr "östliche Namensreihenfolge"
 
-#: entities/models.py:59
+#: entities/models.py:54
 msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
-#: entities/models.py:85
+#: entities/models.py:65
 msgid "person"
 msgstr "Person"
+
+#: entities/models.py:84
+msgid "location"
+msgstr "Orte"
+
+#: entities/models.py:90
+msgid "organisation"
+msgstr "Organisation"
+
+#: entities/models.py:91
+msgid "organisations"
+msgstr "Organisationen"
+
+#: entities/models.py:96
+msgid "miscellaneous entity"
+msgstr "sonstige Entität"
+
+#: entities/models.py:97
+msgid "miscellaneous entities"
+msgstr "sonstige Entitäten"
 
 #: media_explorer/settings.py:122
 msgid "German"
