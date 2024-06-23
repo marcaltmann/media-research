@@ -36,52 +36,48 @@ class Command(BaseCommand):
 
 def create_people():
     """Creates person records."""
-    Person.objects.bulk_create(
-        [
-            Person(
-                first_name="Winston",
-                last_name="Churchill",
-                date_of_birth=datetime.date(1874, 11, 13),
-                gender="M",
-                gnd_id="118520776",
-            ),
-            Person(
-                first_name="Michael",
-                last_name="Kende",
-                date_of_birth=datetime.date(1974, 3, 13),
-                gender="M",
-                gnd_id="171121503",
-            ),
-            Person(
-                first_name="John",
-                last_name="Malkovich",
-                date_of_birth=datetime.date(1953, 12, 9),
-                gender="M",
-                gnd_id="128617381",
-            ),
-            Person(
-                first_name="Minoru",
-                last_name="Arakawa",
-                date_of_birth=datetime.date(1946, 9, 3),
-                gender="M",
-                gnd_id="",
-            ),
-            Person(
-                first_name="Maximilian",
-                last_name="Schönherr",
-                date_of_birth=datetime.date(1954, 12, 27),
-                gender="M",
-                gnd_id="130608939",
-            ),
-            Person(
-                first_name="貝兒",
-                last_name="陳",
-                date_of_birth=datetime.date(1990, 3, 14),
-                gender="F",
-                gnd_id="",
-                eastern_name_order=True,
-            ),
-        ]
+    Person.objects.create(
+        first_name="Winston",
+        last_name="Churchill",
+        date_of_birth=datetime.date(1874, 11, 13),
+        gender="M",
+        gnd_id="118520776",
+    )
+    Person.objects.create(
+        first_name="Michael",
+        last_name="Kende",
+        date_of_birth=datetime.date(1974, 3, 13),
+        gender="M",
+        gnd_id="171121503",
+    )
+    Person.objects.create(
+        first_name="John",
+        last_name="Malkovich",
+        date_of_birth=datetime.date(1953, 12, 9),
+        gender="M",
+        gnd_id="128617381",
+    )
+    Person.objects.create(
+        first_name="Minoru",
+        last_name="Arakawa",
+        date_of_birth=datetime.date(1946, 9, 3),
+        gender="M",
+        gnd_id="",
+    )
+    Person.objects.create(
+        first_name="Maximilian",
+        last_name="Schönherr",
+        date_of_birth=datetime.date(1954, 12, 27),
+        gender="M",
+        gnd_id="130608939",
+    )
+    Person.objects.create(
+        first_name="貝兒",
+        last_name="陳",
+        date_of_birth=datetime.date(1990, 3, 14),
+        gender="F",
+        gnd_id="",
+        eastern_name_order=True,
     )
 
 
