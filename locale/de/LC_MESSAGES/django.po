@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-23 00:23+0200\n"
+"POT-Creation-Date: 2024-06-23 08:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: archive/models.py:27
-#, fuzzy
-#| msgid "Resources"
-msgid "Resource"
+#: archive/models.py:11
+msgid "title"
+msgstr "Titel"
+
+#: archive/models.py:12
+msgid "anonymized title"
+msgstr "anonymisierter Titel"
+
+#: archive/models.py:14
+msgid "media type"
+msgstr "Medientyp"
+
+#: archive/models.py:19
+msgid "media url"
+msgstr "Medien-URL"
+
+#: archive/models.py:20
+msgid "poster image"
+msgstr "Plakatbild"
+
+#: archive/models.py:21
+msgid "date published"
+msgstr "Veröffentlicht am"
+
+#: archive/models.py:22
+msgid "duration"
+msgstr "Dauer"
+
+#: archive/models.py:23
+msgid "public"
+msgstr "öffentlich"
+
+#: archive/models.py:24 entities/models.py:59
+msgid "people"
+msgstr "Personen"
+
+#: archive/models.py:25
+msgid "locations"
+msgstr "Orte"
+
+#: archive/models.py:32
+msgid "resource"
+msgstr "Ressource"
+
+#: archive/models.py:33 archive/models.py:60
+msgid "resources"
 msgstr "Ressourcen"
 
-#: archive/models.py:28 archive/templates/archive/resource_detail.html:15
+#: archive/models.py:61
+msgid "name"
+msgstr "Name"
+
+#: archive/models.py:62
+msgid "description"
+msgstr "Beschreibung"
+
+#: archive/models.py:69
+msgid "collection"
+msgstr "Sammlung"
+
+#: archive/models.py:70
+msgid "collections"
+msgstr "Sammlungen"
+
+#: archive/models.py:119
+msgid "Paste the full transcript in JSON format."
+msgstr "Fügen Sie das ganze Transkript im JSON-Format ein."
+
+#: archive/models.py:120
+msgid "Paste the full transcript in VTT format."
+msgstr "Fügen Sie das ganze Transkript im VTT-Format ein."
+
+#: archive/models.py:124
+msgid "transcript"
+msgstr "Transkript"
+
+#: archive/models.py:125
+msgid "transcripts"
+msgstr "Transkripte"
+
+#: archive/templates/archive/resource_detail.html:15
 #: archive/templates/archive/resource_index.html:6
 #: archive/templates/header.html:12 pages/templates/pages/welcome.html:23
 msgid "Resources"
@@ -116,13 +190,21 @@ msgstr "Anmelden"
 msgid "Register"
 msgstr "Registrieren"
 
-#: entities/models.py:29
+#: entities/models.py:30
 msgid "eastern name order"
 msgstr "östliche Namensreihenfolge"
 
-#: entities/models.py:29
+#: entities/models.py:32
 msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
+
+#: entities/models.py:35
+msgid "GND id"
+msgstr "GND-ID"
+
+#: entities/models.py:58
+msgid "person"
+msgstr "Person"
 
 #: media_explorer/settings.py:122
 msgid "German"

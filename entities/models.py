@@ -32,6 +32,7 @@ class Person(models.Model):
         help_text=_("Select if the last name should appear first."),
     )
     gnd_id = models.CharField(
+        _("GND id"),
         max_length=20,
         blank=True,
         help_text="<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file identifier",
@@ -54,4 +55,5 @@ class Person(models.Model):
 
     class Meta:
         ordering = ["last_name", "first_name"]
-        verbose_name_plural = "people"
+        verbose_name = _("person")
+        verbose_name_plural = _("people")

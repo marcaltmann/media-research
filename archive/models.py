@@ -8,28 +8,29 @@ from entities.models import Location, Person
 
 
 class Resource(models.Model):
-    title = models.CharField(max_length=200, default="")
-    anon_title = models.CharField(max_length=200, default="")
+    title = models.CharField(_("title"), max_length=200, default="")
+    anon_title = models.CharField(_("anonymized title"), max_length=200, default="")
     media_type = models.CharField(
+        _("media type"),
         max_length=100,
         default="video/mp4",
         help_text="Enter MIME type e.g. 'video/mp4'.",
     )
-    media_url = models.URLField(max_length=300, default="")
-    poster = models.ImageField(default="", blank=True)
-    pub_date = models.DateTimeField("date published", null=True)
-    duration = models.DurationField(default=timedelta(seconds=0))
-    public = models.BooleanField(default=True)
-    people = models.ManyToManyField(Person, through="ResourceInvolvement")
-    locations = models.ManyToManyField(Location, through="LocationReference")
+    media_url = models.URLField(_("media url"), max_length=300, default="")
+    poster = models.ImageField(_("poster image"), default="", blank=True)
+    pub_date = models.DateTimeField(_("date published"), null=True)
+    duration = models.DurationField(_("duration"), default=timedelta(seconds=0))
+    public = models.BooleanField(_("public"), default=True)
+    people = models.ManyToManyField(Person, through="ResourceInvolvement", verbose_name=_("people"))
+    locations = models.ManyToManyField(Location, through="LocationReference", verbose_name=_("locations"))
 
     class Meta:
         ordering = ["title"]
         indexes = [
             models.Index(fields=["title"]),
         ]
-        verbose_name = _("Resource")
-        verbose_name_plural = _("Resources")
+        verbose_name = _("resource")
+        verbose_name_plural = _("resources")
 
     def media_type_first_part(self) -> str:
         return self.media_type.split("/")[0]
@@ -56,15 +57,17 @@ class Resource(models.Model):
 
 
 class Collection(models.Model):
-    resources = models.ManyToManyField(Resource)
-    name = models.CharField(max_length=200)
-    description = models.TextField(default="")
+    resources = models.ManyToManyField(Resource, verbose_name=_("resources"))
+    name = models.CharField(_("name"), max_length=200)
+    description = models.TextField(_("description"), default="")
 
     class Meta:
         ordering = ["name"]
         indexes = [
             models.Index(fields=["name"]),
         ]
+        verbose_name = _("collection")
+        verbose_name_plural = _("collections")
 
     def resource_count(self):
         return self.resources.count()
@@ -113,9 +116,13 @@ class LocationReference(models.Model):
 
 class Transcript(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    json = models.JSONField()
-    vtt = models.TextField()
+    json = models.JSONField("json file", default=list, help_text=_("Paste the full transcript in JSON format."))
+    vtt = models.TextField("vtt file", default="", help_text=_("Paste the full transcript in VTT format."))
     language = models.CharField(max_length=5)
+
+    class Meta:
+        verbose_name = _("transcript")
+        verbose_name_plural = _("transcripts")
 
     def __str__(self):
         return f"{self.resource} ({self.language})"
