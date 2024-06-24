@@ -80,7 +80,7 @@ class Collection(models.Model):
         return self.name
 
 
-class Agent(Entity):
+class Agent(models.Model):
     MALE = "M"
     FEMALE = "F"
     DIVERSE = "D"
@@ -98,6 +98,14 @@ class Agent(Entity):
         _("eastern name order"),
         default=False,
         help_text=_("Select if the last name should appear first."),
+    )
+    gnd_id = models.CharField(
+        _("GND id"),
+        max_length=20,
+        blank=True,
+        help_text=_(
+            "<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file identifier"
+        ),
     )
     gender = models.CharField(
         _("gender"),

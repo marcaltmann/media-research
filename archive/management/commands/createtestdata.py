@@ -13,8 +13,9 @@ from archive.models import (
     Resource,
     Collection,
     MetadataKey,
+    EntityReference,
 )
-from entities.models import Entity, Location
+from entities.models import Entity, Person, Location, Organisation, MiscellaneousEntity
 from materials.models import Transcript
 
 
@@ -33,6 +34,7 @@ class Command(BaseCommand):
         create_agents()
         create_resources()
         create_transcripts()
+        create_entities()
 
 
 def create_agents():
@@ -181,31 +183,25 @@ def create_transcripts():
     )
 
 
-def create_locations():
-    """Creates location records."""
-    fake = Faker()
-    locations = []
-    for _ in range(NUM_LOCATIONS):
-        latitude, longitude, name, _, _ = fake.location_on_land()
-        location = Location.objects.create(
-            name=name,
-            latitude=latitude,
-            longitude=longitude,
-        )
-        locations.append(location)
-    return locations
+def create_entities():
+    """Creates entity records."""
+    kende_interview = Resource.objects.get(title__startswith="Michael Kende")
 
+    usa = Location.objects.create(name="USA")
+    fcc = Organisation.objects.create(name="Federal Communication Commission")
+    internet_society = Organisation.objects.create(name="Internet Society")
+    mci = Organisation.objects.create(name="MCI Communications")
+    sprint = Organisation.objects.create(name="Sprint Corporation")
+    uunet = Organisation.objects.create(name="UUNET")
+    world_com = Organisation.objects.create(name="MCI WorldCom")
+    paper = MiscellaneousEntity.objects.create(name="The Digital Handshake")
 
-def create_collections(resources):
-    """Creates collection records."""
-    fake = Faker()
-    collections = []
-    for _ in range(NUM_COLLECTIONS):
-        collection = Collection.objects.create(
-            name=fake.catch_phrase(),
-            description=fake.paragraph(nb_sentences=5, variable_nb_sentences=True),
-        )
-        collections.append(collection)
-        resources_pick = random.choices(resources, k=random.randint(2, 60))
-        collection.resources.add(*resources_pick)
-    return collections
+    manager = kende_interview.entityreference_set
+    manager.create(entity=usa, timecodes=[0.189])
+    manager.create(entity=fcc, timecodes=[0.189, 78.097, 99.323])
+    manager.create(entity=internet_society, timecodes=[62.481, 227.498])
+    manager.create(entity=mci, timecodes=[14.077])
+    manager.create(entity=sprint, timecodes=[14.077])
+    manager.create(entity=uunet, timecodes=[14.077])
+    manager.create(entity=world_com, timecodes=[14.077])
+    manager.create(entity=paper, timecodes=[78.097])
