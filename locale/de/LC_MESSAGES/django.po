@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-23 22:49+0200\n"
+"POT-Creation-Date: 2024-06-24 18:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,71 +62,104 @@ msgstr "öffentlich"
 msgid "people"
 msgstr "Personen"
 
-#: archive/models.py:28 entities/models.py:95
-msgid "locations"
-msgstr "Orte"
-
-#: archive/models.py:36 archive/models.py:115
+#: archive/models.py:33 archive/models.py:112 archive/models.py:132
+#: archive/models.py:171
 msgid "resource"
 msgstr "Ressource"
 
-#: archive/models.py:37 archive/models.py:64
+#: archive/models.py:34 archive/models.py:61
 msgid "resources"
 msgstr "Ressourcen"
 
-#: archive/models.py:65 entities/models.py:20
+#: archive/models.py:62 entities/models.py:20
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:66
+#: archive/models.py:63 archive/models.py:156
 msgid "description"
 msgstr "Beschreibung"
 
-#: archive/models.py:73
+#: archive/models.py:70
 msgid "collection"
 msgstr "Sammlung"
 
-#: archive/models.py:74
+#: archive/models.py:71
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:112 entities/models.py:32
+#: archive/models.py:109 entities/models.py:32
 msgid "entity"
 msgstr "Entität"
 
-#: archive/models.py:118
+#: archive/models.py:115
 msgid "timecodes"
 msgstr "Zeitcodes"
 
-#: archive/models.py:121
+#: archive/models.py:118
 msgid ""
 "Enter timecodes in seconds as a comma separated list, e.g.: [124.3, 210.5]"
 msgstr ""
 "Geben Sie die Zeitcodes als komma-getrennte Liste ein, z.B.: [124.3, 210.5]"
 
-#: archive/models.py:126
+#: archive/models.py:123
 msgid "entity reference"
 msgstr "Entitätsreferenz"
 
-#: archive/models.py:127
+#: archive/models.py:124
 msgid "entity references"
 msgstr "Entitätsreferenzen"
 
-#: archive/models.py:149
+#: archive/models.py:135
+msgid "json file"
+msgstr "JSON-Datei"
+
+#: archive/models.py:137
 msgid "Paste the full transcript in JSON format."
 msgstr "Fügen Sie das ganze Transkript im JSON-Format ein."
 
-#: archive/models.py:152
+#: archive/models.py:140
+msgid "vtt file"
+msgstr "VTT-Datei"
+
+#: archive/models.py:142
 msgid "Paste the full transcript in VTT format."
 msgstr "Fügen Sie das ganze Transkript im VTT-Format ein."
 
-#: archive/models.py:157
+#: archive/models.py:144
+msgid "language"
+msgstr "Sprache"
+
+#: archive/models.py:147
 msgid "transcript"
 msgstr "Transkript"
 
-#: archive/models.py:158
+#: archive/models.py:148
 msgid "transcripts"
 msgstr "Transkripte"
+
+#: archive/models.py:155
+msgid "label"
+msgstr "Bezeichner"
+
+#: archive/models.py:159
+msgid "metadata key"
+msgstr "Metadaten-Schlüssel"
+
+#: archive/models.py:160
+msgid "metadata keys"
+msgstr "Metadaten-Schlüssel"
+
+#: archive/models.py:174
+msgid "key"
+msgstr "Schlüssel"
+
+#: archive/models.py:176
+msgid "value"
+msgstr "Wert"
+
+#: archive/models.py:179 archive/models.py:180
+msgid "char field metadata"
+msgstr "Zeichenketten-Metadaten"
 
 #: archive/templates/archive/resource_detail.html:15
 #: archive/templates/archive/resource_index.html:6
@@ -303,6 +336,10 @@ msgstr "Längengrad"
 
 #: entities/models.py:94
 msgid "location"
+msgstr "Orte"
+
+#: entities/models.py:95
+msgid "locations"
 msgstr "Orte"
 
 #: entities/models.py:100

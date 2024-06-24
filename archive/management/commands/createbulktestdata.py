@@ -13,7 +13,6 @@ from archive.models import (
     Collection,
     MetadataKey,
     ResourceInvolvement,
-    LocationReference,
 )
 
 NUM_PEOPLE = 500_000
@@ -78,10 +77,10 @@ def create_resources(people, locations):
             resource=resource,
             type=ResourceInvolvement.INTERVIEWEE,
         )
-        locationRef = LocationReference.objects.create(
-            location=random.choice(locations),
-            resource=resource,
-        )
+        # locationRef = LocationReference.objects.create(
+        #     location=random.choice(locations),
+        #     resource=resource,
+        # )
     return resources
 
 

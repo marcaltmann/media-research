@@ -15,7 +15,6 @@ from archive.models import (
     Collection,
     MetadataKey,
     ResourceInvolvement,
-    LocationReference,
 )
 
 

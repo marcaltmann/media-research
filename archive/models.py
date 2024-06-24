@@ -24,9 +24,6 @@ class Resource(models.Model):
     people = models.ManyToManyField(
         Person, through="ResourceInvolvement", verbose_name=_("people")
     )
-    locations = models.ManyToManyField(
-        Location, through="LocationReference", verbose_name=_("locations")
-    )
 
     class Meta:
         ordering = ["title"]
@@ -130,28 +127,21 @@ class EntityReference(models.Model):
         return f"{self.entity}_{self.resource}"
 
 
-class LocationReference(models.Model):
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    timecode = models.DecimalField(
-        max_digits=10, decimal_places=3, null=True, blank=True
-    )
-
-    def __str__(self):
-        return f"{self.location}_{self.resource} ({self.timecode})"
-
-
 class Transcript(models.Model):
-    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
+    resource = models.ForeignKey(
+        Resource, on_delete=models.CASCADE, verbose_name=_("resource")
+    )
     json = models.JSONField(
-        "json file",
+        _("json file"),
         default=list,
         help_text=_("Paste the full transcript in JSON format."),
     )
     vtt = models.TextField(
-        "vtt file", default="", help_text=_("Paste the full transcript in VTT format.")
+        _("vtt file"),
+        default="",
+        help_text=_("Paste the full transcript in VTT format."),
     )
-    language = models.CharField(max_length=5)
+    language = models.CharField(_("language"), max_length=5)
 
     class Meta:
         verbose_name = _("transcript")
@@ -162,8 +152,12 @@ class Transcript(models.Model):
 
 
 class MetadataKey(models.Model):
-    label = models.CharField(max_length=20)
-    description = models.TextField(blank=True)
+    label = models.CharField(_("label"), max_length=20)
+    description = models.TextField(_("description"), blank=True)
+
+    class Meta:
+        verbose_name = _("metadata key")
+        verbose_name_plural = _("metadata keys")
 
     def char_fields_for_resource(self, resource_id):
         return self.charfieldmetadata_set.all().filter(resource_id=resource_id)
@@ -173,12 +167,17 @@ class MetadataKey(models.Model):
 
 
 class CharFieldMetadata(models.Model):
-    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    key = models.ForeignKey(MetadataKey, on_delete=models.CASCADE)
-    value = models.CharField(max_length=200)
+    resource = models.ForeignKey(
+        Resource, on_delete=models.CASCADE, verbose_name=_("resource")
+    )
+    key = models.ForeignKey(
+        MetadataKey, on_delete=models.CASCADE, verbose_name=_("key")
+    )
+    value = models.CharField(_("value"), max_length=200)
+
+    class Meta:
+        verbose_name = _("char field metadata")
+        verbose_name_plural = _("char field metadata")
 
     def __str__(self):
         return self.value
-
-    class Meta:
-        verbose_name_plural = "char field metadata"

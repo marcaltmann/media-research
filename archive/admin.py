@@ -7,18 +7,12 @@ from archive.models import (
     ResourceInvolvement,
     MetadataKey,
     CharFieldMetadata,
-    LocationReference,
     EntityReference,
 )
 
 
 class EntityReferenceInline(admin.TabularInline):
     model = EntityReference
-    extra = 1
-
-
-class LocationReferenceInline(admin.TabularInline):
-    model = LocationReference
     extra = 1
 
 
