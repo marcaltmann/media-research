@@ -41,8 +41,8 @@ class ResourceIndexView(generic.ListView):
 
 @login_required()
 def resource_detail(request, resource_id):
-    timecode = request.GET.get("tc", 0)
     resource = get_object_or_404(Resource, pk=resource_id)
+    timecode = request.GET.get("tc", 0)
     context = {
         "resource": resource,
         "timecode": timecode,

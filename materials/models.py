@@ -6,7 +6,9 @@ from archive.models import Resource
 
 class Transcript(models.Model):
     resource = models.ForeignKey(
-        Resource, on_delete=models.CASCADE, verbose_name=_("resource")
+        Resource,
+        on_delete=models.CASCADE,
+        verbose_name=_("resource"),
     )
     json = models.JSONField(
         _("JSON file"),

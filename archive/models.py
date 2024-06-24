@@ -21,9 +21,7 @@ class Resource(models.Model):
     pub_date = models.DateTimeField(_("date published"), null=True)
     duration = models.DurationField(_("duration"), default=timedelta(seconds=0))
     public = models.BooleanField(_("public"), default=True)
-    agents = models.ManyToManyField(
-        "Agent", through="Agency", verbose_name=_("agents")
-    )
+    agents = models.ManyToManyField("Agent", through="Agency", verbose_name=_("agents"))
 
     class Meta:
         ordering = ["title"]
@@ -147,8 +145,12 @@ class Agency(models.Model):
     }
 
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE, verbose_name=_("agent"))
-    resource = models.ForeignKey(Resource, on_delete=models.CASCADE, verbose_name=_("resource"))
-    type = models.CharField(_("type"), max_length=3, choices=TYPE_CHOICES, default=INTERVIEWEE)
+    resource = models.ForeignKey(
+        Resource, on_delete=models.CASCADE, verbose_name=_("resource")
+    )
+    type = models.CharField(
+        _("type"), max_length=3, choices=TYPE_CHOICES, default=INTERVIEWEE
+    )
 
     class Meta:
         verbose_name = _("agency")
