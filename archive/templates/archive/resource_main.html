@@ -35,20 +35,23 @@
       </li>
     {% endfor %}
   </ul>
-  <h3>{% translate "People" %}</h3>
+  <h3>{% translate "Agents" %}</h3>
   <ul>
-    {% for involvement in resource.resourceinvolvement_set.all %}
+    {% for agency in resource.agency_set.all %}
       <li>
-        {{ involvement.type }}:
-        <a href="{% url 'entities:person_detail' involvement.person.id %}">{{ involvement.person }}</a>
+        {{ agency.type }}:
+        <a href="">{{ agency.agent }}</a>
       </li>
     {% endfor %}
   </ul>
-  <h3>{% translate "Locations" %}</h3>
+  <h3>{% translate "Entities" %}</h3>
   <ul>
-    {% for location in resource.locations.all %}
+    {% for er in resource.entityreference_set.all %}
       <li>
-        <a href="{% url 'entities:location_detail' location.id %}">{{ location.name }}</a>
+        {{ er.entity.name }}
+        {% for timecode in er.timecodes %}
+          <a href="{% url 'archive:resource_detail' resource.id %}?tc={{ timecode }}">{{ timecode }}</a>&nbsp;
+        {% endfor %}
       </li>
     {% endfor %}
   </ul>
