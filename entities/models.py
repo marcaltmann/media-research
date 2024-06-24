@@ -37,45 +37,9 @@ class Entity(models.Model):
 
 
 class Person(Entity):
-    MALE = "M"
-    FEMALE = "F"
-    DIVERSE = "D"
-    UNSPECIFIED = "N"
-    GENDER_CHOICES = {
-        MALE: _("Male"),
-        FEMALE: _("Female"),
-        DIVERSE: _("Diverse"),
-        UNSPECIFIED: _("Not specified"),
-    }
-
-    first_name = models.CharField(_("first name"), max_length=200, default="")
-    last_name = models.CharField(_("last name"), max_length=200)
-    eastern_name_order = models.BooleanField(
-        _("eastern name order"),
-        default=False,
-        help_text=_("Select if the last name should appear first."),
-    )
-    gender = models.CharField(
-        _("gender"),
-        max_length=1,
-        choices=GENDER_CHOICES,
-        default=UNSPECIFIED,
-    )
-    date_of_birth = models.DateField(_("date of birth"), blank=True, null=True)
-
     class Meta:
-        ordering = ["last_name", "first_name"]
         verbose_name = _("person")
         verbose_name_plural = _("people")
-
-    def fullname(self):
-        if self.eastern_name_order:
-            return f"{self.last_name} {self.first_name}"
-        else:
-            return f"{self.first_name} {self.last_name}"
-
-    def __str__(self):
-        return self.fullname()
 
 
 class Location(Entity):

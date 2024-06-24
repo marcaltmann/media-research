@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 18:29+0200\n"
+"POT-Creation-Date: 2024-06-24 19:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,12 +58,12 @@ msgstr "Dauer"
 msgid "public"
 msgstr "öffentlich"
 
-#: archive/models.py:25 entities/models.py:69
-msgid "people"
-msgstr "Personen"
+#: archive/models.py:25 archive/models.py:113
+msgid "agents"
+msgstr "Mitwirkende"
 
-#: archive/models.py:33 archive/models.py:112 archive/models.py:132
-#: archive/models.py:171
+#: archive/models.py:33 archive/models.py:142 archive/models.py:158
+#: archive/models.py:178 archive/models.py:217
 msgid "resource"
 msgstr "Ressource"
 
@@ -75,7 +75,7 @@ msgstr "Ressourcen"
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:63 archive/models.py:156
+#: archive/models.py:63 archive/models.py:202
 msgid "description"
 msgstr "Beschreibung"
 
@@ -87,77 +87,157 @@ msgstr "Sammlung"
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:109 entities/models.py:32
+#: archive/models.py:89
+msgid "Male"
+msgstr "männlich"
+
+#: archive/models.py:90
+msgid "Female"
+msgstr "weiblich"
+
+#: archive/models.py:91
+msgid "Diverse"
+msgstr "divers"
+
+#: archive/models.py:92
+msgid "Not specified"
+msgstr "nicht angegeben"
+
+#: archive/models.py:95
+msgid "first name"
+msgstr "Vorname"
+
+#: archive/models.py:96
+msgid "last name"
+msgstr "Nachname"
+
+#: archive/models.py:98
+msgid "eastern name order"
+msgstr "östliche Namensreihenfolge"
+
+#: archive/models.py:100
+msgid "Select if the last name should appear first."
+msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
+
+#: archive/models.py:103
+msgid "gender"
+msgstr "Gender"
+
+#: archive/models.py:108
+msgid "date of birth"
+msgstr "Geburtsdatum"
+
+#: archive/models.py:112 archive/models.py:141
+msgid "agent"
+msgstr "Mitwirkender"
+
+#: archive/models.py:133
+msgid "Interviewee"
+msgstr "Befragter"
+
+#: archive/models.py:134
+msgid "Interviewer"
+msgstr "Befrager"
+
+#: archive/models.py:135
+msgid "Camera"
+msgstr "Kamera"
+
+#: archive/models.py:136
+msgid "Sound"
+msgstr "Ton"
+
+#: archive/models.py:137
+msgid "Editor"
+msgstr "Schnitt"
+
+#: archive/models.py:138
+msgid "Other"
+msgstr "Sonstiges"
+
+#: archive/models.py:143
+msgid "type"
+msgstr "Art"
+
+#: archive/models.py:146
+msgid "agency"
+msgstr "Funktion"
+
+#: archive/models.py:147
+msgid "agencies"
+msgstr "Funktionen"
+
+#: archive/models.py:155 entities/models.py:32
 msgid "entity"
 msgstr "Entität"
 
-#: archive/models.py:115
+#: archive/models.py:161
 msgid "timecodes"
 msgstr "Zeitcodes"
 
-#: archive/models.py:118
+#: archive/models.py:164
 msgid ""
 "Enter timecodes in seconds as a comma separated list, e.g.: [124.3, 210.5]"
 msgstr ""
 "Geben Sie die Zeitcodes als komma-getrennte Liste ein, z.B.: [124.3, 210.5]"
 
-#: archive/models.py:123
+#: archive/models.py:169
 msgid "entity reference"
 msgstr "Entitätsreferenz"
 
-#: archive/models.py:124
+#: archive/models.py:170
 msgid "entity references"
 msgstr "Entitätsreferenzen"
 
-#: archive/models.py:135
+#: archive/models.py:181
 msgid "json file"
 msgstr "JSON-Datei"
 
-#: archive/models.py:137
+#: archive/models.py:183
 msgid "Paste the full transcript in JSON format."
 msgstr "Fügen Sie das ganze Transkript im JSON-Format ein."
 
-#: archive/models.py:140
+#: archive/models.py:186
 msgid "vtt file"
 msgstr "VTT-Datei"
 
-#: archive/models.py:142
+#: archive/models.py:188
 msgid "Paste the full transcript in VTT format."
 msgstr "Fügen Sie das ganze Transkript im VTT-Format ein."
 
-#: archive/models.py:144
+#: archive/models.py:190
 msgid "language"
 msgstr "Sprache"
 
-#: archive/models.py:147
+#: archive/models.py:193
 msgid "transcript"
 msgstr "Transkript"
 
-#: archive/models.py:148
+#: archive/models.py:194
 msgid "transcripts"
 msgstr "Transkripte"
 
-#: archive/models.py:155
+#: archive/models.py:201
 msgid "label"
 msgstr "Bezeichner"
 
-#: archive/models.py:159
+#: archive/models.py:205
 msgid "metadata key"
 msgstr "Metadaten-Schlüssel"
 
-#: archive/models.py:160
+#: archive/models.py:206
 msgid "metadata keys"
 msgstr "Metadaten-Schlüssel"
 
-#: archive/models.py:174
+#: archive/models.py:220
 msgid "key"
 msgstr "Schlüssel"
 
-#: archive/models.py:176
+#: archive/models.py:222
 msgid "value"
 msgstr "Wert"
 
-#: archive/models.py:179 archive/models.py:180
+#: archive/models.py:225 archive/models.py:226
 msgid "char field metadata"
 msgstr "Zeichenketten-Metadaten"
 
@@ -270,55 +350,19 @@ msgstr ""
 msgid "entities"
 msgstr "Entitäten"
 
-#: entities/models.py:45
-msgid "Male"
-msgstr "männlich"
-
-#: entities/models.py:46
-msgid "Female"
-msgstr "weiblich"
-
-#: entities/models.py:47
-msgid "Diverse"
-msgstr "divers"
-
-#: entities/models.py:48
-msgid "Not specified"
-msgstr "nicht angegeben"
-
-#: entities/models.py:51
-msgid "first name"
-msgstr "Vorname"
-
-#: entities/models.py:52
-msgid "last name"
-msgstr "Nachname"
-
-#: entities/models.py:54
-msgid "eastern name order"
-msgstr "östliche Namensreihenfolge"
-
-#: entities/models.py:56
-msgid "Select if the last name should appear first."
-msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
-
-#: entities/models.py:59
-msgid "gender"
-msgstr "Gender"
-
-#: entities/models.py:64
-msgid "date of birth"
-msgstr "Geburtsdatum"
-
-#: entities/models.py:68
+#: entities/models.py:41
 msgid "person"
 msgstr "Person"
 
-#: entities/models.py:83
+#: entities/models.py:42
+msgid "people"
+msgstr "Personen"
+
+#: entities/models.py:47
 msgid "GeoNames id"
 msgstr "GeoNames-ID"
 
-#: entities/models.py:87
+#: entities/models.py:51
 msgid ""
 "<a href='https://www.geonames.org/'>GeoNames</a> geographical database "
 "identifier"
@@ -326,35 +370,35 @@ msgstr ""
 "ID der geografischen Datenbank <a href='https://www.geonames.org/'>GeoNames</"
 "a>"
 
-#: entities/models.py:90
+#: entities/models.py:54
 msgid "latitude"
 msgstr "Breitengrad"
 
-#: entities/models.py:91
+#: entities/models.py:55
 msgid "longitude"
 msgstr "Längengrad"
 
-#: entities/models.py:94
+#: entities/models.py:58
 msgid "location"
 msgstr "Orte"
 
-#: entities/models.py:95
+#: entities/models.py:59
 msgid "locations"
 msgstr "Orte"
 
-#: entities/models.py:100
+#: entities/models.py:64
 msgid "organisation"
 msgstr "Organisation"
 
-#: entities/models.py:101
+#: entities/models.py:65
 msgid "organisations"
 msgstr "Organisationen"
 
-#: entities/models.py:106
+#: entities/models.py:70
 msgid "miscellaneous entity"
 msgstr "sonstige Entität"
 
-#: entities/models.py:107
+#: entities/models.py:71
 msgid "miscellaneous entities"
 msgstr "sonstige Entitäten"
 

@@ -4,7 +4,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from entities.models import Entity, Location, Person
+from entities.models import Entity
 
 
 class Resource(models.Model):
@@ -21,8 +21,8 @@ class Resource(models.Model):
     pub_date = models.DateTimeField(_("date published"), null=True)
     duration = models.DurationField(_("duration"), default=timedelta(seconds=0))
     public = models.BooleanField(_("public"), default=True)
-    people = models.ManyToManyField(
-        Person, through="ResourceInvolvement", verbose_name=_("people")
+    agents = models.ManyToManyField(
+        "Agent", through="Agency", verbose_name=_("agents")
     )
 
     class Meta:
@@ -80,7 +80,49 @@ class Collection(models.Model):
         return self.name
 
 
-class ResourceInvolvement(models.Model):
+class Agent(Entity):
+    MALE = "M"
+    FEMALE = "F"
+    DIVERSE = "D"
+    UNSPECIFIED = "N"
+    GENDER_CHOICES = {
+        MALE: _("Male"),
+        FEMALE: _("Female"),
+        DIVERSE: _("Diverse"),
+        UNSPECIFIED: _("Not specified"),
+    }
+
+    first_name = models.CharField(_("first name"), max_length=200, default="")
+    last_name = models.CharField(_("last name"), max_length=200)
+    eastern_name_order = models.BooleanField(
+        _("eastern name order"),
+        default=False,
+        help_text=_("Select if the last name should appear first."),
+    )
+    gender = models.CharField(
+        _("gender"),
+        max_length=1,
+        choices=GENDER_CHOICES,
+        default=UNSPECIFIED,
+    )
+    date_of_birth = models.DateField(_("date of birth"), blank=True, null=True)
+
+    class Meta:
+        ordering = ["last_name", "first_name"]
+        verbose_name = _("agent")
+        verbose_name_plural = _("agents")
+
+    def fullname(self):
+        if self.eastern_name_order:
+            return f"{self.last_name} {self.first_name}"
+        else:
+            return f"{self.first_name} {self.last_name}"
+
+    def __str__(self):
+        return self.fullname()
+
+
+class Agency(models.Model):
     INTERVIEWEE = "INT"
     INTERVIEWER = "ITR"
     CAMERA = "CAM"
@@ -88,20 +130,24 @@ class ResourceInvolvement(models.Model):
     EDITOR = "EDT"
     OTHER = "OTH"
     TYPE_CHOICES = {
-        INTERVIEWEE: "Interviewee",
-        INTERVIEWER: "Interviewer",
-        CAMERA: "Camera",
-        SOUND: "Sound",
-        EDITOR: "Editor",
-        OTHER: "Other",
+        INTERVIEWEE: _("Interviewee"),
+        INTERVIEWER: _("Interviewer"),
+        CAMERA: _("Camera"),
+        SOUND: _("Sound"),
+        EDITOR: _("Editor"),
+        OTHER: _("Other"),
     }
 
-    person = models.ForeignKey(Person, on_delete=models.CASCADE)
-    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    type = models.CharField(max_length=3, choices=TYPE_CHOICES, default=INTERVIEWEE)
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE, verbose_name=_("agent"))
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE, verbose_name=_("resource"))
+    type = models.CharField(_("type"), max_length=3, choices=TYPE_CHOICES, default=INTERVIEWEE)
+
+    class Meta:
+        verbose_name = _("agency")
+        verbose_name_plural = _("agencies")
 
     def __str__(self):
-        return "{}_{}".format(self.person.__str__(), self.resource.__str__())
+        return "{}_{}".format(self.agent.__str__(), self.resource.__str__())
 
 
 class EntityReference(models.Model):

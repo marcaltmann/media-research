@@ -15,8 +15,7 @@ class LocationAdmin(admin.ModelAdmin):
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    search_fields = ["last_name", "first_name"]
-    list_display = ["last_name", "first_name", "gender", "date_of_birth"]
+    list_display = ["name", "gnd_id"]
 
 
 @admin.register(Organisation)

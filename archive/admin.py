@@ -4,11 +4,18 @@ from archive.models import (
     Resource,
     Collection,
     Transcript,
-    ResourceInvolvement,
+    Agent,
+    Agency,
     MetadataKey,
     CharFieldMetadata,
     EntityReference,
 )
+
+
+@admin.register(Agent)
+class AgentAdmin(admin.ModelAdmin):
+    search_fields = ["last_name", "first_name"]
+    list_display = ["last_name", "first_name", "gender", "date_of_birth"]
 
 
 class EntityReferenceInline(admin.TabularInline):
@@ -16,8 +23,8 @@ class EntityReferenceInline(admin.TabularInline):
     extra = 1
 
 
-class ResourceInvolvementInline(admin.TabularInline):
-    model = ResourceInvolvement
+class AgencyInline(admin.TabularInline):
+    model = Agency
     extra = 1
 
 
@@ -31,8 +38,8 @@ class ResourceAdmin(admin.ModelAdmin):
         ("Media information", {"fields": ["media_type", "media_url", "poster"]}),
     ]
     inlines = [
+        AgencyInline,
         EntityReferenceInline,
-        ResourceInvolvementInline,
     ]
 
 

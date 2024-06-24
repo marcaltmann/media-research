@@ -8,14 +8,14 @@ from django.core.management.base import BaseCommand
 from django.utils.timezone import get_current_timezone
 
 from archive.models import (
-    Person,
+    Agent,
+    Agency,
     Resource,
     Transcript,
-    Location,
     Collection,
     MetadataKey,
-    ResourceInvolvement,
 )
+from entities.models import Entity, Location
 
 
 class Command(BaseCommand):
@@ -24,55 +24,55 @@ class Command(BaseCommand):
     @transaction.atomic
     def handle(self, *args, **kwargs):
         self.stdout.write("Deleting old data...")
-        models = [Person, Resource, Location, Collection, MetadataKey]
+        models = [Agent, Resource, Entity, Collection, MetadataKey]
         for m in models:
             m.objects.all().delete()
 
         self.stdout.write("Creating new data...")
 
-        create_people()
+        create_agents()
         create_resources()
         create_transcripts()
 
 
-def create_people():
-    """Creates person records."""
-    Person.objects.create(
+def create_agents():
+    """Creates agent records."""
+    Agent.objects.create(
         first_name="Winston",
         last_name="Churchill",
         date_of_birth=datetime.date(1874, 11, 13),
         gender="M",
         gnd_id="118520776",
     )
-    Person.objects.create(
+    Agent.objects.create(
         first_name="Michael",
         last_name="Kende",
         date_of_birth=datetime.date(1974, 3, 13),
         gender="M",
         gnd_id="171121503",
     )
-    Person.objects.create(
+    Agent.objects.create(
         first_name="John",
         last_name="Malkovich",
         date_of_birth=datetime.date(1953, 12, 9),
         gender="M",
         gnd_id="128617381",
     )
-    Person.objects.create(
+    Agent.objects.create(
         first_name="Minoru",
         last_name="Arakawa",
         date_of_birth=datetime.date(1946, 9, 3),
         gender="M",
         gnd_id="",
     )
-    Person.objects.create(
+    Agent.objects.create(
         first_name="Maximilian",
         last_name="Schönherr",
         date_of_birth=datetime.date(1954, 12, 27),
         gender="M",
         gnd_id="130608939",
     )
-    Person.objects.create(
+    Agent.objects.create(
         first_name="貝兒",
         last_name="陳",
         date_of_birth=datetime.date(1990, 3, 14),
@@ -84,12 +84,12 @@ def create_people():
 
 def create_resources():
     """Creates resource records."""
-    churchill = Person.objects.get(last_name="Churchill")
-    kende = Person.objects.get(last_name="Kende")
-    malkovich = Person.objects.get(last_name="Malkovich")
-    arakawa = Person.objects.get(last_name="Arakawa")
-    schoenherr = Person.objects.get(last_name="Schönherr")
-    chen = Person.objects.get(last_name="陳")
+    churchill = Agent.objects.get(last_name="Churchill")
+    kende = Agent.objects.get(last_name="Kende")
+    malkovich = Agent.objects.get(last_name="Malkovich")
+    arakawa = Agent.objects.get(last_name="Arakawa")
+    schoenherr = Agent.objects.get(last_name="Schönherr")
+    chen = Agent.objects.get(last_name="陳")
 
     Resource.objects.bulk_create(
         [
