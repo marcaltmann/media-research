@@ -188,7 +188,7 @@ def create_entities():
     kende_interview = Resource.objects.get(title__startswith="Michael Kende")
 
     usa = Location.objects.create(name="USA")
-    fcc = Organisation.objects.create(name="Federal Communication Commission")
+    fcc = Organisation.objects.create(name="Federal Communications Commission")
     internet_society = Organisation.objects.create(name="Internet Society")
     mci = Organisation.objects.create(name="MCI Communications")
     sprint = Organisation.objects.create(name="Sprint Corporation")
