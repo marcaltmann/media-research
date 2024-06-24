@@ -3,7 +3,6 @@ from django.contrib import admin
 from archive.models import (
     Resource,
     Collection,
-    Transcript,
     Agent,
     Agency,
     MetadataKey,
@@ -49,12 +48,6 @@ class CollectionAdmin(admin.ModelAdmin):
     fields = ["name", "description", "resources"]
     list_display = ["name", "resource_count"]
     filter_horizontal = ["resources"]
-
-
-@admin.register(Transcript)
-class TranscriptAdmin(admin.ModelAdmin):
-    search_fields = ["vtt"]
-    list_display = ["resource", "language"]
 
 
 @admin.register(MetadataKey)

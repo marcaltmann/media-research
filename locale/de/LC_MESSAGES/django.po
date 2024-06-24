@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 19:39+0200\n"
+"POT-Creation-Date: 2024-06-24 19:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgid "agents"
 msgstr "Mitwirkende"
 
 #: archive/models.py:33 archive/models.py:142 archive/models.py:158
-#: archive/models.py:178 archive/models.py:217
+#: archive/models.py:193 materials/models.py:9
 msgid "resource"
 msgstr "Ressource"
 
@@ -75,7 +75,7 @@ msgstr "Ressourcen"
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:63 archive/models.py:202
+#: archive/models.py:63 archive/models.py:178
 msgid "description"
 msgstr "Beschreibung"
 
@@ -189,55 +189,27 @@ msgstr "Entitätsreferenz"
 msgid "entity references"
 msgstr "Entitätsreferenzen"
 
-#: archive/models.py:181
-msgid "json file"
-msgstr "JSON-Datei"
-
-#: archive/models.py:183
-msgid "Paste the full transcript in JSON format."
-msgstr "Fügen Sie das ganze Transkript im JSON-Format ein."
-
-#: archive/models.py:186
-msgid "vtt file"
-msgstr "VTT-Datei"
-
-#: archive/models.py:188
-msgid "Paste the full transcript in VTT format."
-msgstr "Fügen Sie das ganze Transkript im VTT-Format ein."
-
-#: archive/models.py:190
-msgid "language"
-msgstr "Sprache"
-
-#: archive/models.py:193
-msgid "transcript"
-msgstr "Transkript"
-
-#: archive/models.py:194
-msgid "transcripts"
-msgstr "Transkripte"
-
-#: archive/models.py:201
+#: archive/models.py:177
 msgid "label"
 msgstr "Bezeichner"
 
-#: archive/models.py:205
+#: archive/models.py:181
 msgid "metadata key"
 msgstr "Metadaten-Schlüssel"
 
-#: archive/models.py:206
+#: archive/models.py:182
 msgid "metadata keys"
 msgstr "Metadaten-Schlüssel"
 
-#: archive/models.py:220
+#: archive/models.py:196
 msgid "key"
 msgstr "Schlüssel"
 
-#: archive/models.py:222
+#: archive/models.py:198
 msgid "value"
 msgstr "Wert"
 
-#: archive/models.py:225 archive/models.py:226
+#: archive/models.py:201 archive/models.py:202
 msgid "char field metadata"
 msgstr "Zeichenketten-Metadaten"
 
@@ -402,11 +374,43 @@ msgstr "sonstige Entität"
 msgid "miscellaneous entities"
 msgstr "sonstige Entitäten"
 
-#: media_explorer/settings.py:122
+#: materials/apps.py:8
+msgid "Materials"
+msgstr "Materialien"
+
+#: materials/models.py:12
+msgid "JSON file"
+msgstr "JSON-Datei"
+
+#: materials/models.py:14
+msgid "Paste the full transcript in JSON format."
+msgstr "Fügen Sie das ganze Transkript im JSON-Format ein."
+
+#: materials/models.py:17
+msgid "VTT file"
+msgstr "VTT-Datei"
+
+#: materials/models.py:19
+msgid "Paste the full transcript in VTT format."
+msgstr "Fügen Sie das ganze Transkript im VTT-Format ein."
+
+#: materials/models.py:21
+msgid "language"
+msgstr "Sprache"
+
+#: materials/models.py:24
+msgid "transcript"
+msgstr "Transkript"
+
+#: materials/models.py:25
+msgid "transcripts"
+msgstr "Transkripte"
+
+#: media_explorer/settings.py:123
 msgid "German"
 msgstr "Deutsch"
 
-#: media_explorer/settings.py:123
+#: media_explorer/settings.py:124
 msgid "English"
 msgstr "Englisch"
 
@@ -429,3 +433,6 @@ msgstr "Django Site-Administration"
 #: templates/admin/base_site.html:10
 msgid "Media Explorer Administration"
 msgstr "Media Explorer Administration"
+
+#~ msgid "json file"
+#~ msgstr "JSON-Datei"

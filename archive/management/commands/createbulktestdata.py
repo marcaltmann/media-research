@@ -9,12 +9,11 @@ from faker import Faker
 from archive.models import (
     Agent,
     Agency,
-    Entity,
     Resource,
-    Location,
     Collection,
     MetadataKey,
 )
+from entities.models import Entity, Location
 
 NUM_AGENTS = 500_000
 NUM_LOCATIONS = 50

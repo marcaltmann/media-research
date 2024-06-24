@@ -11,11 +11,11 @@ from archive.models import (
     Agent,
     Agency,
     Resource,
-    Transcript,
     Collection,
     MetadataKey,
 )
 from entities.models import Entity, Location
+from materials.models import Transcript
 
 
 class Command(BaseCommand):
