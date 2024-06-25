@@ -36,6 +36,7 @@ INTERNAL_IPS = [
 INSTALLED_APPS = [
     "archive.apps.ArchiveConfig",
     "entities.apps.EntitiesConfig",
+    "materials.apps.MaterialsConfig",
     "pages.apps.PagesConfig",
     "accounts.apps.AccountsConfig",
     "api.apps.ApiConfig",
