@@ -1,4 +1,6 @@
 {% load i18n %}
+{% load l10n %}
+{% load archive_extras %}
 {% if resource.is_video %}
   <video id="resource-media" class="video video-js vjs-fluid" controls>
     <source src="{{ resource.media_url }}#t={{ timecode }}"
@@ -49,8 +51,8 @@
     {% for er in resource.entityreference_set.all %}
       <li>
         {{ er.entity.name }}
-        {% for timecode in er.timecodes %}
-          <a href="{% url 'archive:resource_detail' resource.id %}?tc={{ timecode }}">{{ timecode }}</a>&nbsp;
+        {% for tc in er.timecodes %}
+          <a href="{% url 'archive:resource_detail' resource.id %}?tc={{ tc|unlocalize }}">{{ tc|timecode }}</a>&nbsp;
         {% endfor %}
       </li>
     {% endfor %}

@@ -37,7 +37,8 @@ class Command(BaseCommand):
         create_agents()
         create_resources()
         create_transcripts()
-        create_entities()
+        create_entities_kende()
+        create_entities_malkovich()
 
 
 def create_users():
@@ -192,8 +193,8 @@ def create_transcripts():
     )
 
 
-def create_entities():
-    """Creates entity records."""
+def create_entities_kende():
+    """Creates entity records for Kende interview."""
     kende_interview = Resource.objects.get(title__startswith="Michael Kende")
 
     usa = Location.objects.create(name="USA")
@@ -214,3 +215,21 @@ def create_entities():
     manager.create(entity=uunet, timecodes=[14.077])
     manager.create(entity=world_com, timecodes=[14.077])
     manager.create(entity=paper, timecodes=[78.097])
+
+
+def create_entities_malkovich():
+    """Creates entity records for Malkovich interview."""
+    malkovich_interview = Resource.objects.get(title__startswith="John Malkovich")
+
+    theatre = Location.objects.create(name="Théâtre de l'Atelier")
+    good_canary = MiscellaneousEntity.objects.create(name="Good Canary")
+    hampton = Person.objects.create(name="Christopher Hampton")
+    malkovich = Person.objects.create(name="John Malkovich")
+    cassel = Person.objects.create(name="Vincent Cassel")
+
+    manager = malkovich_interview.entityreference_set
+    manager.create(entity=theatre, timecodes=[11.351, 284.971])
+    manager.create(entity=good_canary, timecodes=[11.351, 101.219, 292.9])
+    manager.create(entity=hampton, timecodes=[20.277, 250.919, 263.348])
+    manager.create(entity=malkovich, timecodes=[4.708, 355.198, 406.0, 413.236])
+    manager.create(entity=cassel, timecodes=[101.219])
