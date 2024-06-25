@@ -3,12 +3,16 @@
     "version": "1.0.0",
     "description": "Research and Presentation software for multimedia resources",
     "main": "index.js",
+    "engines": {
+        "node": ">=20",
+        "npm": ">=10"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "devserver": "webpack --mode=development --watch"
     },
     "author": "Marc Altmann <marcaltmann@posteo.de>",
-    "license": "ISC",
+    "license": "AGPL-3.0",
     "devDependencies": {
         "css-loader": "^7.1.2",
         "mini-css-extract-plugin": "^2.9.0",
