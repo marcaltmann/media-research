@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-25 22:23+0200\n"
+"POT-Creation-Date: 2024-06-26 00:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,151 @@ msgstr ""
 #: accounts/apps.py:8
 msgid "Accounts"
 msgstr "Konten"
+
+#: accounts/templates/accounts/profile.html:4
+#: accounts/templates/accounts/profile.html:8
+msgid "Profile"
+msgstr ""
+
+#: accounts/templates/accounts/profile.html:12
+msgid "Username"
+msgstr "Nutzername"
+
+#: accounts/templates/accounts/profile.html:18
+msgid "First name"
+msgstr "Vorname"
+
+#: accounts/templates/accounts/profile.html:24
+msgid "Last name"
+msgstr "Nachname"
+
+#: accounts/templates/accounts/profile.html:30
+msgid "Email"
+msgstr "E-Mail"
+
+#: accounts/templates/accounts/profile.html:36
+msgid "Last login"
+msgstr "Letzte Anmeldung"
+
+#: accounts/templates/accounts/profile.html:42
+msgid "Date joined"
+msgstr "Registrierungsdatum"
+
+#: accounts/templates/accounts/profile.html:50
+#: accounts/templates/registration/password_change_form.html:4
+#: accounts/templates/registration/password_reset_confirm.html:18
+msgid "Change password"
+msgstr "Passwort ändern"
+
+#: accounts/templates/accounts/register.html:4
+#: accounts/templates/accounts/register.html:8
+#: accounts/templates/accounts/register.html:16
+#: accounts/templates/registration/login.html:48
+#: archive/templates/header.html:52
+msgid "Register"
+msgstr "Registrieren"
+
+#: accounts/templates/accounts/register.html:21
+#: accounts/templates/registration/login.html:4
+#: accounts/templates/registration/login.html:7
+#: accounts/templates/registration/login.html:37
+#: accounts/templates/registration/password_reset_complete.html:12
+msgid "Login"
+msgstr "Anmelden"
+
+#: accounts/templates/accounts/registration_complete.html:4
+#: accounts/templates/accounts/registration_complete.html:8
+msgid "Registration complete"
+msgstr "Registrierung fertig"
+
+#: accounts/templates/accounts/registration_complete.html:11
+msgid "Your registration is complete."
+msgstr "Sie sind fertig registriert."
+
+#: accounts/templates/registration/login.html:10
+msgid "Your username and password didn't match. Please try again."
+msgstr "Ihr Nutzername und Ihr Passwort stimmen nicht überein. Bitte versuchen Sie es nochmals."
+
+#: accounts/templates/registration/login.html:16
+msgid ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
+msgstr "Ihr Konto hat keinen Zugang zu dieser Seite. Um fortzufahren, melden Sie sich mit einem Konto an, das Zugang hat."
+
+#: accounts/templates/registration/login.html:20
+msgid "Please login to see this page."
+msgstr "Bitte melden Sie sich an, um diese Seite zu sehen."
+
+#: accounts/templates/registration/login.html:43
+msgid "Lost password?"
+msgstr "Passwort vergessen?"
+
+#: accounts/templates/registration/password_change_done.html:4
+#: accounts/templates/registration/password_change_done.html:8
+msgid "Password change successful"
+msgstr "Passwort erfolgreich geändert"
+
+#: accounts/templates/registration/password_change_done.html:11
+msgid "Your password was changed."
+msgstr "Ihr Passwort wurde geändert."
+
+#: accounts/templates/registration/password_change_done.html:15
+msgid "Back to profile"
+msgstr "Zurück zum Profil"
+
+#: accounts/templates/registration/password_change_form.html:9
+msgid "Errors"
+msgstr "Fehler"
+
+#: accounts/templates/registration/password_change_form.html:16
+msgid "Submit"
+msgstr "Absenden"
+
+#: accounts/templates/registration/password_reset_complete.html:4
+msgid "Password complete"
+msgstr "Passwort fertig"
+
+#: accounts/templates/registration/password_reset_complete.html:8
+msgid "Your password has been set"
+msgstr "Ihr Passwort wurde eingestellt"
+
+#: accounts/templates/registration/password_reset_confirm.html:4
+#: accounts/templates/registration/password_reset_confirm.html:8
+msgid "Confirm password"
+msgstr "Passwort bestätigen"
+
+#: accounts/templates/registration/password_reset_confirm.html:23
+msgid "Invalid password reset link!"
+msgstr "Ungültiger Passwort-Zurücksetzen-Link!"
+
+#: accounts/templates/registration/password_reset_done.html:4
+#: accounts/templates/registration/password_reset_done.html:8
+msgid "Reset email sent"
+msgstr "Zurück-Setzen-E-Mail gesendet"
+
+#: accounts/templates/registration/password_reset_done.html:11
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr "Wir haben Ihnen Anweisungen zum Festlegen Ihres Passworts per E-Mail gesendet, falls ein Konto mit der von Ihnen eingegebenen E-Mail-Adresse existiert. Sie sollten diese in Kürze erhalten."
+
+#: accounts/templates/registration/password_reset_done.html:14
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr "Falls Sie keine E-Mail erhalten, stellen Sie bitte sicher, dass Sie die Adresse eingegeben haben, mit der Sie sich registriert haben, und überprüfen Sie Ihren Spam-Ordner."
+
+#: accounts/templates/registration/password_reset_form.html:4
+#: accounts/templates/registration/password_reset_form.html:8
+#: accounts/templates/registration/password_reset_form.html:21
+msgid "Reset password"
+msgstr "Passwort zurücksetzen"
+
+#: accounts/templates/registration/password_reset_form.html:11
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr "Haben Sie Ihr Passwort vergessen? Geben Sie unten Ihre E-Mail-Adresse ein, und wir senden Ihnen Anweisungen zum Festlegen eines neuen Passworts per E-Mail."
 
 #: archive/apps.py:8
 msgid "Archive"
@@ -230,7 +375,7 @@ msgstr "Zeichenketten-Metadaten"
 #: archive/templates/archive/collection_index.html:6
 #: archive/templates/archive/collection_index.html:8
 #: archive/templates/archive/resource_main.html:32
-#: archive/templates/header.html:20 pages/templates/pages/welcome.html:28
+#: archive/templates/header.html:20 pages/templates/pages/welcome.html:29
 msgid "Collections"
 msgstr "Sammlungen"
 
@@ -274,7 +419,7 @@ msgstr "letzte"
 
 #: archive/templates/archive/resource_detail.html:15
 #: archive/templates/archive/resource_index.html:6
-#: archive/templates/header.html:14 pages/templates/pages/welcome.html:23
+#: archive/templates/header.html:14 pages/templates/pages/welcome.html:24
 msgid "Resources"
 msgstr "Ressourcen"
 
@@ -313,7 +458,7 @@ msgstr "Mitwirkende"
 
 #: archive/templates/archive/resource_main.html:49
 #: archive/templates/header.html:26 entities/apps.py:8
-#: pages/templates/pages/welcome.html:33
+#: pages/templates/pages/welcome.html:34
 msgid "Entities"
 msgstr "Entitäten"
 
@@ -335,7 +480,7 @@ msgid "Search for %(q)s"
 msgstr "Suche nach %(q)s"
 
 #: archive/templates/archive/search_results.html:8
-#: pages/templates/pages/welcome.html:15
+#: pages/templates/pages/welcome.html:16
 msgid "Search"
 msgstr "Suchen"
 
@@ -351,7 +496,7 @@ msgid_plural "%(counter)s search results"
 msgstr[0] "%(counter)s Suchergebnis"
 msgstr[1] "%(counter)s Suchergebnisse"
 
-#: archive/templates/base.html:11 archive/templates/footer.html:5
+#: archive/templates/base.html:13 archive/templates/footer.html:5
 #: archive/templates/header.html:6
 msgid "Media Explorer"
 msgstr "Media Explorer"
@@ -382,10 +527,6 @@ msgstr "Abmelden"
 #: archive/templates/header.html:46
 msgid "Log in"
 msgstr "Anmelden"
-
-#: archive/templates/header.html:52
-msgid "Register"
-msgstr "Registrieren"
 
 #: entities/models.py:33
 msgid "entities"
@@ -492,7 +633,7 @@ msgstr "Impressum"
 msgid "Research and presentation software for multimedia resources"
 msgstr "Forschungs- und Präsentationssoftware für Multimedia-Ressourcen"
 
-#: pages/templates/pages/welcome.html:12 pages/templates/pages/welcome.html:13
+#: pages/templates/pages/welcome.html:13 pages/templates/pages/welcome.html:14
 msgid "Search resources"
 msgstr "Ressourcen suchen"
 

@@ -1,6 +1,8 @@
 :root {
     --base-unit: 1.5rem;
+    --line-height: var(--base-unit);
     --border-radius: 3px;
+    --primary-color: #0a3782;
     --color-scheme-1: #6080b3;
     --color-scheme-2: #c8d4e7;
     --color-scheme-3: #050609;
@@ -11,7 +13,7 @@
     --text-color-bright: #fff;
     --heading-color:  #000;
     --ui-color:      #555;
-    --header-color:    var(--color-scheme-5);
+    --header-color:    var(--primary-color);
     --footer-color:    var(--color-scheme-2);
     --page-width:      calc(var(--base-unit) * 48);
     --page-width-wide: calc(var(--base-unit) * 60);

@@ -1,39 +1,51 @@
 {% extends "base.html" %}
-{% block title %}Login | {{ block.super }}{% endblock %}
+{% load i18n %}
+{% block title %}
+  {% translate "Login" %} | {{ block.super }}
+{% endblock %}
 {% block content %}
-  <h1 class="h1">Login</h1>
-  {% if form.errors %}<p>Your username and password didn't match. Please try again.</p>{% endif %}
+  <h1 class="h1">{% translate "Login" %}</h1>
+  {% if form.errors %}
+    <p>
+      {% translate "Your username and password didn't match. Please try again." %}
+    </p>
+  {% endif %}
   {% if next %}
     {% if user.is_authenticated %}
       <p>
-        Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.
+        {% translate "Your account doesn't have access to this page. To proceed, please login with an account that has access." %}
       </p>
     {% else %}
-      <p>Please login to see this page.</p>
+      <p>
+        {% translate "Please login to see this page." %}
+      </p>
     {% endif %}
   {% endif %}
-  <form method="post" action="{% url 'login' %}">
+  <form method="post" action="{% url 'login' %}" class="form">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}">
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <div class="u-mt-small">
-      <button type="submit" class="button">Login</button>
+    <div>
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </div>
+    <div>
+      {{ form.password.label_tag }}
+      {{ form.password }}
+    </div>
+    <div class="u-mt">
+      <button type="submit" class="form__button">
+        {% translate "Login" %}
+      </button>
     </div>
   </form>
   <p class="p u-mt">
-    <a href="{% url 'password_reset' %}">Lost password?</a>
+    <a href="{% url 'password_reset' %}">
+      {% translate "Lost password?" %}
+    </a>
   </p>
   <p>
-    <a href="{% url 'accounts:register' %}">Register</a>
+    <a href="{% url 'accounts:register' %}">
+      {% translate "Register" %}
+    </a>
   </p>
 {% endblock %}

@@ -1,16 +1,26 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}
-  Register | {{ block.super }}
+  {% translate "Register" %} | {{ block.super }}
 {% endblock title %}
 {% block content %}
-  <h1 class="h1">Register</h1>
-  {% if form.errors %}{% endif %}
-  <form method="post" action="{% url 'accounts:register' %}">
+  <h1 class="h1">
+    {% translate "Register" %}
+  </h1>
+  {% if form.errors %}
+  {% endif %}
+  <form method="post" action="{% url 'accounts:register' %}" class="form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Register</button>
+    <div class="u-mt">
+      <button type="submit" class="form__button">
+        {% translate "Register" %}
+      </button>
+    </div>
   </form>
-  <p>
-    <a href="{% url 'login' %}">Login</a>
+  <p class="u-mt-small">
+    <a href="{% url 'login' %}">
+      {% translate "Login" %}
+    </a>
   </p>
 {% endblock content %}

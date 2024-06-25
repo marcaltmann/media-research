@@ -1,12 +1,18 @@
-.form {
-    line-height: var(--base-unit);
+.form__label {
+    display: block;
 }
 
-.form input,
-.form button {
-    line-height: var(--base-unit);
+.form__input {
+    border: 1px solid #aaa;
+    line-height: var(--line-height);
+    padding: calc(var(--base-unit) / 4) calc(var(--base-unit) / 2);
 }
 
-.form button {
-    padding: 0 calc(var(--base-unit) / 2);
+.form__button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    color: white;
+    line-height: var(--line-height);
+    padding: calc(var(--base-unit) / 4) calc(var(--base-unit) / 2);
 }
