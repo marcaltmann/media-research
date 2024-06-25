@@ -1,11 +1,11 @@
 import datetime
 import json
 from pathlib import Path
-import random
 
 from django.db import transaction
 from django.core.management.base import BaseCommand
 from django.utils.timezone import get_current_timezone
+from django.contrib.auth import get_user_model
 
 from archive.models import (
     Agent,
@@ -18,6 +18,8 @@ from archive.models import (
 from entities.models import Entity, Person, Location, Organisation, MiscellaneousEntity
 from materials.models import Transcript
 
+User = get_user_model()
+
 
 class Command(BaseCommand):
     help = "Generates test data"
@@ -25,16 +27,23 @@ class Command(BaseCommand):
     @transaction.atomic
     def handle(self, *args, **kwargs):
         self.stdout.write("Deleting old data...")
-        models = [Agent, Resource, Entity, Collection, MetadataKey]
+        models = [User, Agent, Resource, Entity, Collection, MetadataKey]
         for m in models:
             m.objects.all().delete()
 
         self.stdout.write("Creating new data...")
 
+        create_users()
         create_agents()
         create_resources()
         create_transcripts()
         create_entities()
+
+
+def create_users():
+    User.objects.create_user('alice', 'alice@example.com', 'password')
+    User.objects.create_user('bob', 'bob@example.com', 'password', is_staff=True)
+    User.objects.create_superuser('carol', 'carol@example.com', 'password')
 
 
 def create_agents():

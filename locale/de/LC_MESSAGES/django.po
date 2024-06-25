@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 19:53+0200\n"
+"POT-Creation-Date: 2024-06-25 18:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,158 +58,170 @@ msgstr "Dauer"
 msgid "public"
 msgstr "öffentlich"
 
-#: archive/models.py:25 archive/models.py:113
+#: archive/models.py:24 archive/models.py:119
 msgid "agents"
 msgstr "Mitwirkende"
 
-#: archive/models.py:33 archive/models.py:142 archive/models.py:158
-#: archive/models.py:193 materials/models.py:9
+#: archive/models.py:31 archive/models.py:149 archive/models.py:168
+#: archive/models.py:203 materials/models.py:11
 msgid "resource"
 msgstr "Ressource"
 
-#: archive/models.py:34 archive/models.py:61
+#: archive/models.py:32 archive/models.py:59
 msgid "resources"
 msgstr "Ressourcen"
 
-#: archive/models.py:62 entities/models.py:20
+#: archive/models.py:60 entities/models.py:20
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:63 archive/models.py:178
+#: archive/models.py:61 archive/models.py:188
 msgid "description"
 msgstr "Beschreibung"
 
-#: archive/models.py:70
+#: archive/models.py:68
 msgid "collection"
 msgstr "Sammlung"
 
-#: archive/models.py:71
+#: archive/models.py:69
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:89
+#: archive/models.py:87
 msgid "Male"
 msgstr "männlich"
 
-#: archive/models.py:90
+#: archive/models.py:88
 msgid "Female"
 msgstr "weiblich"
 
-#: archive/models.py:91
+#: archive/models.py:89
 msgid "Diverse"
 msgstr "divers"
 
-#: archive/models.py:92
+#: archive/models.py:90
 msgid "Not specified"
 msgstr "nicht angegeben"
 
-#: archive/models.py:95
+#: archive/models.py:93
 msgid "first name"
 msgstr "Vorname"
 
-#: archive/models.py:96
+#: archive/models.py:94
 msgid "last name"
 msgstr "Nachname"
 
-#: archive/models.py:98
+#: archive/models.py:96
 msgid "eastern name order"
 msgstr "östliche Namensreihenfolge"
 
-#: archive/models.py:100
+#: archive/models.py:98
 msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
-#: archive/models.py:103
+#: archive/models.py:101 entities/models.py:22
+msgid "GND id"
+msgstr "GND-ID"
+
+#: archive/models.py:105 entities/models.py:26
+msgid ""
+"<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file "
+"identifier"
+msgstr ""
+"ID der <a href='https://d-nb.info/standards/elementset/gnd'>Gemeinsamen "
+"Normdatei</a>"
+
+#: archive/models.py:109
 msgid "gender"
 msgstr "Gender"
 
-#: archive/models.py:108
+#: archive/models.py:114
 msgid "date of birth"
 msgstr "Geburtsdatum"
 
-#: archive/models.py:112 archive/models.py:141
+#: archive/models.py:118 archive/models.py:147
 msgid "agent"
 msgstr "Mitwirkender"
 
-#: archive/models.py:133
+#: archive/models.py:139
 msgid "Interviewee"
 msgstr "Befragter"
 
-#: archive/models.py:134
+#: archive/models.py:140
 msgid "Interviewer"
 msgstr "Befrager"
 
-#: archive/models.py:135
+#: archive/models.py:141
 msgid "Camera"
 msgstr "Kamera"
 
-#: archive/models.py:136
+#: archive/models.py:142
 msgid "Sound"
 msgstr "Ton"
 
-#: archive/models.py:137
+#: archive/models.py:143
 msgid "Editor"
 msgstr "Schnitt"
 
-#: archive/models.py:138
+#: archive/models.py:144
 msgid "Other"
 msgstr "Sonstiges"
 
-#: archive/models.py:143
+#: archive/models.py:152
 msgid "type"
 msgstr "Art"
 
-#: archive/models.py:146
+#: archive/models.py:156
 msgid "agency"
 msgstr "Funktion"
 
-#: archive/models.py:147
+#: archive/models.py:157
 msgid "agencies"
 msgstr "Funktionen"
 
-#: archive/models.py:155 entities/models.py:32
+#: archive/models.py:165 entities/models.py:32
 msgid "entity"
 msgstr "Entität"
 
-#: archive/models.py:161
+#: archive/models.py:171
 msgid "timecodes"
 msgstr "Zeitcodes"
 
-#: archive/models.py:164
+#: archive/models.py:174
 msgid ""
 "Enter timecodes in seconds as a comma separated list, e.g.: [124.3, 210.5]"
 msgstr ""
 "Geben Sie die Zeitcodes als komma-getrennte Liste ein, z.B.: [124.3, 210.5]"
 
-#: archive/models.py:169
+#: archive/models.py:179
 msgid "entity reference"
 msgstr "Entitätsreferenz"
 
-#: archive/models.py:170
+#: archive/models.py:180
 msgid "entity references"
 msgstr "Entitätsreferenzen"
 
-#: archive/models.py:177
+#: archive/models.py:187
 msgid "label"
 msgstr "Bezeichner"
 
-#: archive/models.py:181
+#: archive/models.py:191
 msgid "metadata key"
 msgstr "Metadaten-Schlüssel"
 
-#: archive/models.py:182
+#: archive/models.py:192
 msgid "metadata keys"
 msgstr "Metadaten-Schlüssel"
 
-#: archive/models.py:196
+#: archive/models.py:206
 msgid "key"
 msgstr "Schlüssel"
 
-#: archive/models.py:198
+#: archive/models.py:208
 msgid "value"
 msgstr "Wert"
 
-#: archive/models.py:201 archive/models.py:202
+#: archive/models.py:211 archive/models.py:212
 msgid "char field metadata"
 msgstr "Zeichenketten-Metadaten"
 
@@ -258,14 +270,16 @@ msgid "Collections"
 msgstr "Sammlungen"
 
 #: archive/templates/archive/resource_main.html:38
-msgid "People"
-msgstr "Personen"
+msgid "Agents"
+msgstr "Mitwirkende"
 
 #: archive/templates/archive/resource_main.html:47
-msgid "Locations"
-msgstr "Orte"
+#: archive/templates/header.html:24 entities/apps.py:8
+#: pages/templates/pages/welcome.html:33
+msgid "Entities"
+msgstr "Entitäten"
 
-#: archive/templates/archive/resource_main.html:57
+#: archive/templates/archive/resource_main.html:60
 msgid "You do not have the permissions to view metadata."
 msgstr "Sie haben nicht das Recht, die Metadaten zu sehen."
 
@@ -289,11 +303,6 @@ msgstr "Barrierefreiheit"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: archive/templates/header.html:24 entities/apps.py:8
-#: pages/templates/pages/welcome.html:33
-msgid "Entities"
-msgstr "Entitäten"
-
 #: archive/templates/header.html:36
 msgid "Log out"
 msgstr "Abmelden"
@@ -305,18 +314,6 @@ msgstr "Anmelden"
 #: archive/templates/header.html:50
 msgid "Register"
 msgstr "Registrieren"
-
-#: entities/models.py:22
-msgid "GND id"
-msgstr "GND-ID"
-
-#: entities/models.py:26
-msgid ""
-"<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file "
-"identifier"
-msgstr ""
-"ID der <a href='https://d-nb.info/standards/elementset/gnd'>Gemeinsamen "
-"Normdatei</a>"
 
 #: entities/models.py:33
 msgid "entities"
@@ -378,31 +375,31 @@ msgstr "sonstige Entitäten"
 msgid "Materials"
 msgstr "Materialien"
 
-#: materials/models.py:12
+#: materials/models.py:14
 msgid "JSON file"
 msgstr "JSON-Datei"
 
-#: materials/models.py:14
+#: materials/models.py:16
 msgid "Paste the full transcript in JSON format."
 msgstr "Fügen Sie das ganze Transkript im JSON-Format ein."
 
-#: materials/models.py:17
+#: materials/models.py:19
 msgid "VTT file"
 msgstr "VTT-Datei"
 
-#: materials/models.py:19
+#: materials/models.py:21
 msgid "Paste the full transcript in VTT format."
 msgstr "Fügen Sie das ganze Transkript im VTT-Format ein."
 
-#: materials/models.py:21
+#: materials/models.py:23
 msgid "language"
 msgstr "Sprache"
 
-#: materials/models.py:24
+#: materials/models.py:26
 msgid "transcript"
 msgstr "Transkript"
 
-#: materials/models.py:25
+#: materials/models.py:27
 msgid "transcripts"
 msgstr "Transkripte"
 
@@ -433,6 +430,12 @@ msgstr "Django Site-Administration"
 #: templates/admin/base_site.html:10
 msgid "Media Explorer Administration"
 msgstr "Media Explorer Administration"
+
+#~ msgid "People"
+#~ msgstr "Personen"
+
+#~ msgid "Locations"
+#~ msgstr "Orte"
 
 #~ msgid "json file"
 #~ msgstr "JSON-Datei"
