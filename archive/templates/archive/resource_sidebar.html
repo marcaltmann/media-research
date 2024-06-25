@@ -35,7 +35,7 @@
           <ul id="transcript" class="transcript">
             {% for segment in transcript.json %}
               <li class="transcript__segment"
-                  title="Timecode: {{ segment.start|stringformat:".2f" }}s">
+                  title="{% translate 'Timecode' %}: {{ segment.start|stringformat:".2f" }}s">
                 <a class="transcript__link"
                    data-start="{{ segment.start }}"
                    data-end="{{ segment.end }}"

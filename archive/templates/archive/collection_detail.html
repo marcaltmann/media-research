@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}{{ collection.name }} | {{ block.super }}{% endblock %}
 {% block content %}
   <nav class="breadcrumbs">
-    <a class="breadcrumbs__link" href="{% url 'archive:collection_index' %}">Collections</a>
+    <a class="breadcrumbs__link"
+       href="{% url 'archive:collection_index' %}">{% translate "Collections" %}</a>
     /
     {{ collection.name }}
   </nav>
@@ -30,7 +32,7 @@
     </div>
   {% else %}
     <p class="p u-mt">
-      <i>There are no resources yet.</i>
+      <i>{% translate "There are no resources yet." %}</i>
     </p>
   {% endif %}
 {% endblock %}

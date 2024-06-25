@@ -1,7 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Privacy | {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}
+  {% translate "Privacy" %} | {{ block.super }}
+{% endblock title %}
 {% block content %}
-  <h1 class="h1">Privacy</h1>
+  <h1 class="h1">
+    {% translate "Privacy" %}
+  </h1>
   <p class="paragraph">
     {% lorem %}
   </p>

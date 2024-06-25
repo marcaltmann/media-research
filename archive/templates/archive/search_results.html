@@ -1,11 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Search for {{ q }} | {{ block.super }}{% endblock %}
+{% load i18n %}
+{% block title %}
+  {% blocktranslate %}Search for {{ q }}{% endblocktranslate %} | {{ block.super }}
+{% endblock %}
 {% block content %}
   <nav class="breadcrumbs">
-    Search
+    {% translate "Search" %}
   </nav>
-  <h1 class="h1">Search for {{ q }}</h1>
-  <p>{{ resources.count }} search result{{ resources.count|pluralize }}</p>
+  <h1 class="h1">
+    {% blocktranslate %}Search for <i>{{ q }}</i>{% endblocktranslate %}
+  </h1>
+  <p>
+    {% blocktranslate count counter=resources.count %}{{ counter }} search result{% plural %}{{ counter }} search results{% endblocktranslate %}
+  </p>
   {% if resources %}
     <div class="grid-wrapper">
       <ul class="grid grid--resource">
