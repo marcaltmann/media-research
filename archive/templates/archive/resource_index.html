@@ -6,29 +6,22 @@
     {% translate "Resources" %}
   </nav>
   <h1 class="h1">{% translate "All resources" %}</h1>
+
   {% include "archive/pagination.html" %}
+
   {% if page_obj %}
-    <div class="grid-wrapper">
+    <div class="grid-wrapper u-mt u-mb">
       <ul class="grid grid--resource">
         {% for resource in page_obj %}
-          <li class="card card--resource">
-            <h3 class="card__title">
-              <a class="card__link"
-                 href="{% url 'archive:resource_detail' resource.id %}">{{ resource.title }}</a>
-            </h3>
-            <p class="card__detail">
-              {{ resource.duration }}
-              <br>
-              {{ resource.media_type }}
-              <br>
-              {{ resource.pub_date }}
-            </p>
-          </li>
+          {% include "archive/resource_preview.html" with resource=resource only %}
         {% endfor %}
       </ul>
     </div>
   {% else %}
-    <p>{% translate "There are no resources yet." %}</p>
+    <p class="u-mt u-mb">
+      {% translate "There are no resources yet." %}
+    </p>
   {% endif %}
+
   {% include "archive/pagination.html" %}
 {% endblock %}

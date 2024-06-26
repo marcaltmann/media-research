@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 21:28+0200\n"
+"POT-Creation-Date: 2024-06-27 01:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr "Konten"
 #: accounts/templates/accounts/profile.html:4
 #: accounts/templates/accounts/profile.html:8
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: accounts/templates/accounts/profile.html:12
 msgid "Username"
@@ -251,7 +251,7 @@ msgstr "Ressourcen"
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:75 archive/models.py:202
+#: archive/models.py:75 archive/models.py:202 entities/models.py:21
 msgid "description"
 msgstr "Beschreibung"
 
@@ -263,11 +263,11 @@ msgstr "Sammlung"
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:101
+#: archive/models.py:101 entities/models.py:44
 msgid "Male"
 msgstr "männlich"
 
-#: archive/models.py:102
+#: archive/models.py:102 entities/models.py:45
 msgid "Female"
 msgstr "weiblich"
 
@@ -295,11 +295,12 @@ msgstr "östliche Namensreihenfolge"
 msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
-#: archive/models.py:115 entities/models.py:22
+#: archive/models.py:115 entities/models.py:23
+#: entities/templates/entities/people/detail.html:23
 msgid "GND id"
 msgstr "GND-ID"
 
-#: archive/models.py:119 entities/models.py:26
+#: archive/models.py:119 entities/models.py:27
 msgid ""
 "<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file "
 "identifier"
@@ -311,7 +312,7 @@ msgstr ""
 msgid "gender"
 msgstr "Gender"
 
-#: archive/models.py:128
+#: archive/models.py:128 entities/models.py:53
 msgid "date of birth"
 msgstr "Geburtsdatum"
 
@@ -347,7 +348,7 @@ msgstr "Funktion"
 msgid "agencies"
 msgstr "Funktionen"
 
-#: archive/models.py:179 entities/models.py:32
+#: archive/models.py:179 entities/models.py:33
 msgid "entity"
 msgstr "Entität"
 
@@ -402,7 +403,7 @@ msgid "Collections"
 msgstr "Sammlungen"
 
 #: archive/templates/archive/collection_detail.html:35
-#: archive/templates/archive/resource_index.html:31
+#: archive/templates/archive/resource_index.html:22
 msgid "There are no resources yet."
 msgstr "Es gibt noch keine Ressourcen,"
 
@@ -480,6 +481,7 @@ msgstr "Mitwirkende"
 
 #: archive/templates/archive/resource_main.html:49
 #: archive/templates/header.html:26 entities/apps.py:8
+#: entities/templates/entities/people/detail.html:9
 #: pages/templates/pages/welcome.html:34
 msgid "Entities"
 msgstr "Entitäten"
@@ -550,23 +552,32 @@ msgstr "Abmelden"
 msgid "Log in"
 msgstr "Anmelden"
 
-#: entities/models.py:33
+#: entities/models.py:34
 msgid "entities"
 msgstr "Entitäten"
 
-#: entities/models.py:41
+#: entities/models.py:48
+msgctxt "like gender"
+msgid "sex"
+msgstr "Geschlecht"
+
+#: entities/models.py:54
+msgid "date of death"
+msgstr "Todesdatum"
+
+#: entities/models.py:57
 msgid "person"
 msgstr "Person"
 
-#: entities/models.py:42
+#: entities/models.py:58
 msgid "people"
 msgstr "Personen"
 
-#: entities/models.py:47
+#: entities/models.py:63
 msgid "GeoNames id"
 msgstr "GeoNames-ID"
 
-#: entities/models.py:51
+#: entities/models.py:67
 msgid ""
 "<a href='https://www.geonames.org/'>GeoNames</a> geographical database "
 "identifier"
@@ -574,37 +585,54 @@ msgstr ""
 "ID der geografischen Datenbank <a href='https://www.geonames.org/'>GeoNames</"
 "a>"
 
-#: entities/models.py:54
+#: entities/models.py:70
 msgid "latitude"
 msgstr "Breitengrad"
 
-#: entities/models.py:55
+#: entities/models.py:71
 msgid "longitude"
 msgstr "Längengrad"
 
-#: entities/models.py:58
+#: entities/models.py:74
 msgid "location"
 msgstr "Orte"
 
-#: entities/models.py:59
+#: entities/models.py:75
 msgid "locations"
 msgstr "Orte"
 
-#: entities/models.py:64
+#: entities/models.py:80
 msgid "organisation"
 msgstr "Organisation"
 
-#: entities/models.py:65
+#: entities/models.py:81
 msgid "organisations"
 msgstr "Organisationen"
 
-#: entities/models.py:70
+#: entities/models.py:86
 msgid "miscellaneous entity"
 msgstr "sonstige Entität"
 
-#: entities/models.py:71
+#: entities/models.py:87
 msgid "miscellaneous entities"
 msgstr "sonstige Entitäten"
+
+#: entities/templates/entities/people/detail.html:13
+msgid "People"
+msgstr "Personen"
+
+#: entities/templates/entities/people/detail.html:19
+msgid "Date of birth"
+msgstr "Geburtsdatum"
+
+#: entities/templates/entities/people/detail.html:20
+msgctxt "like gender"
+msgid "Sex"
+msgstr "Geschlecht"
+
+#: entities/templates/entities/people/detail.html:27
+msgid "Associated resources"
+msgstr "Verknüpfte Ressourcen"
 
 #: materials/apps.py:8
 msgid "Materials"

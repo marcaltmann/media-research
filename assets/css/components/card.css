@@ -1,5 +1,6 @@
 .card {
-    border: 1px solid var(--ui-color);
+    border: 1px solid var(--ui-color-bright);
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 10%);
 }
 
 .card--collection {

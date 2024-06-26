@@ -13,6 +13,7 @@
     --text-color-bright: #fff;
     --heading-color:  #000;
     --ui-color:      #555;
+    --ui-color-bright: #999;
     --header-color:    var(--primary-color);
     --footer-color:    var(--color-scheme-2);
     --page-width:      calc(var(--base-unit) * 48);

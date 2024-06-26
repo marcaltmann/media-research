@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext_lazy
 
 
 class Entity(models.Model):
@@ -18,6 +18,7 @@ class Entity(models.Model):
     #    choices=TYPE_CHOICES,
     # )
     name = models.CharField(_("name"), max_length=255)
+    description = models.TextField(_("description"), blank=True)
     gnd_id = models.CharField(
         _("GND id"),
         max_length=20,
@@ -37,6 +38,21 @@ class Entity(models.Model):
 
 
 class Person(Entity):
+    MALE = "M"
+    FEMALE = "F"
+    GENDER_CHOICES = {
+        MALE: _("Male"),
+        FEMALE: _("Female"),
+    }
+    sex = models.CharField(
+        pgettext_lazy("like gender", "sex"),
+        max_length=1,
+        choices=GENDER_CHOICES,
+        blank=True,
+    )
+    date_of_birth = models.DateField(_("date of birth"), blank=True, null=True)
+    date_of_death = models.DateField(_("date of death"), blank=True, null=True)
+
     class Meta:
         verbose_name = _("person")
         verbose_name_plural = _("people")

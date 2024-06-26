@@ -1,25 +1,30 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}
   {{ person }} | {{ block.super }}
 {% endblock title %}
 {% block content %}
   <nav class="breadcrumbs">
-    <a class="breadcrumbs__link" href="{% url 'entities:index' %}">Entities</a>
+    <a class="breadcrumbs__link" href="{% url 'entities:index' %}">
+      {% translate "Entities" %}
+    </a>
     /
-    <a class="breadcrumbs__link" href="{% url 'entities:person_index' %}">People</a>
+    <a class="breadcrumbs__link" href="{% url 'entities:person_index' %}">
+      {% translate "People" %}
+    </a>
     /
     {{ person }}
   </nav>
   <h1 class="h1">{{ person }}</h1>
-  <p>Date of birth: {{ person.date_of_birth }}</p>
-  <p>Gender: {{ person.gender }}</p>
+  <p>{% translate "Date of birth" %}: {{ person.date_of_birth|date:"SHORT_DATE_FORMAT" }}</p>
+  <p>{% translate "Sex" context "like gender" %}: {{ person.sex }}</p>
   {% if person.gnd_id %}
     <p>
-      GND-ID:
+      {% translate "GND id" %}:
       <a href="https://explore.gnd.network/gnd/{{ person.gnd_id }}">{{ person.gnd_id }}</a>
     </p>
   {% endif %}
-  <h2>Associated resources</h2>
+  <h2>{% translate "Associated resources" %}</h2>
   <ul>
     {% for resource in person.resource_set.all %}
       <li>
