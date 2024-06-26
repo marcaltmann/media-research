@@ -47,12 +47,14 @@
     {% endfor %}
   </ul>
   <h3>{% translate "Entities" %}</h3>
-  <ul>
+  <ul id="entities">
     {% for er in resource.entityreference_set.all %}
       <li>
         {{ er.entity.name }}
         {% for tc in er.timecodes %}
-          <a href="{% url 'archive:resource_detail' resource.id %}?tc={{ tc|unlocalize }}">{{ tc|timecode }}</a>&nbsp;
+          <a class="timecode__link"
+             data-start="{{ tc|unlocalize }}"
+             href="{% url 'archive:resource_detail' resource.id %}?tc={{ tc|unlocalize }}">{{ tc|timecode }}</a>&nbsp;
         {% endfor %}
       </li>
     {% endfor %}
