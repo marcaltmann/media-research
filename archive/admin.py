@@ -30,11 +30,11 @@ class AgencyInline(admin.TabularInline):
 @admin.register(Resource)
 class ResourceAdmin(admin.ModelAdmin):
     search_fields = ["title"]
-    list_display = ["title", "media_type", "duration", "public", "is_video"]
+    list_display = ["title", "type", "media_type", "duration", "public", "is_video"]
     list_filter = ["pub_date", "media_type", "public"]
     fieldsets = [
         (None, {"fields": ["title", "pub_date", "duration", "public"]}),
-        ("Media information", {"fields": ["media_type", "media_url", "poster"]}),
+        ("Media information", {"fields": ["type", "media_type", "media_url", "poster"]}),
     ]
     inlines = [
         AgencyInline,

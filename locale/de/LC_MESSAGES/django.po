@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 00:06+0200\n"
+"POT-Creation-Date: 2024-06-26 21:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,19 +53,20 @@ msgstr "Registrierungsdatum"
 
 #: accounts/templates/accounts/profile.html:50
 #: accounts/templates/registration/password_change_form.html:4
+#: accounts/templates/registration/password_change_form.html:8
 #: accounts/templates/registration/password_reset_confirm.html:18
 msgid "Change password"
 msgstr "Passwort ändern"
 
 #: accounts/templates/accounts/register.html:4
 #: accounts/templates/accounts/register.html:8
-#: accounts/templates/accounts/register.html:16
+#: accounts/templates/accounts/register.html:17
 #: accounts/templates/registration/login.html:48
 #: archive/templates/header.html:52
 msgid "Register"
 msgstr "Registrieren"
 
-#: accounts/templates/accounts/register.html:21
+#: accounts/templates/accounts/register.html:23
 #: accounts/templates/registration/login.html:4
 #: accounts/templates/registration/login.html:7
 #: accounts/templates/registration/login.html:37
@@ -84,13 +85,17 @@ msgstr "Sie sind fertig registriert."
 
 #: accounts/templates/registration/login.html:10
 msgid "Your username and password didn't match. Please try again."
-msgstr "Ihr Nutzername und Ihr Passwort stimmen nicht überein. Bitte versuchen Sie es nochmals."
+msgstr ""
+"Ihr Nutzername und Ihr Passwort stimmen nicht überein. Bitte versuchen Sie "
+"es nochmals."
 
 #: accounts/templates/registration/login.html:16
 msgid ""
 "Your account doesn't have access to this page. To proceed, please login with "
 "an account that has access."
-msgstr "Ihr Konto hat keinen Zugang zu dieser Seite. Um fortzufahren, melden Sie sich mit einem Konto an, das Zugang hat."
+msgstr ""
+"Ihr Konto hat keinen Zugang zu dieser Seite. Um fortzufahren, melden Sie "
+"sich mit einem Konto an, das Zugang hat."
 
 #: accounts/templates/registration/login.html:20
 msgid "Please login to see this page."
@@ -113,11 +118,11 @@ msgstr "Ihr Passwort wurde geändert."
 msgid "Back to profile"
 msgstr "Zurück zum Profil"
 
-#: accounts/templates/registration/password_change_form.html:9
+#: accounts/templates/registration/password_change_form.html:12
 msgid "Errors"
 msgstr "Fehler"
 
-#: accounts/templates/registration/password_change_form.html:16
+#: accounts/templates/registration/password_change_form.html:21
 msgid "Submit"
 msgstr "Absenden"
 
@@ -147,17 +152,23 @@ msgstr "Zurück-Setzen-E-Mail gesendet"
 msgid ""
 "We’ve emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
-msgstr "Wir haben Ihnen Anweisungen zum Festlegen Ihres Passworts per E-Mail gesendet, falls ein Konto mit der von Ihnen eingegebenen E-Mail-Adresse existiert. Sie sollten diese in Kürze erhalten."
+msgstr ""
+"Wir haben Ihnen Anweisungen zum Festlegen Ihres Passworts per E-Mail "
+"gesendet, falls ein Konto mit der von Ihnen eingegebenen E-Mail-Adresse "
+"existiert. Sie sollten diese in Kürze erhalten."
 
 #: accounts/templates/registration/password_reset_done.html:14
 msgid ""
 "If you don’t receive an email, please make sure you’ve entered the address "
 "you registered with, and check your spam folder."
-msgstr "Falls Sie keine E-Mail erhalten, stellen Sie bitte sicher, dass Sie die Adresse eingegeben haben, mit der Sie sich registriert haben, und überprüfen Sie Ihren Spam-Ordner."
+msgstr ""
+"Falls Sie keine E-Mail erhalten, stellen Sie bitte sicher, dass Sie die "
+"Adresse eingegeben haben, mit der Sie sich registriert haben, und überprüfen "
+"Sie Ihren Spam-Ordner."
 
 #: accounts/templates/registration/password_reset_form.html:4
 #: accounts/templates/registration/password_reset_form.html:8
-#: accounts/templates/registration/password_reset_form.html:21
+#: accounts/templates/registration/password_reset_form.html:23
 msgid "Reset password"
 msgstr "Passwort zurücksetzen"
 
@@ -165,111 +176,130 @@ msgstr "Passwort zurücksetzen"
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
-msgstr "Haben Sie Ihr Passwort vergessen? Geben Sie unten Ihre E-Mail-Adresse ein, und wir senden Ihnen Anweisungen zum Festlegen eines neuen Passworts per E-Mail."
+msgstr ""
+"Haben Sie Ihr Passwort vergessen? Geben Sie unten Ihre E-Mail-Adresse ein, "
+"und wir senden Ihnen Anweisungen zum Festlegen eines neuen Passworts per E-"
+"Mail."
 
 #: archive/apps.py:8
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive/models.py:11
+#: archive/models.py:15
+msgid "Interview"
+msgstr "Interview"
+
+#: archive/models.py:16
+msgid "Audiobook"
+msgstr "Hörbuch"
+
+#: archive/models.py:17 archive/models.py:158
+msgid "Other"
+msgstr "Sonstiges"
+
+#: archive/models.py:20 archive/models.py:166
+msgid "type"
+msgstr "Art"
+
+#: archive/models.py:25
 msgid "title"
 msgstr "Titel"
 
-#: archive/models.py:12
+#: archive/models.py:26
 msgid "anonymized title"
 msgstr "anonymisierter Titel"
 
-#: archive/models.py:14
+#: archive/models.py:28
 msgid "media type"
 msgstr "Medientyp"
 
-#: archive/models.py:19
+#: archive/models.py:33
 msgid "media url"
 msgstr "Medien-URL"
 
-#: archive/models.py:20
+#: archive/models.py:34
 msgid "poster image"
 msgstr "Plakatbild"
 
-#: archive/models.py:21
+#: archive/models.py:35
 msgid "date published"
 msgstr "Veröffentlicht am"
 
-#: archive/models.py:22
+#: archive/models.py:36
 msgid "duration"
 msgstr "Dauer"
 
-#: archive/models.py:23
+#: archive/models.py:37
 msgid "public"
 msgstr "öffentlich"
 
-#: archive/models.py:24 archive/models.py:119
+#: archive/models.py:38 archive/models.py:133
 msgid "agents"
 msgstr "Mitwirkende"
 
-#: archive/models.py:31 archive/models.py:149 archive/models.py:168
-#: archive/models.py:203 materials/models.py:11
+#: archive/models.py:45 archive/models.py:163 archive/models.py:182
+#: archive/models.py:217 materials/models.py:11
 msgid "resource"
 msgstr "Ressource"
 
-#: archive/models.py:32 archive/models.py:59
+#: archive/models.py:46 archive/models.py:73
 #: archive/templates/archive/collection_index.html:20
 msgid "resources"
 msgstr "Ressourcen"
 
-#: archive/models.py:60 entities/models.py:20
+#: archive/models.py:74 entities/models.py:20
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:61 archive/models.py:188
+#: archive/models.py:75 archive/models.py:202
 msgid "description"
 msgstr "Beschreibung"
 
-#: archive/models.py:68
+#: archive/models.py:82
 msgid "collection"
 msgstr "Sammlung"
 
-#: archive/models.py:69
+#: archive/models.py:83
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:87
+#: archive/models.py:101
 msgid "Male"
 msgstr "männlich"
 
-#: archive/models.py:88
+#: archive/models.py:102
 msgid "Female"
 msgstr "weiblich"
 
-#: archive/models.py:89
+#: archive/models.py:103
 msgid "Diverse"
 msgstr "divers"
 
-#: archive/models.py:90
+#: archive/models.py:104
 msgid "Not specified"
 msgstr "nicht angegeben"
 
-#: archive/models.py:93
+#: archive/models.py:107
 msgid "first name"
 msgstr "Vorname"
 
-#: archive/models.py:94
+#: archive/models.py:108
 msgid "last name"
 msgstr "Nachname"
 
-#: archive/models.py:96
+#: archive/models.py:110
 msgid "eastern name order"
 msgstr "östliche Namensreihenfolge"
 
-#: archive/models.py:98
+#: archive/models.py:112
 msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
-#: archive/models.py:101 entities/models.py:22
+#: archive/models.py:115 entities/models.py:22
 msgid "GND id"
 msgstr "GND-ID"
 
-#: archive/models.py:105 entities/models.py:26
+#: archive/models.py:119 entities/models.py:26
 msgid ""
 "<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file "
 "identifier"
@@ -277,97 +307,89 @@ msgstr ""
 "ID der <a href='https://d-nb.info/standards/elementset/gnd'>Gemeinsamen "
 "Normdatei</a>"
 
-#: archive/models.py:109
+#: archive/models.py:123
 msgid "gender"
 msgstr "Gender"
 
-#: archive/models.py:114
+#: archive/models.py:128
 msgid "date of birth"
 msgstr "Geburtsdatum"
 
-#: archive/models.py:118 archive/models.py:147
+#: archive/models.py:132 archive/models.py:161
 msgid "agent"
 msgstr "Mitwirkender"
 
-#: archive/models.py:139
+#: archive/models.py:153
 msgid "Interviewee"
 msgstr "Befragter"
 
-#: archive/models.py:140
+#: archive/models.py:154
 msgid "Interviewer"
 msgstr "Befrager"
 
-#: archive/models.py:141
+#: archive/models.py:155
 msgid "Camera"
 msgstr "Kamera"
 
-#: archive/models.py:142
+#: archive/models.py:156
 msgid "Sound"
 msgstr "Ton"
 
-#: archive/models.py:143
+#: archive/models.py:157
 msgid "Editor"
 msgstr "Schnitt"
 
-#: archive/models.py:144
-msgid "Other"
-msgstr "Sonstiges"
-
-#: archive/models.py:152
-msgid "type"
-msgstr "Art"
-
-#: archive/models.py:156
+#: archive/models.py:170
 msgid "agency"
 msgstr "Funktion"
 
-#: archive/models.py:157
+#: archive/models.py:171
 msgid "agencies"
 msgstr "Funktionen"
 
-#: archive/models.py:165 entities/models.py:32
+#: archive/models.py:179 entities/models.py:32
 msgid "entity"
 msgstr "Entität"
 
-#: archive/models.py:171
+#: archive/models.py:185
 msgid "timecodes"
 msgstr "Zeitcodes"
 
-#: archive/models.py:174
+#: archive/models.py:188
 msgid ""
 "Enter timecodes in seconds as a comma separated list, e.g.: [124.3, 210.5]"
 msgstr ""
 "Geben Sie die Zeitcodes als komma-getrennte Liste ein, z.B.: [124.3, 210.5]"
 
-#: archive/models.py:179
+#: archive/models.py:193
 msgid "entity reference"
 msgstr "Entitätsreferenz"
 
-#: archive/models.py:180
+#: archive/models.py:194
 msgid "entity references"
 msgstr "Entitätsreferenzen"
 
-#: archive/models.py:187
+#: archive/models.py:201
 msgid "label"
 msgstr "Bezeichner"
 
-#: archive/models.py:191
+#: archive/models.py:205
 msgid "metadata key"
 msgstr "Metadaten-Schlüssel"
 
-#: archive/models.py:192
+#: archive/models.py:206
 msgid "metadata keys"
 msgstr "Metadaten-Schlüssel"
 
-#: archive/models.py:206
+#: archive/models.py:220
 msgid "key"
 msgstr "Schlüssel"
 
-#: archive/models.py:208
+#: archive/models.py:222
 msgid "value"
 msgstr "Wert"
 
-#: archive/models.py:211 archive/models.py:212
+#: archive/models.py:225 archive/models.py:226
 msgid "char field metadata"
 msgstr "Zeichenketten-Metadaten"
 
@@ -462,7 +484,7 @@ msgstr "Mitwirkende"
 msgid "Entities"
 msgstr "Entitäten"
 
-#: archive/templates/archive/resource_main.html:62
+#: archive/templates/archive/resource_main.html:64
 msgid "You do not have the permissions to view metadata."
 msgstr "Sie haben nicht das Recht, die Metadaten zu sehen."
 

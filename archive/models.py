@@ -8,6 +8,20 @@ from entities.models import Entity
 
 
 class Resource(models.Model):
+    TYPE_INTERVIEW = "INTERVIEW"
+    TYPE_AUDIOBOOK = "AUDIOBOOK"
+    TYPE_OTHER = "OTHER"
+    TYPE_CHOICES = (
+       (TYPE_INTERVIEW, _("Interview")),
+       (TYPE_AUDIOBOOK, _("Audiobook")),
+       (TYPE_OTHER, _("Other")),
+    )
+    type = models.CharField(
+        _("type"),
+        max_length=20,
+        choices=TYPE_CHOICES,
+        default=TYPE_INTERVIEW,
+    )
     title = models.CharField(_("title"), max_length=200, default="")
     anon_title = models.CharField(_("anonymized title"), max_length=200, default="")
     media_type = models.CharField(
