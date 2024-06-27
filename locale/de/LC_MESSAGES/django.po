@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 09:10+0200\n"
+"POT-Creation-Date: 2024-06-27 09:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,7 +296,7 @@ msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
 #: archive/models.py:115 entities/models.py:23
-#: entities/templates/entities/people/detail.html:23
+#: entities/templates/entities/people/detail.html:24
 msgid "GND id"
 msgstr "GND-ID"
 
@@ -669,6 +669,11 @@ msgstr "%(58)s sonstige Entitäten"
 msgid "Coordinates"
 msgstr "Koordinaten"
 
+#: entities/templates/entities/location_detail.html:34
+#: entities/templates/entities/people/detail.html:34
+msgid "Associated resources"
+msgstr "Verknüpfte Ressourcen"
+
 #: entities/templates/entities/location_index.html:29
 msgid "No locations are available."
 msgstr "Es sind keine Orte vorhanden."
@@ -678,13 +683,13 @@ msgid "Date of birth"
 msgstr "Geburtsdatum"
 
 #: entities/templates/entities/people/detail.html:20
+msgid "Date of death"
+msgstr "Todesdatum"
+
+#: entities/templates/entities/people/detail.html:21
 msgctxt "like gender"
 msgid "Sex"
 msgstr "Geschlecht"
-
-#: entities/templates/entities/people/detail.html:29
-msgid "Associated resources"
-msgstr "Verknüpfte Ressourcen"
 
 #: entities/templates/entities/people/index.html:29
 msgid "No people are available."
