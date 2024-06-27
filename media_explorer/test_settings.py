@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "api.apps.ApiConfig",
     "webpack_loader",
+    'django_json_widget',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

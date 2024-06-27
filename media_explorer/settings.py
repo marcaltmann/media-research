@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "webpack_loader",
     "debug_toolbar",
+    'django_json_widget',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
