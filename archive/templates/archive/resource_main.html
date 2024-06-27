@@ -54,7 +54,7 @@
         {% for tc in er.timecodes %}
           <a class="timecode__link"
              data-start="{{ tc|unlocalize }}"
-             href="{% url 'archive:resource_detail' resource.id %}?tc={{ tc|unlocalize }}">{{ tc|timecode }}</a>&nbsp;
+             href="{% url 'archive:resource_detail' resource.id %}?tc={{ tc|unlocalize }}">{{ tc|timecode }}</a>
         {% endfor %}
       </li>
     {% endfor %}
