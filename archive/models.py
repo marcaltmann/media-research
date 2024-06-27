@@ -12,9 +12,9 @@ class Resource(models.Model):
     TYPE_AUDIOBOOK = "AUDIOBOOK"
     TYPE_OTHER = "OTHER"
     TYPE_CHOICES = (
-       (TYPE_INTERVIEW, _("Interview")),
-       (TYPE_AUDIOBOOK, _("Audiobook")),
-       (TYPE_OTHER, _("Other")),
+        (TYPE_INTERVIEW, _("Interview")),
+        (TYPE_AUDIOBOOK, _("Audiobook")),
+        (TYPE_OTHER, _("Other")),
     )
     type = models.CharField(
         _("type"),

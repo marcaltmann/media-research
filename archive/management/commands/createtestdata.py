@@ -42,9 +42,9 @@ class Command(BaseCommand):
 
 
 def create_users():
-    User.objects.create_user('alice', 'alice@example.com', 'password')
-    User.objects.create_user('bob', 'bob@example.com', 'password', is_staff=True)
-    User.objects.create_superuser('carol', 'carol@example.com', 'password')
+    User.objects.create_user("alice", "alice@example.com", "password")
+    User.objects.create_user("bob", "bob@example.com", "password", is_staff=True)
+    User.objects.create_superuser("carol", "carol@example.com", "password")
 
 
 def create_agents():

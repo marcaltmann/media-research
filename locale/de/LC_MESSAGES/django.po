@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 09:52+0200\n"
+"POT-Creation-Date: 2024-06-28 00:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,7 +238,7 @@ msgid "agents"
 msgstr "Mitwirkende"
 
 #: archive/models.py:45 archive/models.py:163 archive/models.py:182
-#: archive/models.py:217 materials/models.py:11
+#: archive/models.py:217 materials/models.py:11 materials/models.py:35
 msgid "resource"
 msgstr "Ressource"
 
@@ -296,7 +296,7 @@ msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
 #: archive/models.py:115 entities/models.py:23
-#: entities/templates/entities/people/detail.html:24
+#: entities/templates/entities/people/detail.html:22
 msgid "GND id"
 msgstr "GND-ID"
 
@@ -397,7 +397,7 @@ msgstr "Zeichenketten-Metadaten"
 #: archive/templates/archive/collection_detail.html:7
 #: archive/templates/archive/collection_index.html:6
 #: archive/templates/archive/collection_index.html:8
-#: archive/templates/archive/resource_main.html:32
+#: archive/templates/archive/resource_main.html:33
 #: archive/templates/header.html:20 pages/templates/pages/welcome.html:29
 msgid "Collections"
 msgstr "Sammlungen"
@@ -442,7 +442,9 @@ msgstr "letzte"
 
 #: archive/templates/archive/resource_detail.html:15
 #: archive/templates/archive/resource_index.html:6
-#: archive/templates/header.html:14 pages/templates/pages/welcome.html:24
+#: archive/templates/header.html:14
+#: materials/templates/materials/image_material_detail.html:7
+#: pages/templates/pages/welcome.html:24
 msgid "Resources"
 msgstr "Ressourcen"
 
@@ -451,38 +453,40 @@ msgstr "Ressourcen"
 msgid "All resources"
 msgstr "Alle Ressourcen"
 
-#: archive/templates/archive/resource_main.html:15
+#: archive/templates/archive/resource_main.html:16
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: archive/templates/archive/resource_main.html:17
+#: archive/templates/archive/resource_main.html:18
 msgid "Basic"
 msgstr "Einfach"
 
-#: archive/templates/archive/resource_main.html:19
+#: archive/templates/archive/resource_main.html:20
 msgid "Media type"
 msgstr "Medientyp"
 
-#: archive/templates/archive/resource_main.html:20
+#: archive/templates/archive/resource_main.html:21
 msgid "Published"
 msgstr "Veröffentlicht"
 
-#: archive/templates/archive/resource_main.html:21
+#: archive/templates/archive/resource_main.html:22
 msgid "Duration"
 msgstr "Dauer"
 
-#: archive/templates/archive/resource_main.html:23
+#: archive/templates/archive/resource_main.html:24
 msgid "Custom"
 msgstr "Individuell"
 
-#: archive/templates/archive/resource_main.html:40
+#: archive/templates/archive/resource_main.html:41
 msgid "Agents"
 msgstr "Mitwirkende"
 
-#: archive/templates/archive/resource_main.html:49
+#: archive/templates/archive/resource_main.html:50
 #: archive/templates/header.html:26 entities/apps.py:8
 #: entities/templates/entities/index.html:5
 #: entities/templates/entities/index.html:9
+#: entities/templates/entities/index.html:12
+#: entities/templates/entities/location_detail.html:10
 #: entities/templates/entities/location_index.html:9
 #: entities/templates/entities/people/detail.html:9
 #: entities/templates/entities/people/index.html:9
@@ -490,9 +494,13 @@ msgstr "Mitwirkende"
 msgid "Entities"
 msgstr "Entitäten"
 
-#: archive/templates/archive/resource_main.html:64
+#: archive/templates/archive/resource_main.html:65
 msgid "You do not have the permissions to view metadata."
 msgstr "Sie haben nicht das Recht, die Metadaten zu sehen."
+
+#: archive/templates/archive/resource_main.html:71
+msgid "Image Materials"
+msgstr "Bild-Materialien"
 
 #: archive/templates/archive/resource_sidebar.html:3
 msgid "Transcripts"
@@ -577,7 +585,7 @@ msgstr "Person"
 msgid "people"
 msgstr "Personen"
 
-#: entities/models.py:63 entities/templates/entities/location_detail.html:24
+#: entities/models.py:63 entities/templates/entities/location_detail.html:26
 msgid "GeoNames id"
 msgstr "GeoNames-ID"
 
@@ -621,77 +629,77 @@ msgstr "sonstige Entität"
 msgid "miscellaneous entities"
 msgstr "sonstige Entitäten"
 
-#: entities/templates/entities/index.html:14
-#: entities/templates/entities/people/detail.html:13
+#: entities/templates/entities/index.html:17
+#: entities/templates/entities/people/detail.html:12
 #: entities/templates/entities/people/index.html:4
-#: entities/templates/entities/people/index.html:12
-#: entities/templates/entities/people/index.html:15
+#: entities/templates/entities/people/index.html:11
+#: entities/templates/entities/people/index.html:14
 msgid "People"
 msgstr "Personen"
 
-#: entities/templates/entities/index.html:17
+#: entities/templates/entities/index.html:20
 #, python-format
 msgid "%(34)s people entities"
 msgstr "%(34)s Personen-Entitäten"
 
-#: entities/templates/entities/index.html:27
-#: entities/templates/entities/location_detail.html:10
+#: entities/templates/entities/index.html:30
+#: entities/templates/entities/location_detail.html:13
 #: entities/templates/entities/location_index.html:4
-#: entities/templates/entities/location_index.html:12
-#: entities/templates/entities/location_index.html:15
+#: entities/templates/entities/location_index.html:11
+#: entities/templates/entities/location_index.html:14
 msgid "Locations"
 msgstr "Orte"
 
-#: entities/templates/entities/index.html:30
+#: entities/templates/entities/index.html:33
 #, python-format
 msgid "%(120)s location entities"
 msgstr "%(120)s Orts-Entitäten"
 
-#: entities/templates/entities/index.html:40
+#: entities/templates/entities/index.html:43
 msgid "Organisations"
 msgstr "Organisationen"
 
-#: entities/templates/entities/index.html:43
+#: entities/templates/entities/index.html:46
 #, python-format
 msgid "%(21)s organisation entities"
 msgstr "%(21)s Organisations-Entitäten"
 
-#: entities/templates/entities/index.html:53
+#: entities/templates/entities/index.html:56
 msgid "Miscellaneous"
 msgstr "sonstige Entitäten"
 
-#: entities/templates/entities/index.html:56
+#: entities/templates/entities/index.html:59
 #, python-format
 msgid "%(58)s miscellaneous entities"
 msgstr "%(58)s sonstige Entitäten"
 
-#: entities/templates/entities/location_detail.html:19
+#: entities/templates/entities/location_detail.html:21
 msgid "Coordinates"
 msgstr "Koordinaten"
 
-#: entities/templates/entities/location_detail.html:34
-#: entities/templates/entities/people/detail.html:34
+#: entities/templates/entities/location_detail.html:36
+#: entities/templates/entities/people/detail.html:32
 msgid "Mentioned in resources"
 msgstr "Erwähnt in Ressourcen"
 
-#: entities/templates/entities/location_index.html:29
+#: entities/templates/entities/location_index.html:28
 msgid "No locations are available."
 msgstr "Es sind keine Orte vorhanden."
 
-#: entities/templates/entities/people/detail.html:19
+#: entities/templates/entities/people/detail.html:17
 msgid "Date of birth"
 msgstr "Geburtsdatum"
 
-#: entities/templates/entities/people/detail.html:20
+#: entities/templates/entities/people/detail.html:18
 msgid "Date of death"
 msgstr "Todesdatum"
 
-#: entities/templates/entities/people/detail.html:21
+#: entities/templates/entities/people/detail.html:19
 msgctxt "like gender"
 msgid "Sex"
 msgstr "Geschlecht"
 
-#: entities/templates/entities/people/index.html:29
+#: entities/templates/entities/people/index.html:28
 msgid "No people are available."
 msgstr "Es sind keine Personen vorhanden."
 
@@ -727,11 +735,63 @@ msgstr "Transkript"
 msgid "transcripts"
 msgstr "Transkripte"
 
-#: media_explorer/settings.py:123
+#: materials/models.py:37
+msgid "identifier"
+msgstr "Kennung"
+
+#: materials/models.py:38
+msgid "caption"
+msgstr "Bildunterschrift"
+
+#: materials/models.py:39
+msgid "date"
+msgstr "Datum"
+
+#: materials/models.py:40
+msgid "license"
+msgstr "Lizenz"
+
+#: materials/models.py:44
+msgid "material"
+msgstr "Material"
+
+#: materials/models.py:45
+msgid "materials"
+msgstr "Materialien"
+
+#: materials/models.py:52
+msgid "content"
+msgstr "Inhalt"
+
+#: materials/models.py:55
+msgid "text material"
+msgstr "Text-Material"
+
+#: materials/models.py:56
+msgid "text materials"
+msgstr "Text-Materialien"
+
+#: materials/models.py:60
+msgid "image"
+msgstr "Bild"
+
+#: materials/models.py:63
+msgid "image material"
+msgstr "Bild-Material"
+
+#: materials/models.py:64
+msgid "image materials"
+msgstr "Bild-Materialien"
+
+#: materials/templates/materials/image_material_detail.html:25
+msgid "Back to resource"
+msgstr "Zurück zur Ressource"
+
+#: media_explorer/settings.py:125
 msgid "German"
 msgstr "Deutsch"
 
-#: media_explorer/settings.py:124
+#: media_explorer/settings.py:126
 msgid "English"
 msgstr "Englisch"
 

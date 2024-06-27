@@ -3,6 +3,7 @@ from django.db.models.query import QuerySet
 from django.views import generic
 from django.shortcuts import get_object_or_404, render
 from archive.models import Resource, Collection
+from materials.models import ImageMaterial
 
 
 class CollectionIndexView(generic.ListView):
@@ -48,5 +49,6 @@ def resource_detail(request, resource_id):
         "timecode": timecode,
         "collections": resource.collection_set.all(),
         "transcripts": resource.transcript_set.all(),
+        "image_materials": resource.imagematerial_set.all(),
     }
     return render(request, "archive/resource_detail.html", context)

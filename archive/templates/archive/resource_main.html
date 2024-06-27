@@ -1,3 +1,4 @@
+{% load static %}
 {% load i18n %}
 {% load l10n %}
 {% load archive_extras %}
@@ -64,3 +65,18 @@
     {% translate "You do not have the permissions to view metadata." %}
   </p>
 {% endif %}
+
+<section class="u-mt">
+  <h2>
+    {% translate "Image Materials" %}
+  </h2>
+  <ul class="u-mt-1/2">
+    {% for image_material in image_materials %}
+      <li>
+        <a href="{% url 'materials:image_material_detail' image_material.id %}">
+          {{ image_material.identifier }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -34,7 +34,10 @@ class ResourceAdmin(admin.ModelAdmin):
     list_filter = ["pub_date", "media_type", "public"]
     fieldsets = [
         (None, {"fields": ["title", "pub_date", "duration", "public"]}),
-        ("Media information", {"fields": ["type", "media_type", "media_url", "poster"]}),
+        (
+            "Media information",
+            {"fields": ["type", "media_type", "media_url", "poster"]},
+        ),
     ]
     inlines = [
         AgencyInline,
