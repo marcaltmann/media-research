@@ -5,9 +5,8 @@
 {% endblock title %}
 {% block content %}
   <nav class="breadcrumbs">
-    <a class="breadcrumbs__link" href="{% url 'entities:index' %}">
-      {% translate "Entities" %}
-    </a>
+    <a class="breadcrumbs__link"
+       href="{% url 'entities:index' %}">{% translate "Entities" %}</a>
     /
     {% translate "Locations" %}
   </nav>

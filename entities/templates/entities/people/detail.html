@@ -5,13 +5,11 @@
 {% endblock title %}
 {% block content %}
   <nav class="breadcrumbs">
-    <a class="breadcrumbs__link" href="{% url 'entities:index' %}">
-      {% translate "Entities" %}
-    </a>
+    <a class="breadcrumbs__link"
+       href="{% url 'entities:index' %}">{% translate "Entities" %}</a>
     /
-    <a class="breadcrumbs__link" href="{% url 'entities:person_index' %}">
-      {% translate "People" %}
-    </a>
+    <a class="breadcrumbs__link"
+       href="{% url 'entities:person_index' %}">{% translate "People" %}</a>
     /
     {{ person }}
   </nav>
@@ -31,13 +29,13 @@
 
   <section class="u-mt">
     <h2>
-      {% translate "Associated resources" %}
+      {% translate "Mentioned in resources" %}
     </h2>
-    <ul>
-      {% for resource in person.resource_set.all %}
+    <ul class="u-mt-1/2">
+      {% for ref in person.entityreference_set.all %}
         <li>
-          <a href="{% url 'archive:resource_detail' resource.id %}">
-            {{ resource.title }}
+          <a href="{% url 'archive:resource_detail' ref.resource.id %}">
+            {{ ref.resource.title }}
           </a>
         </li>
       {% endfor %}
