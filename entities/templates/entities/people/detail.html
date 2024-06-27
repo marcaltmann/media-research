@@ -17,19 +17,30 @@
   </nav>
   <h1 class="h1">{{ person }}</h1>
   <p>{% translate "Date of birth" %}: {{ person.date_of_birth|date:"SHORT_DATE_FORMAT" }}</p>
+  <p>{% translate "Date of death" %}: {{ person.date_of_death|date:"SHORT_DATE_FORMAT" }}</p>
   <p>{% translate "Sex" context "like gender" %}: {{ person.sex }}</p>
   {% if person.gnd_id %}
     <p>
       {% translate "GND id" %}:
-      <a href="https://explore.gnd.network/gnd/{{ person.gnd_id }}">{{ person.gnd_id }}</a>
+      <a href="https://explore.gnd.network/gnd/{{ person.gnd_id }}">
+        {{ person.gnd_id }}
+      </a>
     </p>
   {% endif %}
-  <h2>{% translate "Associated resources" %}</h2>
-  <ul>
-    {% for resource in person.resource_set.all %}
-      <li>
-        <a href="{% url 'archive:resource_detail' resource.id %}">{{ resource.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+  <p>{{ person.description }}</p>
+
+  <section class="u-mt">
+    <h2>
+      {% translate "Associated resources" %}
+    </h2>
+    <ul>
+      {% for resource in person.resource_set.all %}
+        <li>
+          <a href="{% url 'archive:resource_detail' resource.id %}">
+            {{ resource.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 {% endblock content %}

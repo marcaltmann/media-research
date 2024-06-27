@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 01:51+0200\n"
+"POT-Creation-Date: 2024-06-27 09:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -481,7 +481,11 @@ msgstr "Mitwirkende"
 
 #: archive/templates/archive/resource_main.html:49
 #: archive/templates/header.html:26 entities/apps.py:8
+#: entities/templates/entities/index.html:5
+#: entities/templates/entities/index.html:9
+#: entities/templates/entities/location_index.html:9
 #: entities/templates/entities/people/detail.html:9
+#: entities/templates/entities/people/index.html:9
 #: pages/templates/pages/welcome.html:34
 msgid "Entities"
 msgstr "Entitäten"
@@ -573,7 +577,7 @@ msgstr "Person"
 msgid "people"
 msgstr "Personen"
 
-#: entities/models.py:63
+#: entities/models.py:63 entities/templates/entities/location_detail.html:24
 msgid "GeoNames id"
 msgstr "GeoNames-ID"
 
@@ -617,9 +621,57 @@ msgstr "sonstige Entität"
 msgid "miscellaneous entities"
 msgstr "sonstige Entitäten"
 
+#: entities/templates/entities/index.html:14
 #: entities/templates/entities/people/detail.html:13
+#: entities/templates/entities/people/index.html:4
+#: entities/templates/entities/people/index.html:12
+#: entities/templates/entities/people/index.html:15
 msgid "People"
 msgstr "Personen"
+
+#: entities/templates/entities/index.html:17
+#, python-format
+msgid "%(34)s people entities"
+msgstr "%(34)s Personen-Entitäten"
+
+#: entities/templates/entities/index.html:27
+#: entities/templates/entities/location_detail.html:10
+#: entities/templates/entities/location_index.html:4
+#: entities/templates/entities/location_index.html:12
+#: entities/templates/entities/location_index.html:15
+msgid "Locations"
+msgstr "Orte"
+
+#: entities/templates/entities/index.html:30
+#, python-format
+msgid "%(120)s location entities"
+msgstr "%(120)s Orts-Entitäten"
+
+#: entities/templates/entities/index.html:40
+msgid "Organisations"
+msgstr "Organisationen"
+
+#: entities/templates/entities/index.html:43
+#, python-format
+msgid "%(21)s organisation entities"
+msgstr "%(21)s Organisations-Entitäten"
+
+#: entities/templates/entities/index.html:53
+msgid "Miscellaneous"
+msgstr "sonstige Entitäten"
+
+#: entities/templates/entities/index.html:56
+#, python-format
+msgid "%(58)s miscellaneous entities"
+msgstr "%(58)s sonstige Entitäten"
+
+#: entities/templates/entities/location_detail.html:19
+msgid "Coordinates"
+msgstr "Koordinaten"
+
+#: entities/templates/entities/location_index.html:29
+msgid "No locations are available."
+msgstr "Es sind keine Orte vorhanden."
 
 #: entities/templates/entities/people/detail.html:19
 msgid "Date of birth"
@@ -630,9 +682,13 @@ msgctxt "like gender"
 msgid "Sex"
 msgstr "Geschlecht"
 
-#: entities/templates/entities/people/detail.html:27
+#: entities/templates/entities/people/detail.html:29
 msgid "Associated resources"
 msgstr "Verknüpfte Ressourcen"
+
+#: entities/templates/entities/people/index.html:29
+msgid "No people are available."
+msgstr "Es sind keine Personen vorhanden."
 
 #: materials/apps.py:8
 msgid "Materials"

@@ -1,23 +1,32 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}
-  People | {{ block.super }}
+  {% translate "People" %} | {{ block.super }}
 {% endblock title %}
 {% block content %}
   <nav class="breadcrumbs">
-    <a class="breadcrumbs__link" href="{% url 'entities:index' %}">Entities</a>
+    <a class="breadcrumbs__link" href="{% url 'entities:index' %}">
+      {% translate "Entities" %}
+    </a>
     /
-    People
+    {% translate "People" %}
   </nav>
-  <h1 class="h1">People</h1>
+  <h1 class="h1">
+    {% translate "People" %}
+  </h1>
   {% if people %}
     <ul>
       {% for person in people %}
         <li>
-          <a href="{% url 'entities:person_detail' person.id %}">{{ person }}</a>
+          <a href="{% url 'entities:person_detail' person.id %}">
+            {{ person }}
+          </a>
         </li>
       {% endfor %}
     </ul>
   {% else %}
-    <p>No people are available.</p>
+    <p>
+      {% translate "No people are available." %}
+    </p>
   {% endif %}
 {% endblock content %}

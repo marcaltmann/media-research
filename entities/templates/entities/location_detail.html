@@ -1,28 +1,44 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load render_bundle from webpack_loader %}
 {% block title %}
   {{ location.name }} | {{ block.super }}
 {% endblock title %}
 {% block content %}
   <nav class="breadcrumbs">
-    <a class="breadcrumbs__link" href="{% url 'entities:location_index' %}">Locations</a>
+    <a class="breadcrumbs__link" href="{% url 'entities:location_index' %}">
+      {% translate "Locations" %}
+    </a>
     /
     {{ location.name }}
   </nav>
   <div class="grid grid--location-page">
     <div>
       <h1 class="h1">{{ location.name }}</h1>
-      <p class="p">Coordinates: {{ location.latitude }}, {{ location.longitude }}</p>
+      <p class="p">
+        {% translate "Coordinates" %}:
+        {{ location.latitude }}, {{ location.longitude }}
+      </p>
       {% if location.geonames_id %}
         <p class="p">
-          Geonames-ID:
-          <a href="https://www.geonames.org/{{ location.geonames_id }}">{{ location.geonames_id }}</a>
+          {% translate "GeoNames id" %}:
+          <a href="https://www.geonames.org/{{ location.geonames_id }}">
+            {{ location.geonames_id }}
+          </a>
         </p>
       {% endif %}
-      <ul>
+      <p>
+        {{ location.description }}
+      </p>
+      <h2 class="u-mt">
+        {% translate "Associated resources" %}
+      </h2>
+      <ul class="u-mt">
         {% for resource in location.resource_set.all %}
           <li>
-            <a href="{% url 'archive:resource_detail' resource.id %}">{{ resource.title }}</a>
+            <a href="{% url 'archive:resource_detail' resource.id %}">
+              {{ resource.title }}
+            </a>
           </li>
         {% endfor %}
       </ul>
