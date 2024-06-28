@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 10:10+0200\n"
+"POT-Creation-Date: 2024-06-28 14:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,7 +197,7 @@ msgstr "Hörbuch"
 msgid "Other"
 msgstr "Sonstiges"
 
-#: archive/models.py:20 archive/models.py:166
+#: archive/models.py:20 archive/models.py:166 entities/models.py:17
 msgid "type"
 msgstr "Art"
 
@@ -247,11 +247,11 @@ msgstr "Ressource"
 msgid "resources"
 msgstr "Ressourcen"
 
-#: archive/models.py:74 entities/models.py:20
+#: archive/models.py:74 entities/models.py:21
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:75 archive/models.py:202 entities/models.py:21
+#: archive/models.py:75 archive/models.py:202 entities/models.py:22
 msgid "description"
 msgstr "Beschreibung"
 
@@ -263,11 +263,11 @@ msgstr "Sammlung"
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:101 entities/models.py:50
+#: archive/models.py:101
 msgid "Male"
 msgstr "männlich"
 
-#: archive/models.py:102 entities/models.py:51
+#: archive/models.py:102
 msgid "Female"
 msgstr "weiblich"
 
@@ -295,12 +295,12 @@ msgstr "östliche Namensreihenfolge"
 msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
-#: archive/models.py:115 entities/models.py:23
-#: entities/templates/entities/people/detail.html:22
+#: archive/models.py:115 entities/models.py:24
+#: entities/templates/entities/entity_detail.html:16
 msgid "GND id"
 msgstr "GND-ID"
 
-#: archive/models.py:119 entities/models.py:27
+#: archive/models.py:119 entities/models.py:28
 msgid ""
 "<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file "
 "identifier"
@@ -312,7 +312,7 @@ msgstr ""
 msgid "gender"
 msgstr "Gender"
 
-#: archive/models.py:128 entities/models.py:59
+#: archive/models.py:128
 msgid "date of birth"
 msgstr "Geburtsdatum"
 
@@ -348,7 +348,7 @@ msgstr "Funktion"
 msgid "agencies"
 msgstr "Funktionen"
 
-#: archive/models.py:179 entities/models.py:39
+#: archive/models.py:179 entities/models.py:40
 msgid "entity"
 msgstr "Entität"
 
@@ -483,13 +483,11 @@ msgstr "Mitwirkende"
 
 #: archive/templates/archive/resource_main.html:50
 #: archive/templates/header.html:26 entities/apps.py:8
-#: entities/templates/entities/index.html:5
-#: entities/templates/entities/index.html:9
-#: entities/templates/entities/index.html:12
+#: entities/templates/entities/entity_detail.html:9
+#: entities/templates/entities/entity_index.html:5
+#: entities/templates/entities/entity_index.html:9
+#: entities/templates/entities/entity_index.html:12
 #: entities/templates/entities/location_detail.html:10
-#: entities/templates/entities/location_index.html:9
-#: entities/templates/entities/people/detail.html:9
-#: entities/templates/entities/people/index.html:9
 #: pages/templates/pages/welcome.html:34
 msgid "Entities"
 msgstr "Entitäten"
@@ -580,119 +578,56 @@ msgstr "Organisation"
 msgid "Misc"
 msgstr "Sonstiges"
 
-#: entities/models.py:31
+#: entities/models.py:32
 msgid "extra"
 msgstr "Zusätzlich"
 
-#: entities/models.py:33
+#: entities/models.py:34
 msgid "Extra information specific to entity types"
 msgstr "Zusätzliche Informationen, spezifisch für jeweiligen Entitätstyp"
 
-#: entities/models.py:40
+#: entities/models.py:41
 msgid "entities"
 msgstr "Entitäten"
 
-#: entities/models.py:54
-msgctxt "like gender"
-msgid "sex"
-msgstr "Geschlecht"
+#: entities/templates/entities/entity_detail.html:26
+#: entities/templates/entities/location_detail.html:36
+msgid "Mentioned in resources"
+msgstr "Erwähnt in Ressourcen"
 
-#: entities/models.py:60
-msgid "date of death"
-msgstr "Todesdatum"
-
-#: entities/models.py:63
-msgid "person"
-msgstr "Person"
-
-#: entities/models.py:64
-msgid "people"
-msgstr "Personen"
-
-#: entities/models.py:69 entities/templates/entities/location_detail.html:26
-msgid "GeoNames id"
-msgstr "GeoNames-ID"
-
-#: entities/models.py:73
-msgid ""
-"<a href='https://www.geonames.org/'>GeoNames</a> geographical database "
-"identifier"
-msgstr ""
-"ID der geografischen Datenbank <a href='https://www.geonames.org/'>GeoNames</"
-"a>"
-
-#: entities/models.py:76
-msgid "latitude"
-msgstr "Breitengrad"
-
-#: entities/models.py:77
-msgid "longitude"
-msgstr "Längengrad"
-
-#: entities/models.py:80
-msgid "location"
-msgstr "Orte"
-
-#: entities/models.py:81
-msgid "locations"
-msgstr "Orte"
-
-#: entities/models.py:86
-msgid "organisation"
-msgstr "Organisation"
-
-#: entities/models.py:87
-msgid "organisations"
-msgstr "Organisationen"
-
-#: entities/models.py:92
-msgid "miscellaneous entity"
-msgstr "sonstige Entität"
-
-#: entities/models.py:93
-msgid "miscellaneous entities"
-msgstr "sonstige Entitäten"
-
-#: entities/templates/entities/index.html:17
-#: entities/templates/entities/people/detail.html:12
-#: entities/templates/entities/people/index.html:4
-#: entities/templates/entities/people/index.html:11
-#: entities/templates/entities/people/index.html:14
+#: entities/templates/entities/entity_index.html:17
 msgid "People"
 msgstr "Personen"
 
-#: entities/templates/entities/index.html:20
+#: entities/templates/entities/entity_index.html:20
 #, python-format
 msgid "%(34)s people entities"
 msgstr "%(34)s Personen-Entitäten"
 
-#: entities/templates/entities/index.html:30
+#: entities/templates/entities/entity_index.html:30
 #: entities/templates/entities/location_detail.html:13
-#: entities/templates/entities/location_index.html:4
-#: entities/templates/entities/location_index.html:11
-#: entities/templates/entities/location_index.html:14
 msgid "Locations"
 msgstr "Orte"
 
-#: entities/templates/entities/index.html:33
+#: entities/templates/entities/entity_index.html:33
 #, python-format
 msgid "%(120)s location entities"
 msgstr "%(120)s Orts-Entitäten"
 
-#: entities/templates/entities/index.html:43
+#: entities/templates/entities/entity_index.html:43
 msgid "Organisations"
 msgstr "Organisationen"
 
-#: entities/templates/entities/index.html:46
+#: entities/templates/entities/entity_index.html:46
 #, python-format
 msgid "%(21)s organisation entities"
 msgstr "%(21)s Organisations-Entitäten"
 
-#: entities/templates/entities/index.html:56
+#: entities/templates/entities/entity_index.html:56
 msgid "Miscellaneous"
 msgstr "sonstige Entitäten"
 
-#: entities/templates/entities/index.html:59
+#: entities/templates/entities/entity_index.html:59
 #, python-format
 msgid "%(58)s miscellaneous entities"
 msgstr "%(58)s sonstige Entitäten"
@@ -701,31 +636,9 @@ msgstr "%(58)s sonstige Entitäten"
 msgid "Coordinates"
 msgstr "Koordinaten"
 
-#: entities/templates/entities/location_detail.html:36
-#: entities/templates/entities/people/detail.html:32
-msgid "Mentioned in resources"
-msgstr "Erwähnt in Ressourcen"
-
-#: entities/templates/entities/location_index.html:28
-msgid "No locations are available."
-msgstr "Es sind keine Orte vorhanden."
-
-#: entities/templates/entities/people/detail.html:17
-msgid "Date of birth"
-msgstr "Geburtsdatum"
-
-#: entities/templates/entities/people/detail.html:18
-msgid "Date of death"
-msgstr "Todesdatum"
-
-#: entities/templates/entities/people/detail.html:19
-msgctxt "like gender"
-msgid "Sex"
-msgstr "Geschlecht"
-
-#: entities/templates/entities/people/index.html:28
-msgid "No people are available."
-msgstr "Es sind keine Personen vorhanden."
+#: entities/templates/entities/location_detail.html:26
+msgid "GeoNames id"
+msgstr "GeoNames-ID"
 
 #: materials/apps.py:8
 msgid "Materials"
@@ -839,3 +752,57 @@ msgstr "Django Site-Administration"
 #: templates/admin/base_site.html:10
 msgid "Media Explorer Administration"
 msgstr "Media Explorer Administration"
+
+#~ msgctxt "like gender"
+#~ msgid "sex"
+#~ msgstr "Geschlecht"
+
+#~ msgid "date of death"
+#~ msgstr "Todesdatum"
+
+#~ msgid "person"
+#~ msgstr "Person"
+
+#~ msgid "people"
+#~ msgstr "Personen"
+
+#~ msgid ""
+#~ "<a href='https://www.geonames.org/'>GeoNames</a> geographical database "
+#~ "identifier"
+#~ msgstr ""
+#~ "ID der geografischen Datenbank <a href='https://www.geonames."
+#~ "org/'>GeoNames</a>"
+
+#~ msgid "latitude"
+#~ msgstr "Breitengrad"
+
+#~ msgid "longitude"
+#~ msgstr "Längengrad"
+
+#~ msgid "location"
+#~ msgstr "Orte"
+
+#~ msgid "locations"
+#~ msgstr "Orte"
+
+#~ msgid "organisation"
+#~ msgstr "Organisation"
+
+#~ msgid "organisations"
+#~ msgstr "Organisationen"
+
+#~ msgid "miscellaneous entity"
+#~ msgstr "sonstige Entität"
+
+#~ msgid "miscellaneous entities"
+#~ msgstr "sonstige Entitäten"
+
+#~ msgid "Date of birth"
+#~ msgstr "Geburtsdatum"
+
+#~ msgid "Date of death"
+#~ msgstr "Todesdatum"
+
+#~ msgctxt "like gender"
+#~ msgid "Sex"
+#~ msgstr "Geschlecht"

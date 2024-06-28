@@ -44,51 +44,39 @@ class Entity(models.Model):
         return self.name
 
 
-class Person(models.Model):
-    MALE = "M"
-    FEMALE = "F"
-    GENDER_CHOICES = {
-        MALE: _("Male"),
-        FEMALE: _("Female"),
-    }
-    sex = models.CharField(
-        pgettext_lazy("like gender", "sex"),
-        max_length=1,
-        choices=GENDER_CHOICES,
-        blank=True,
-    )
-    date_of_birth = models.DateField(_("date of birth"), blank=True, null=True)
-    date_of_death = models.DateField(_("date of death"), blank=True, null=True)
-
-    class Meta:
-        verbose_name = _("person")
-        verbose_name_plural = _("people")
-
-
-class Location(models.Model):
-    geonames_id = models.IntegerField(
-        _("GeoNames id"),
-        blank=True,
-        null=True,
-        help_text=_(
-            "<a href='https://www.geonames.org/'>GeoNames</a> geographical database identifier"
-        ),
-    )
-    latitude = models.FloatField(_("latitude"), blank=True, null=True)
-    longitude = models.FloatField(_("longitude"), blank=True, null=True)
-
-    class Meta:
-        verbose_name = _("location")
-        verbose_name_plural = _("locations")
-
-
-class Organisation(models.Model):
-    class Meta:
-        verbose_name = _("organisation")
-        verbose_name_plural = _("organisations")
-
-
-class MiscellaneousEntity(models.Model):
-    class Meta:
-        verbose_name = _("miscellaneous entity")
-        verbose_name_plural = _("miscellaneous entities")
+# class Person(models.Model):
+#     MALE = "M"
+#     FEMALE = "F"
+#     GENDER_CHOICES = {
+#         MALE: _("Male"),
+#         FEMALE: _("Female"),
+#     }
+#     sex = models.CharField(
+#         pgettext_lazy("like gender", "sex"),
+#         max_length=1,
+#         choices=GENDER_CHOICES,
+#         blank=True,
+#     )
+#     date_of_birth = models.DateField(_("date of birth"), blank=True, null=True)
+#     date_of_death = models.DateField(_("date of death"), blank=True, null=True)
+#
+#     class Meta:
+#         verbose_name = _("person")
+#         verbose_name_plural = _("people")
+#
+#
+# class Location(models.Model):
+#     geonames_id = models.IntegerField(
+#         _("GeoNames id"),
+#         blank=True,
+#         null=True,
+#         help_text=_(
+#             "<a href='https://www.geonames.org/'>GeoNames</a> geographical database identifier"
+#         ),
+#     )
+#     latitude = models.FloatField(_("latitude"), blank=True, null=True)
+#     longitude = models.FloatField(_("longitude"), blank=True, null=True)
+#
+#     class Meta:
+#         verbose_name = _("location")
+#         verbose_name_plural = _("locations")

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}
+  {{ entity.name }} | {{ block.super }}
+{% endblock title %}
+{% block content %}
+  <nav class="breadcrumbs">
+    <a class="breadcrumbs__link"
+       href="{% url 'entities:entity_index' %}">{% translate "Entities" %}</a>
+    /
+    {{ entity.name }}
+  </nav>
+  <h1 class="h1">{{ entity.name }}</h1>
+  {% if entity.gnd_id %}
+    <p>
+      {% translate "GND id" %}:
+      <a href="https://explore.gnd.network/gnd/{{ entity.gnd_id }}">
+        {{ entity.gnd_id }}
+      </a>
+    </p>
+  {% endif %}
+  <p>{{ entity.description }}</p>
+
+  <section class="u-mt">
+    <h2>
+      {% translate "Mentioned in resources" %}
+    </h2>
+    <ul class="u-mt-1/2">
+      {% for ref in entity.entityreference_set.all %}
+        <li>
+          <a href="{% url 'archive:resource_detail' ref.resource.id %}">
+            {{ ref.resource.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock content %}
