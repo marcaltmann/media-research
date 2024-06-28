@@ -12,57 +12,5 @@
     {% translate "Entities" %}
   </h1>
   <div class="grid grid--entities">
-    <div class="entity-type">
-      <a class="entity-type__name" href="{% url 'entities:person_index' %}">
-        {% translate "People" %}
-      </a>
-      <p class="u-mt-small">
-        {% blocktranslate %}{{ 34 }} people entities{% endblocktranslate %}
-      </p>
-      <img class="entity-type__icon"
-           src="{% static 'images/people-outline.svg' %}"
-           alt=""
-           width="48px"
-           height="48px" />
-    </div>
-    <div class="entity-type">
-      <a class="entity-type__name" href="{% url 'entities:location_index' %}">
-        {% translate "Locations" %}
-      </a>
-      <p class="u-mt-small">
-        {% blocktranslate %}{{ 120 }} location entities{% endblocktranslate %}
-      </p>
-      <img class="entity-type__icon"
-           src="{% static 'images/location-outline.svg' %}"
-           alt=""
-           width="48px"
-           height="48px" />
-    </div>
-    <div class="entity-type">
-      <a class="entity-type__name" href="#">
-        {% translate "Organisations" %}
-      </a>
-      <p class="u-mt-small">
-        {% blocktranslate %}{{ 21 }} organisation entities{% endblocktranslate %}
-      </p>
-      <img class="entity-type__icon"
-           src="{% static 'images/home-outline.svg' %}"
-           alt=""
-           width="48px"
-           height="48px" />
-    </div>
-    <div class="entity-type">
-      <a class="entity-type__name" href="#">
-        {% translate "Miscellaneous" %}
-      </a>
-      <p class="u-mt-small">
-        {% blocktranslate %}{{ 58 }} miscellaneous entities{% endblocktranslate %}
-      </p>
-      <img class="entity-type__icon"
-           src="{% static 'images/cube-outline.svg' %}"
-           alt=""
-           width="48px"
-           height="48px" />
-    </div>
   </div>
 {% endblock content %}

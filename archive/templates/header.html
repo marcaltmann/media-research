@@ -20,7 +20,7 @@
             {% translate "Collections" %}
           </a>
         </li>
-        {% url 'entities:index' as url %}
+        {% url 'entities:entity_index' as url %}
         <li class="primary-nav__item {% if request.path == url %}primary-nav__item--active{% endif %}">
           <a class="primary-nav__link" href="{{ url }}">
             {% translate "Entities" %}
