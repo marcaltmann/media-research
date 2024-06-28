@@ -2,10 +2,10 @@
 __pycache__
 
 # Specific directories
+/.hotfile
 /.idea
 /.venv
-/assets/webpack_bundles
 /db.sqlite3
 /media
 /node_modules
-/webpack-stats.json
+/static

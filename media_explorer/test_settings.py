@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     "pages.apps.PagesConfig",
     "accounts.apps.AccountsConfig",
     "api.apps.ApiConfig",
-    "webpack_loader",
     "django_json_widget",
+    'django_vite_plugin',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -130,10 +130,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = ((BASE_DIR / "assets"),)
-
-WEBPACK_LOADER = {
-    "DEFAULT": {"LOADER_CLASS": "webpack_loader.loaders.FakeWebpackLoader"}
-}
 
 # Media files
 MEDIA_URL = "media/"

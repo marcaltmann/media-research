@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "api.apps.ApiConfig",
     "rest_framework",
-    "webpack_loader",
+    'django_vite_plugin',
     "debug_toolbar",
     "django_json_widget",
     "django.contrib.admin",
@@ -136,16 +136,6 @@ TIME_ZONE = "Europe/Berlin"
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = ((BASE_DIR / "assets"),)
-
-WEBPACK_LOADER = {
-    "DEFAULT": {
-        "BUNDLE_DIR_NAME": "webpack_bundles/",
-        "CACHE": not DEBUG,
-        "STATS_FILE": (BASE_DIR / "webpack-stats.json"),
-        "POLL_INTERVAL": 0.1,
-        "IGNORE": [r".+\.hot-update.js", r".+\.map"],
-    }
-}
 
 # Media files
 MEDIA_URL = "media/"
