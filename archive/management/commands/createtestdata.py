@@ -235,7 +235,12 @@ def create_entities_malkovich():
         type=Entity.TYPE_LOCATION, name="Théâtre de l'Atelier"
     )
     good_canary = Entity.objects.create(type=Entity.TYPE_MISC, name="Good Canary")
-    hampton = Entity.objects.create(type=Entity.TYPE_PERSON, name="Christopher Hampton")
+    hampton = Entity.objects.create(
+        type=Entity.TYPE_PERSON,
+        name="Christopher Hampton",
+        gnd_id="118720198",
+        description="Sir Christopher James Hampton CBE FRSL (Horta, Azores, 26 January 1946) is a British playwright, screenwriter, translator and film director. He is best known for his play Les Liaisons Dangereuses based on the novel of the same name and the film adaptation. He has thrice received nominations for the Academy Award for Best Adapted Screenplay: for Dangerous Liaisons (1988), Atonement (2007) and The Father (2020); winning for the former and latter.",
+    )
     malkovich = Entity.objects.create(
         type=Entity.TYPE_PERSON,
         name="John Malkovich",

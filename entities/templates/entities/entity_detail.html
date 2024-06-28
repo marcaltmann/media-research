@@ -12,14 +12,18 @@
   </nav>
   <h1 class="h1">{{ entity.name }}</h1>
   {% if entity.gnd_id %}
-    <p>
+    <p class="u-mt">
       {% translate "GND id" %}:
       <a href="https://explore.gnd.network/gnd/{{ entity.gnd_id }}">
         {{ entity.gnd_id }}
       </a>
     </p>
   {% endif %}
-  <p>{{ entity.description }}</p>
+  {% if entity.description %}
+    <p class="u-ll u-mt">
+      {{ entity.description }}
+    </p>
+  {% endif %}
 
   <section class="u-mt">
     <h2>

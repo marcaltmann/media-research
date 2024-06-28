@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _, pgettext_lazy
+from django.urls import reverse
 
 
 class Entity(models.Model):
@@ -39,6 +40,9 @@ class Entity(models.Model):
         ordering = ["name"]
         verbose_name = _("entity")
         verbose_name_plural = _("entities")
+
+    def get_absolute_url(self):
+        return reverse("entities:entity_detail", args=[self.id])
 
     def __str__(self):
         return self.name

@@ -6,5 +6,5 @@ app_name = "entities"
 
 urlpatterns = [
     path("", views.entity_index, name="entity_index"),
-    path("", views.entity_detail, name="entity_detail"),
+    path("<int:entity_id>/", views.entity_detail, name="entity_detail"),
 ]

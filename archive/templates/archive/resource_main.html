@@ -51,7 +51,7 @@
   <ul id="entities">
     {% for er in resource.entityreference_set.all %}
       <li>
-        {{ er.entity.name }}
+        <a href="{% url 'entities:entity_detail' er.entity.id %}">{{ er.entity.name }}</a>
         {% for tc in er.timecodes %}
           <a class="timecode__link"
              data-start="{{ tc|unlocalize }}"

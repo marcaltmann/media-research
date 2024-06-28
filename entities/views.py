@@ -5,7 +5,7 @@ from .models import Entity
 
 def entity_index(request):
     entities = Entity.objects.all()
-    context = {'entities': entities}
+    context = {"entities": entities}
     return render(request, "entities/entity_index.html", context)
 
 

@@ -11,6 +11,13 @@
   <h1 class="h1">
     {% translate "Entities" %}
   </h1>
-  <div class="grid grid--entities">
-  </div>
+  <ul>
+    {% for entity in entities %}
+      <li>
+        <a href="{% url 'entities:entity_detail' entity.id %}">
+          {{ entity.name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock content %}
