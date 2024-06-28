@@ -14,9 +14,9 @@
     {{ person }}
   </nav>
   <h1 class="h1">{{ person }}</h1>
-  <p>{% translate "Date of birth" %}: {{ person.date_of_birth|date:"SHORT_DATE_FORMAT" }}</p>
-  <p>{% translate "Date of death" %}: {{ person.date_of_death|date:"SHORT_DATE_FORMAT" }}</p>
-  <p>{% translate "Sex" context "like gender" %}: {{ person.sex }}</p>
+  <p>{% translate "Date of birth" %}: {{ person.extra.date_of_birth }}</p>
+  <p>{% translate "Date of death" %}: {{ person.extra.date_of_death }}</p>
+  <p>{% translate "Sex" context "like gender" %}: {{ person.extra.sex }}</p>
   {% if person.gnd_id %}
     <p>
       {% translate "GND id" %}:

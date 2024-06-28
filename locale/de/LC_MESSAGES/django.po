@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 00:01+0200\n"
+"POT-Creation-Date: 2024-06-28 10:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -263,11 +263,11 @@ msgstr "Sammlung"
 msgid "collections"
 msgstr "Sammlungen"
 
-#: archive/models.py:101 entities/models.py:44
+#: archive/models.py:101 entities/models.py:50
 msgid "Male"
 msgstr "männlich"
 
-#: archive/models.py:102 entities/models.py:45
+#: archive/models.py:102 entities/models.py:51
 msgid "Female"
 msgstr "weiblich"
 
@@ -312,7 +312,7 @@ msgstr ""
 msgid "gender"
 msgstr "Gender"
 
-#: archive/models.py:128 entities/models.py:53
+#: archive/models.py:128 entities/models.py:59
 msgid "date of birth"
 msgstr "Geburtsdatum"
 
@@ -348,7 +348,7 @@ msgstr "Funktion"
 msgid "agencies"
 msgstr "Funktionen"
 
-#: archive/models.py:179 entities/models.py:33
+#: archive/models.py:179 entities/models.py:39
 msgid "entity"
 msgstr "Entität"
 
@@ -564,32 +564,56 @@ msgstr "Abmelden"
 msgid "Log in"
 msgstr "Anmelden"
 
-#: entities/models.py:34
+#: entities/models.py:11
+msgid "Person"
+msgstr "Person"
+
+#: entities/models.py:12
+msgid "Location"
+msgstr "Ort"
+
+#: entities/models.py:13
+msgid "Organisation"
+msgstr "Organisation"
+
+#: entities/models.py:14
+msgid "Misc"
+msgstr "Sonstiges"
+
+#: entities/models.py:31
+msgid "extra"
+msgstr "Zusätzlich"
+
+#: entities/models.py:33
+msgid "Extra information specific to entity types"
+msgstr "Zusätzliche Informationen, spezifisch für jeweiligen Entitätstyp"
+
+#: entities/models.py:40
 msgid "entities"
 msgstr "Entitäten"
 
-#: entities/models.py:48
+#: entities/models.py:54
 msgctxt "like gender"
 msgid "sex"
 msgstr "Geschlecht"
 
-#: entities/models.py:54
+#: entities/models.py:60
 msgid "date of death"
 msgstr "Todesdatum"
 
-#: entities/models.py:57
+#: entities/models.py:63
 msgid "person"
 msgstr "Person"
 
-#: entities/models.py:58
+#: entities/models.py:64
 msgid "people"
 msgstr "Personen"
 
-#: entities/models.py:63 entities/templates/entities/location_detail.html:26
+#: entities/models.py:69 entities/templates/entities/location_detail.html:26
 msgid "GeoNames id"
 msgstr "GeoNames-ID"
 
-#: entities/models.py:67
+#: entities/models.py:73
 msgid ""
 "<a href='https://www.geonames.org/'>GeoNames</a> geographical database "
 "identifier"
@@ -597,35 +621,35 @@ msgstr ""
 "ID der geografischen Datenbank <a href='https://www.geonames.org/'>GeoNames</"
 "a>"
 
-#: entities/models.py:70
+#: entities/models.py:76
 msgid "latitude"
 msgstr "Breitengrad"
 
-#: entities/models.py:71
+#: entities/models.py:77
 msgid "longitude"
 msgstr "Längengrad"
 
-#: entities/models.py:74
+#: entities/models.py:80
 msgid "location"
 msgstr "Orte"
 
-#: entities/models.py:75
+#: entities/models.py:81
 msgid "locations"
 msgstr "Orte"
 
-#: entities/models.py:80
+#: entities/models.py:86
 msgid "organisation"
 msgstr "Organisation"
 
-#: entities/models.py:81
+#: entities/models.py:87
 msgid "organisations"
 msgstr "Organisationen"
 
-#: entities/models.py:86
+#: entities/models.py:92
 msgid "miscellaneous entity"
 msgstr "sonstige Entität"
 
-#: entities/models.py:87
+#: entities/models.py:93
 msgid "miscellaneous entities"
 msgstr "sonstige Entitäten"
 

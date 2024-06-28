@@ -15,7 +15,7 @@ from archive.models import (
     MetadataKey,
     EntityReference,
 )
-from entities.models import Entity, Person, Location, Organisation, MiscellaneousEntity
+from entities.models import Entity
 from materials.models import Transcript
 
 User = get_user_model()
@@ -197,14 +197,24 @@ def create_entities_kende():
     """Creates entity records for Kende interview."""
     kende_interview = Resource.objects.get(title__startswith="Michael Kende")
 
-    usa = Location.objects.create(name="USA")
-    fcc = Organisation.objects.create(name="Federal Communications Commission")
-    internet_society = Organisation.objects.create(name="Internet Society")
-    mci = Organisation.objects.create(name="MCI Communications")
-    sprint = Organisation.objects.create(name="Sprint Corporation")
-    uunet = Organisation.objects.create(name="UUNET")
-    world_com = Organisation.objects.create(name="MCI WorldCom")
-    paper = MiscellaneousEntity.objects.create(name="The Digital Handshake")
+    usa = Entity.objects.create(type=Entity.TYPE_LOCATION, name="USA")
+    fcc = Entity.objects.create(
+        type=Entity.TYPE_ORGANISATION, name="Federal Communications Commission"
+    )
+    internet_society = Entity.objects.create(
+        type=Entity.TYPE_ORGANISATION, name="Internet Society"
+    )
+    mci = Entity.objects.create(
+        type=Entity.TYPE_ORGANISATION, name="MCI Communications"
+    )
+    sprint = Entity.objects.create(
+        type=Entity.TYPE_ORGANISATION, name="Sprint Corporation"
+    )
+    uunet = Entity.objects.create(type=Entity.TYPE_ORGANISATION, name="UUNET")
+    world_com = Entity.objects.create(
+        type=Entity.TYPE_ORGANISATION, name="MCI WorldCom"
+    )
+    paper = Entity.objects.create(type=Entity.TYPE_MISC, name="The Digital Handshake")
 
     manager = kende_interview.entityreference_set
     manager.create(entity=usa, timecodes=[0.189])
@@ -221,11 +231,17 @@ def create_entities_malkovich():
     """Creates entity records for Malkovich interview."""
     malkovich_interview = Resource.objects.get(title__startswith="John Malkovich")
 
-    theatre = Location.objects.create(name="Théâtre de l'Atelier")
-    good_canary = MiscellaneousEntity.objects.create(name="Good Canary")
-    hampton = Person.objects.create(name="Christopher Hampton")
-    malkovich = Person.objects.create(name="John Malkovich")
-    cassel = Person.objects.create(name="Vincent Cassel")
+    theatre = Entity.objects.create(
+        type=Entity.TYPE_LOCATION, name="Théâtre de l'Atelier"
+    )
+    good_canary = Entity.objects.create(type=Entity.TYPE_MISC, name="Good Canary")
+    hampton = Entity.objects.create(type=Entity.TYPE_PERSON, name="Christopher Hampton")
+    malkovich = Entity.objects.create(
+        type=Entity.TYPE_PERSON,
+        name="John Malkovich",
+        extra={"date_of_birth": "1953-12-09", "sex": "M"},
+    )
+    cassel = Entity.objects.create(type=Entity.TYPE_PERSON, name="Vincent Cassel")
 
     manager = malkovich_interview.entityreference_set
     manager.create(entity=theatre, timecodes=[11.351, 284.971])

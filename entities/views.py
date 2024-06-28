@@ -2,7 +2,7 @@ from django.db.models.query import QuerySet
 from django.views import generic
 from django.shortcuts import get_object_or_404, render
 
-from .models import Person, Location
+from .models import Entity, Location, Person
 
 
 def index(request):
@@ -24,12 +24,12 @@ class LocationDetailView(generic.DetailView):
 
 
 def person_index(request):
-    people = Person.objects.all
+    people = Entity.objects.filter(type=Entity.TYPE_PERSON)
     context = {"people": people}
     return render(request, "entities/people/index.html", context)
 
 
 def person_detail(request, person_id):
-    person = get_object_or_404(Person, pk=person_id)
+    person = get_object_or_404(Entity, pk=person_id)
     context = {"person": person}
     return render(request, "entities/people/detail.html", context)

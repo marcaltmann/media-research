@@ -3,20 +3,21 @@ from django.utils.translation import gettext_lazy as _, pgettext_lazy
 
 
 class Entity(models.Model):
-    # TYPE_PERSON = "PER"
-    # TYPE_LOCATION = "LOC"
-    # TYPE_ORGANISATION = "ORG"
-    # TYPE_MISC = "MISC"
-    # TYPE_CHOICES = (
-    #    (TYPE_PERSON, _("Person")),
-    #    (TYPE_LOCATION, _("Location")),
-    #    (TYPE_ORGANISATION, _("Organisation")),
-    #    (TYPE_MISC, _("Misc")),
-    # )
-    # type = models.CharField(
-    #    max_length=20,
-    #    choices=TYPE_CHOICES,
-    # )
+    TYPE_PERSON = "PER"
+    TYPE_LOCATION = "LOC"
+    TYPE_ORGANISATION = "ORG"
+    TYPE_MISC = "MISC"
+    TYPE_CHOICES = (
+        (TYPE_PERSON, _("Person")),
+        (TYPE_LOCATION, _("Location")),
+        (TYPE_ORGANISATION, _("Organisation")),
+        (TYPE_MISC, _("Misc")),
+    )
+    type = models.CharField(
+        _("type"),
+        max_length=20,
+        choices=TYPE_CHOICES,
+    )
     name = models.CharField(_("name"), max_length=255)
     description = models.TextField(_("description"), blank=True)
     gnd_id = models.CharField(
@@ -27,8 +28,14 @@ class Entity(models.Model):
             "<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file identifier"
         ),
     )
+    extra = models.JSONField(
+        _("extra"),
+        default=dict,
+        help_text=_("Extra information specific to entity types"),
+    )
 
     class Meta:
+        indexes = (models.Index(fields=["type"]),)
         ordering = ["name"]
         verbose_name = _("entity")
         verbose_name_plural = _("entities")
@@ -37,7 +44,7 @@ class Entity(models.Model):
         return self.name
 
 
-class Person(Entity):
+class Person(models.Model):
     MALE = "M"
     FEMALE = "F"
     GENDER_CHOICES = {
@@ -58,7 +65,7 @@ class Person(Entity):
         verbose_name_plural = _("people")
 
 
-class Location(Entity):
+class Location(models.Model):
     geonames_id = models.IntegerField(
         _("GeoNames id"),
         blank=True,
@@ -75,13 +82,13 @@ class Location(Entity):
         verbose_name_plural = _("locations")
 
 
-class Organisation(Entity):
+class Organisation(models.Model):
     class Meta:
         verbose_name = _("organisation")
         verbose_name_plural = _("organisations")
 
 
-class MiscellaneousEntity(Entity):
+class MiscellaneousEntity(models.Model):
     class Meta:
         verbose_name = _("miscellaneous entity")
         verbose_name_plural = _("miscellaneous entities")
