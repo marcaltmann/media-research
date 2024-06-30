@@ -1,0 +1,15 @@
+{% load i18n %}
+<nav>
+  {% if type_filter %}
+    <a href="{% url 'entities:entity_index' %}">{% translate "All entities" %}</a>
+  {% else %}
+    <a href="{% url 'entities:entity_index' %}" class="u-font-italic">{% translate "All entities" %}</a>
+  {% endif %}
+  {% for choice in type_choices %}
+    {% if choice.0 == type_filter %}
+      <a href="?type={{ choice.0 }}" class="u-font-italic">{{ choice.1 }}</a>
+    {% else %}
+      <a href="?type={{ choice.0 }}">{{ choice.1 }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>

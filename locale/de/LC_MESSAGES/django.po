@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 14:14+0200\n"
+"POT-Creation-Date: 2024-06-30 20:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,7 +197,7 @@ msgstr "Hörbuch"
 msgid "Other"
 msgstr "Sonstiges"
 
-#: archive/models.py:20 archive/models.py:166 entities/models.py:17
+#: archive/models.py:20 archive/models.py:166 entities/models.py:18
 msgid "type"
 msgstr "Art"
 
@@ -247,11 +247,11 @@ msgstr "Ressource"
 msgid "resources"
 msgstr "Ressourcen"
 
-#: archive/models.py:74 entities/models.py:21
+#: archive/models.py:74 entities/models.py:22
 msgid "name"
 msgstr "Name"
 
-#: archive/models.py:75 archive/models.py:202 entities/models.py:22
+#: archive/models.py:75 archive/models.py:202 entities/models.py:23
 msgid "description"
 msgstr "Beschreibung"
 
@@ -295,12 +295,12 @@ msgstr "östliche Namensreihenfolge"
 msgid "Select if the last name should appear first."
 msgstr "Wählen Sie dies falls der Nachnahme zuerst stehen soll."
 
-#: archive/models.py:115 entities/models.py:24
+#: archive/models.py:115 entities/models.py:25
 #: entities/templates/entities/entity_detail.html:16
 msgid "GND id"
 msgstr "GND-ID"
 
-#: archive/models.py:119 entities/models.py:28
+#: archive/models.py:119 entities/models.py:29
 msgid ""
 "<a href='https://d-nb.info/standards/elementset/gnd'>GND</a> authority file "
 "identifier"
@@ -348,7 +348,7 @@ msgstr "Funktion"
 msgid "agencies"
 msgstr "Funktionen"
 
-#: archive/models.py:179 entities/models.py:40
+#: archive/models.py:179 entities/models.py:41
 msgid "entity"
 msgstr "Entität"
 
@@ -487,7 +487,7 @@ msgstr "Mitwirkende"
 #: entities/templates/entities/entity_index.html:5
 #: entities/templates/entities/entity_index.html:9
 #: entities/templates/entities/entity_index.html:12
-#: entities/templates/entities/location_detail.html:10
+#: entities/templates/entities/location_detail.html:9
 #: pages/templates/pages/welcome.html:34
 msgid "Entities"
 msgstr "Entitäten"
@@ -562,83 +562,55 @@ msgstr "Abmelden"
 msgid "Log in"
 msgstr "Anmelden"
 
-#: entities/models.py:11
+#: entities/models.py:12
 msgid "Person"
 msgstr "Person"
 
-#: entities/models.py:12
+#: entities/models.py:13
 msgid "Location"
 msgstr "Ort"
 
-#: entities/models.py:13
+#: entities/models.py:14
 msgid "Organisation"
 msgstr "Organisation"
 
-#: entities/models.py:14
+#: entities/models.py:15
 msgid "Misc"
 msgstr "Sonstiges"
 
-#: entities/models.py:32
+#: entities/models.py:33
 msgid "extra"
 msgstr "Zusätzlich"
 
-#: entities/models.py:34
+#: entities/models.py:35
 msgid "Extra information specific to entity types"
 msgstr "Zusätzliche Informationen, spezifisch für jeweiligen Entitätstyp"
 
-#: entities/models.py:41
+#: entities/models.py:42
 msgid "entities"
 msgstr "Entitäten"
 
-#: entities/templates/entities/entity_detail.html:26
-#: entities/templates/entities/location_detail.html:36
+#: entities/templates/entities/entity_detail.html:30
+#: entities/templates/entities/location_detail.html:35
 msgid "Mentioned in resources"
 msgstr "Erwähnt in Ressourcen"
 
-#: entities/templates/entities/entity_index.html:17
-msgid "People"
-msgstr "Personen"
-
-#: entities/templates/entities/entity_index.html:20
-#, python-format
-msgid "%(34)s people entities"
-msgstr "%(34)s Personen-Entitäten"
-
-#: entities/templates/entities/entity_index.html:30
-#: entities/templates/entities/location_detail.html:13
+#: entities/templates/entities/location_detail.html:12
 msgid "Locations"
 msgstr "Orte"
 
-#: entities/templates/entities/entity_index.html:33
-#, python-format
-msgid "%(120)s location entities"
-msgstr "%(120)s Orts-Entitäten"
-
-#: entities/templates/entities/entity_index.html:43
-msgid "Organisations"
-msgstr "Organisationen"
-
-#: entities/templates/entities/entity_index.html:46
-#, python-format
-msgid "%(21)s organisation entities"
-msgstr "%(21)s Organisations-Entitäten"
-
-#: entities/templates/entities/entity_index.html:56
-msgid "Miscellaneous"
-msgstr "sonstige Entitäten"
-
-#: entities/templates/entities/entity_index.html:59
-#, python-format
-msgid "%(58)s miscellaneous entities"
-msgstr "%(58)s sonstige Entitäten"
-
-#: entities/templates/entities/location_detail.html:21
+#: entities/templates/entities/location_detail.html:20
 msgid "Coordinates"
 msgstr "Koordinaten"
 
-#: entities/templates/entities/location_detail.html:26
+#: entities/templates/entities/location_detail.html:25
 msgid "GeoNames id"
 msgstr "GeoNames-ID"
+
+#: entities/templates/entities/type_filter.html:4
+#: entities/templates/entities/type_filter.html:6
+msgid "All entities"
+msgstr "Alle Entitäten"
 
 #: materials/apps.py:8
 msgid "Materials"
@@ -752,6 +724,31 @@ msgstr "Django Site-Administration"
 #: templates/admin/base_site.html:10
 msgid "Media Explorer Administration"
 msgstr "Media Explorer Administration"
+
+#~ msgid "People"
+#~ msgstr "Personen"
+
+#, python-format
+#~ msgid "%(34)s people entities"
+#~ msgstr "%(34)s Personen-Entitäten"
+
+#, python-format
+#~ msgid "%(120)s location entities"
+#~ msgstr "%(120)s Orts-Entitäten"
+
+#~ msgid "Organisations"
+#~ msgstr "Organisationen"
+
+#, python-format
+#~ msgid "%(21)s organisation entities"
+#~ msgstr "%(21)s Organisations-Entitäten"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "sonstige Entitäten"
+
+#, python-format
+#~ msgid "%(58)s miscellaneous entities"
+#~ msgstr "%(58)s sonstige Entitäten"
 
 #~ msgctxt "like gender"
 #~ msgid "sex"

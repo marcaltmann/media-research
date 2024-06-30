@@ -11,7 +11,10 @@
   <h1 class="h1">
     {% translate "Entities" %}
   </h1>
-  <ul>
+
+  {% include "entities/type_filter.html" %}
+
+  <ul class="u-mt">
     {% for entity in entities %}
       <li>
         <a href="{% url 'entities:entity_detail' entity.id %}">
