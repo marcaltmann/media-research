@@ -1,5 +1,5 @@
 black==24.4.2
-Django==5.0.6
+Django==5.1b1
 django-debug-toolbar==4.4.2
 django-json-widget==2.0.1
 django_vite_plugin==3.0.0
