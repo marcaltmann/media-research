@@ -12,3 +12,8 @@ p {
 .paragraph {
     max-width: var(--line-length);
 }
+
+a:link,
+a:visited {
+  color: var(--primary-color);
+}

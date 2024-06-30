@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "api.apps.ApiConfig",
     "rest_framework",
+    'widget_tweaks',
     'django_vite_plugin',
     "debug_toolbar",
     "django_json_widget",

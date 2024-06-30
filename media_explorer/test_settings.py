@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "api.apps.ApiConfig",
     "django_json_widget",
     'django_vite_plugin',
+    'widget_tweaks',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

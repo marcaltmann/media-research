@@ -11,9 +11,11 @@
     --color-scheme-6: #496288;
     --text-color:     #333;
     --text-color-bright: #fff;
+    --subdued-text-color: #555;
     --heading-color:  #000;
     --ui-color:      #555;
     --ui-color-bright: #999;
+    --ui-mid-neutral-color: #888;
     --header-color:    var(--primary-color);
     --footer-color:    var(--color-scheme-2);
     --page-width:      calc(var(--base-unit) * 48);
