@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load widget_tweaks %}
 {% block title %}
   {% translate "Register" %} | {{ block.super }}
 {% endblock title %}
@@ -11,8 +12,30 @@
   {% endif %}
   <form method="post" action="{% url 'accounts:register' %}" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <div class="u-mt">
+    <div>
+      <label for="{{ form.username.id_for_label }}"
+             class="form__label">{{ form.username.label }}</label>
+      {{ form.username|add_class:"form__input" }}
+      <p class="form__help">{{ form.username.help_text }}</p>
+    </div>
+    <div class="u-mt-small">
+      <label for="{{ form.email.id_for_label }}"
+             class="form__label">{{ form.email.label }}</label>
+      {{ form.email|add_class:"form__input" }}
+    </div>
+    <div>
+      <label for="{{ form.password1.id_for_label }}"
+             class="form__label">{{ form.password1.label }}</label>
+      {{ form.password1|add_class:"form__input" }}
+      <div class="form__help">{{ form.password1.help_text }}</div>
+    </div>
+    <div>
+      <label for="{{ form.password2.id_for_label }}"
+             class="form__label">{{ form.password2.label }}</label>
+      {{ form.password2|add_class:"form__input" }}
+      <div class="form__help">{{ form.password2.help_text }}</div>
+    </div>
+    <div class="u-mt-small">
       <button type="submit" class="form__button">
         {% translate "Register" %}
       </button>
