@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
-from django.core.mail import mail_admins
 from django.shortcuts import render, redirect
 
 from .forms import RegisterForm, RegistrationForm
@@ -17,14 +16,6 @@ def register(request):
                 email=form.cleaned_data["email"],
                 password=form.cleaned_data["password1"],
             )
-
-            # Notify admins of new user.
-            mail_admins(
-                subject="New user registration",
-                message=f"The user {user.username} has just registered on MMT_Py.",
-            )
-            # Do other stuff, e.g.:
-            # Create user_files dirs (upload, download) for the user.
 
             return redirect("accounts:registration_complete")
         else:
